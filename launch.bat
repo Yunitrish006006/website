@@ -1,0 +1,1 @@
+C:\frp_0.39.1_windows_amd64\frpc tcp -t 97145312 -n testor -s frp.4hotel.tw:7000 -l 5500 -r 5500
