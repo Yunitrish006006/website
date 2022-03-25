@@ -15,73 +15,56 @@
     <div class="container-fluid">
         <div class="row header">
             <!-- 導覽列 -->
-            <header class="header_area">
-                <div class="container">
-                    <nav class="navbar navbar-expand-lg navbar-light">
-
-                        <a class="navbar-brand logo_h" href="index.html"><img src="images\honeycomb.png" width="24"
-                                height="24">蜂巢飯店</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-
-                        <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-                            <ul class="nav navbar-nav menu_nav ml-auto">
-
-
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">語言 | Language</a>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="#">繁體中文</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li><a class="dropdown-item" href="#">English</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li><a class="dropdown-item" href="#">日本語</a></li>
-                                    </ul>
-                                </li>
-
-                                <li class="nav-item"><a class="nav-link" href="about.html">關於我們</a></li>
-                                <li class="nav-item"><a class="nav-link" href="types.html">推薦房型</a></li>
-                                <li class="nav-item submenu dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">訂房</a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item"><a class="nav-link" href="book.html">訂房</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="history.html">訂房紀錄</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item"><a class="nav-link" href="contact.html">聯絡我們</a></li>
-                            </ul>
-
-                            <ul >
-                                <form class="d-flex ">
-                                <input class="form-control me-2" type="search" placeholder="搜尋" aria-label="Search">
-                                <button class="btn btn-outline-success" type="submit">Search</button>
-                            </form>
-                            </ul>
-                            
-                            <ul class="">
-                                <li class="nav-item">
-                                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
-                                        data-bs-target="#login">登入</button>
-                                    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
-                                        data-bs-target="#register">註冊</button>
-                                </li>
-                            </ul>
+            <div class="container-fluid">
+                <div class="row header">
+                    <!-- 導覽列 -->
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#"><img src="images\honeycomb.png" width="24" height="24" >蜂巢飯店</a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"    aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                    <li class="nav-item">
+                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#login" data-bs-whatever="@getbootstrap">登入</button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#register" data-bs-whatever="@getbootstrap">註冊</button>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">語言 | Language</a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <li><a class="dropdown-item" href="#">繁體中文</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#">English</a></li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li><a class="dropdown-item" href="#">日本語</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="book.html">訂房</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">關於我們</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="types.html">房型</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="history.html">訂房紀錄</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">旅遊休息的頂級選擇</a>
+                                    </li>
+                                </ul>
+                                <form class="d-flex">
+                                    <input class="form-control me-2" type="search" placeholder="搜尋" aria-label="Search">
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                </form>
+                            </div>
                         </div>
-
                     </nav>
-                </div>
-            </header>
-        </div>
         <!-- 輪播 -->
         <div class="row col-12">
             <div id="carouse" class="carousel slide" data-bs-ride="carousel">
