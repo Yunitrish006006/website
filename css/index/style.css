@@ -15,6 +15,7 @@ figure {
   padding: 0px;
 }
 
+
 a {
   text-decoration: none;
   -webkit-transition: all 0.3s ease-in-out;
@@ -3445,10 +3446,7 @@ h1, h2, h3, h4, h5, h6 {
 .single-footer-widget ul li a {
   line-height: 25px;
   display: inline-block;
-  color: #777;
-  -webkit-transition: all 0.3s linear;
-  -o-transition: all 0.3s linear;
-  transition: all 0.3s linear;
+  color: #777;  
   margin-bottom: 13px;
 }
 
@@ -3463,26 +3461,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .single-footer-widget .instafeed li {
   margin: 5px;
-}
-
-.single-footer-widget .subscribe_form {
-  padding-top: 13px;
-}
-
-.single-footer-widget .input-group {
-  display: block !important;
-}
-
-.single-footer-widget input {
-  width: 100%;
-  border: 1px solid #333333;
-  font-size: 13px;
-  line-height: 30px;
-  padding-right: 40px;
-  height: 40px;
-  color: #999999;
-  background: transparent;
-  padding-left: 20px;
 }
 
 .single-footer-widget input.placeholder {
@@ -3527,6 +3505,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 28px;
 }
 
+
 .border_line {
   width: 100%;
   height: 1px;
@@ -3559,9 +3538,3 @@ h1, h2, h3, h4, h5, h6 {
 .footer-bottom .footer-social a:hover {
   color: #f3c300;
 }
-.ic_phone {
-  width: 24px;
-  height: 24px;
-  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMEgyNFYyNEgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiMzMzMiIGQ9Ik0yMC41OTYgMTcuMjM3bC0yLjc4LTIuNzg2Yy0uNTUzLS41NTMtMS40Ny0uNTM2LTIuMDQzLjAzOGwtMS40IDEuNDA0LS4yNzctLjE1NGMtLjg4NC0uNDkyLTIuMDk1LTEuMTY1LTMuMzY4LTIuNDQyLTEuMjc4LTEuMjgtMS45NS0yLjQ5Ni0yLjQ0Mi0zLjM4My0uMDUyLS4wOTQtLjEwMS0uMTg0LS4xNS0uMjdsLjk0LS45NC40NjItLjQ2NWMuNTc0LS41NzUuNTktMS40OTQuMDM3LTIuMDQ4bC0yLjc4LTIuNzg3Yy0uNTUyLS41NTMtMS40Ny0uNTM2LTIuMDQzLjAzOWwtLjc4NC43OS4wMjIuMDJjLS4yNjMuMzM3LS40ODMuNzI0LS42NDYgMS4xNDItLjE1LjM5OC0uMjQ0Ljc3Ny0uMjg3IDEuMTU4LS4zNjcgMy4wNSAxLjAyMyA1LjgzNyA0Ljc5NyA5LjYyIDUuMjE3IDUuMjI3IDkuNDIgNC44MzIgOS42MDIgNC44MTMuMzk1LS4wNDcuNzczLS4xNDIgMS4xNTgtLjI5MS40MTMtLjE2Mi44LS4zODIgMS4xMzUtLjY0NWwuMDE3LjAxNi43OTMtLjc4Yy41NzMtLjU3NS41OS0xLjQ5NC4wMzctMi4wNDl6Ii8+CiAgICA8L2c+Cjwvc3ZnPgo=)
-  background-size: cover;
-  }
