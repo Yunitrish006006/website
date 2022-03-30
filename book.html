@@ -5,22 +5,609 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "icon" href = "images\honeycomb.png" type = "image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />
+    <link href="css/index/book.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+    <!--additional method - for checkbox .. ,require_from_group method ...-->
+    <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+    <!--中文錯誤訊息-->
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/localization/messages_zh_TW.js "></script>
     <title>訂房</title>
+    <script>
+            $(document).ready(function ()  {
+                // Handle click on paging links
+                $('.tm-paging-link').on("click",function(e) {
+                    e.preventDefault();
+
+                    var page = $(this).text().toLowerCase();
+                    $('.tm-gallery-page').addClass('hidden');
+                    $('#tm-gallery-page-' + page).removeClass('hidden');
+                    $('.tm-paging-link').removeClass('active');
+                    $(this).addClass("active");
+                });
+            });
+        </script>
 </head>
 <body>
-    <!-- 區域 -->
-    <div>
-        <label class="input-group-text" for="inputGroupSelect01">分店</label>
-        <select class="form-select" id="inputGroupSelect01">
-            <option selected="1">旗艦店</option>
-            <option value="2">台中逢甲店</option>
-            <option value="3">高雄愛河店</option>
-            <option value="4">彰化鹿港店</option>
-            <option value="5">墾丁恆春店</option>
-        </select>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-</body>
-</html>
+    <body>
+    <div class="container-fluid">
+        <div class="row header">
+            <!-- 語言 -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">語言 | Language</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">繁體中文</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">English</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">日本語</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+            <!-- 導覽列 -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"><img src="images\honeycomb.png" width="24" height="24">蜂巢飯店</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
+                                    data-bs-target="#login" data-bs-whatever="@getbootstrap">登入</button>
+                            </li>
+                            <li class="nav-item">
+                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
+                                    data-bs-target="#register" data-bs-whatever="@getbootstrap">註冊</button>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="book.html">訂房</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">關於我們</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="types.html">房型</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="history.html">訂房紀錄</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">旅遊休息的頂級選擇</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="搜尋" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        <div class="container">
+            <!-- Top box -->
+            <!-- Logo & Site Name -->
+           
+            <main>
+                <header style="text-align: center; padding-top: 1rem; background-image: url('./images/r2.jpg');">
+                    <h2 >訂房</h2>
+                    <p style="color:rgb(81, 82, 81)">最佳體驗</p>
+                </header>
+    
+                <div class="tm-paging-links">
+                    <nav>
+                        <ul>
+                            <li class="tm-paging-item"><a href="#" class="tm-paging-link active">台北旗艦店</a></li>
+                            <li class="tm-paging-item"><a href="#" class="tm-paging-link">台中逢甲店</a></li>
+                            <li class="tm-paging-item"><a href="#" class="tm-paging-link">高雄愛河店</a></li>
+                            <li class="tm-paging-item"><a href="#" class="tm-paging-link">彰化鹿港店</a></li>
+                            <li class="tm-paging-item"><a href="#" class="tm-paging-link">墾丁恆春店</a></li>
+                        </ul>
+                    </nav>
+                </div>
+    
+                <!-- Gallery -->
+                <div class="row tm-gallery">
+                    <!-- gallery page 1 -->
+                    <div id="tm-gallery-page-台北旗艦店" class="tm-gallery-page">
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/t-1.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                                
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">雙人商務套房</h4>
+                                    <p class="tm-gallery-description">典雅沈穩的空間佈置搭配柔軟舒適床組，營造出全然放鬆環境，讓疲累的身心享有片刻寧靜，換來一夜好眠。<section class="tm-gallery-price">$2800</section> </p>
+                                        <button type="button" class="btn btn-primary">加入購物車</button>
+                                    
+                                </figcaption>
+                            </figure>
+                        </article>
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/t-2.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                        
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">單人商務套房</h4>
+                                    <p class="tm-gallery-description">精緻且設備齊全的客房，舒適而毫無拘束感，讓您避免外界干擾，暫忘都市的塵囂，感受如家的自在與悠閒。
+                                    <section class="tm-gallery-price">$2200</section>
+                                    </p>
+                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                        
+                                </figcaption>
+                            </figure>
+                        </article>
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/t-3.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                        
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">雅致客房</h4>
+                                    <p class="tm-gallery-description">客房空間寬敞明亮，配備遼闊的視野、風格獨特的藝術畫作，疲累的旅人在此可享有舒適的休憩。
+                                    <section class="tm-gallery-price">$2300</section>
+                                    </p>
+                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                        
+                                </figcaption>
+                            </figure>
+                        </article>
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/t-4.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                        
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">經典客房</h4>
+                                    <p class="tm-gallery-description">運用溫暖色調及富時尚感的傢俱擺設，打造舒適、寬敞的休憩環境，更適合長期商旅住宿。
+                                    <section class="tm-gallery-price">$3100</section>
+                                    </p>
+                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                        
+                                </figcaption>
+                            </figure>
+                        </article>
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/t-4.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                        
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">經典客房</h4>
+                                    <p class="tm-gallery-description">運用溫暖色調及富時尚感的傢俱擺設，打造舒適、寬敞的休憩環境，更適合長期商旅住宿。
+                                    <section class="tm-gallery-price">$3500</section>
+                                    </p>
+                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                        
+                                </figcaption>
+                            </figure>
+                        </article>
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/t-5.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                        
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">經典套房</h4>
+                                    <p class="tm-gallery-description">明亮的光線、溫馨的陳設及獨具的風格藝術品，打造20坪客房及客廳的專屬私人休憩空間。
+                                    <section class="tm-gallery-price">$3350</section>
+                                    </p>
+                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                        
+                                </figcaption>
+                            </figure>
+                        </article>
+                        
+                    </div> <!-- gallery page 1 -->
+    
+                    <!-- gallery page 2 -->
+                    <div id="tm-gallery-page-台中逢甲店" class="tm-gallery-page hidden">
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/k-1.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                        
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">商務套房</h4>
+                                    <p class="tm-gallery-description">典雅沈穩的空間佈置搭配柔軟舒適床組，營造出全然放鬆環境，讓疲累的身心享有片刻寧靜，換來一夜好眠。
+                                    <section class="tm-gallery-price">$3160</section>
+                                    </p>
+                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                        
+                                </figcaption>
+                            </figure>
+                        </article>
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/k-2.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                        
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">海景雙人房</h4>
+                                    <p class="tm-gallery-description">精緻且設備齊全的客房，舒適而毫無拘束感，讓您避免外界干擾，暫忘都市的塵囂，感受如家的自在與悠閒。
+                                    <section class="tm-gallery-price">$3500</section>
+                                    </p>
+                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                        
+                                </figcaption>
+                            </figure>
+                        </article>
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/K-3.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                        
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">典雅四人房</h4>
+                                    <p class="tm-gallery-description">客房空間寬敞明亮，配備遼闊的視野、風格獨特的藝術畫作，疲累的旅人在此可享有舒適的休憩。
+                                    <section class="tm-gallery-price">$5000</section>
+                                    </p>
+                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                        
+                                </figcaption>
+                            </figure>
+                        </article>
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/k-4.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                        
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">大道套房</h4>
+                                    <p class="tm-gallery-description">運用溫暖色調及富時尚感的傢俱擺設，打造舒適、寬敞的休憩環境，更適合長期商旅住宿。
+                                    <section class="tm-gallery-price">$4800</section>
+                                    </p>
+                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                        
+                                </figcaption>
+                            </figure>
+                        </article>
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/k-5.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                        
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">行政套房</h4>
+                                    <p class="tm-gallery-description">運用溫暖色調及富時尚感的傢俱擺設，打造舒適、寬敞的休憩環境，更適合長期商旅住宿。
+                                    <section class="tm-gallery-price">$3350</section>
+                                    </p>
+                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                        
+                                </figcaption>
+                            </figure>
+                        </article>
+                        
+                    </div> <!-- gallery page 2 -->
+    
+                    <!-- gallery page 3 -->
+                    <div id="tm-gallery-page-高雄愛河店" class="tm-gallery-page hidden">
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/c-1.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                        
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">商務套房</h4>
+                                    <p class="tm-gallery-description">典雅沈穩的空間佈置搭配柔軟舒適床組，營造出全然放鬆環境，讓疲累的身心享有片刻寧靜，換來一夜好眠。
+                                    <section class="tm-gallery-price">$4200</section>
+                                    </p>
+                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                        
+                                </figcaption>
+                            </figure>
+                        </article>
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/c-2.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                        
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">海景雙人房</h4>
+                                    <p class="tm-gallery-description">精緻且設備齊全的客房，舒適而毫無拘束感，讓您避免外界干擾，暫忘都市的塵囂，感受如家的自在與悠閒。
+                                    <section class="tm-gallery-price">$4400</section>
+                                    </p>
+                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                        
+                                </figcaption>
+                            </figure>
+                        </article>
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/c-3.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                        
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">典雅四人房</h4>
+                                    <p class="tm-gallery-description">客房空間寬敞明亮，配備遼闊的視野、風格獨特的藝術畫作，疲累的旅人在此可享有舒適的休憩。
+                                    <section class="tm-gallery-price">$5300</section>
+                                    </p>
+                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                        
+                                </figcaption>
+                            </figure>
+                        </article>
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/c-4.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                        
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">森林套房</h4>
+                                    <p class="tm-gallery-description">運用溫暖色調及富時尚感的傢俱擺設，打造舒適、寬敞的休憩環境，更適合長期商旅住宿。
+                                    <section class="tm-gallery-price">$3750</section>
+                                    </p>
+                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                        
+                                </figcaption>
+                            </figure>
+                        </article>
+    
+                    </div> <!-- gallery page 3 -->
+                    
+                    <!-- gallery page 4 -->
+                    <div id="tm-gallery-page-彰化鹿港店" class="tm-gallery-page hidden">
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/p-1.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                        
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">英倫皇風</h4>
+                                    <p class="tm-gallery-description">典雅沈穩的空間佈置搭配柔軟舒適床組，營造出全然放鬆環境，讓疲累的身心享有片刻寧靜，換來一夜好眠。
+                                    <section class="tm-gallery-price">$3900</section>
+                                    </p>
+                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                        
+                                </figcaption>
+                            </figure>
+                        </article>
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/p-2.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                        
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">卡米樂</h4>
+                                    <p class="tm-gallery-description">精緻且設備齊全的客房，舒適而毫無拘束感，讓您避免外界干擾，暫忘都市的塵囂，感受如家的自在與悠閒。
+                                    <section class="tm-gallery-price">$3750</section>
+                                    </p>
+                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                        
+                                </figcaption>
+                            </figure>
+                        </article>
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/p-3.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                        
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">十里洋場</h4>
+                                    <p class="tm-gallery-description">客房空間寬敞明亮，配備遼闊的視野、風格獨特的藝術畫作，疲累的旅人在此可享有舒適的休憩。
+                                    <section class="tm-gallery-price">$4200</section>
+                                    </p>
+                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                        
+                                </figcaption>
+                            </figure>
+                        </article>
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/p-4.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                        
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">大唐盛世</h4>
+                                    <p class="tm-gallery-description">運用溫暖色調及富時尚感的傢俱擺設，打造舒適、寬敞的休憩環境，更適合長期商旅住宿。
+                                    <section class="tm-gallery-price">$4500</section>
+                                    </p>
+                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                        
+                                </figcaption>
+                            </figure>
+                        </article>
+                       
+                    </div> <!-- gallery page 4 -->
+
+                    <!-- gallery page 5 -->
+                    <div id="tm-gallery-page-墾丁恆春店" class="tm-gallery-page hidden">
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/r-1.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                        
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">枯麻主題一館</h4>
+                                    <p class="tm-gallery-description">典雅沈穩的空間佈置搭配柔軟舒適床組，營造出全然放鬆環境，讓疲累的身心享有片刻寧靜，換來一夜好眠。
+                                    <section class="tm-gallery-price">$2350</section>
+                                    </p>
+                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                        
+                                </figcaption>
+                            </figure>
+                        </article>
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/r-2.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                        
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">枯麻主題二館</h4>
+                                    <p class="tm-gallery-description">精緻且設備齊全的客房，舒適而毫無拘束感，讓您避免外界干擾，暫忘都市的塵囂，感受如家的自在與悠閒。
+                                    <section class="tm-gallery-price">$2400</section>
+                                    </p>
+                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                        
+                                </figcaption>
+                            </figure>
+                        </article>
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/r-3.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                        
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">枯麻主題三館</h4>
+                                    <p class="tm-gallery-description">客房空間寬敞明亮，配備遼闊的視野、風格獨特的藝術畫作，疲累的旅人在此可享有舒適的休憩。
+                                    <section class="tm-gallery-price">$2450</section>
+                                    </p>
+                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                        
+                                </figcaption>
+                            </figure>
+                        </article>
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/r-4.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                        
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">妖怪列車</h4>
+                                    <p class="tm-gallery-description">運用溫暖色調及富時尚感的傢俱擺設，打造舒適、寬敞的休憩環境，更適合長期商旅住宿。
+                                    <section class="tm-gallery-price">$2300</section>
+                                    </p>
+                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                        
+                                </figcaption>
+                            </figure>
+                        </article>
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/r-5.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                        
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">粉紅城堡</h4>
+                                    <p class="tm-gallery-description">運用溫暖色調及富時尚感的傢俱擺設，打造舒適、寬敞的休憩環境，更適合長期商旅住宿。
+                                    <section class="tm-gallery-price">$3350</section>
+                                    </p>
+                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                        
+                                </figcaption>
+                            </figure>
+                        </article>
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/r-6.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                        
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">百老匯</h4>
+                                    <p class="tm-gallery-description">運用溫暖色調及富時尚感的傢俱擺設，打造舒適、寬敞的休憩環境，更適合長期商旅住宿。
+                                    <section class="tm-gallery-price">$3500</section>
+                                    </p>
+                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                        
+                                </figcaption>
+                            </figure>
+                        </article>
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/r-7.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                        
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">歡樂屋</h4>
+                                    <p class="tm-gallery-description">運用溫暖色調及富時尚感的傢俱擺設，打造舒適、寬敞的休憩環境，更適合長期商旅住宿。
+                                    <section class="tm-gallery-price">$4250</section>
+                                    </p>
+                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                        
+                                </figcaption>
+                            </figure>
+                        </article>
+                        <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                            <figure>
+                                <a href=""><img src="images/r-8.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
+                        
+                                <figcaption style="text-align: center;">
+                                    <h4 class="tm-gallery-title">夜森之謎</h4>
+                                    <p class="tm-gallery-description">運用溫暖色調及富時尚感的傢俱擺設，打造舒適、寬敞的休憩環境，更適合長期商旅住宿。
+                                    <section class="tm-gallery-price">$3800</section>
+                                    </p>
+                                    <button type="button" class="btn btn-primary">加入購物車</button>
+                        
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div> <!-- gallery page 5 -->
+                </div>
+            </main>
+            <!-- 註冊視窗 -->
+            <div class="modal fade" id="register" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form action="" method="post" id="form2">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">註冊視窗</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="account" class="col-form-label">帳號:</label>
+                                    <input type="text" class="form-control" id="account1" name="account1">
+                                    <label for="account1" class="error"></label>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="mail" class="col-form-label">電子郵件:</label>
+                                    <input type="email" class="form-control" id="mail1" name="mail1">
+                                    <label for="mail1" class="error"></label>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="col-form-label">密碼:</label>
+                                    <input type="password" class="form-control" id="password1" name="password1">
+                                    <label for="password1" class="error"></label>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="checkpassword" class="col-form-label">確認密碼:</label>
+                                    <input type="password" class="form-control" id="checkpassword1" name="checkpassword1">
+                                    <label for="checkpassword1" class="error"></label>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                                <button type="submit" class="btn btn-primary">註冊</button>
+                            </div>
+                        </form>
+            
+                    </div>
+                </div>
+            </div>
+            <!-- 登入視窗 -->
+            <div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form action="" method="post" id="form1">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">登入視窗</h5>
+                            </div>
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="account" class="col-form-label">帳號:</label>
+                                    <input type="text" class="form-control" id="account" name="account">
+                                    <label for="account" class="error"></label>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="col-form-label">密碼:</label>
+                                    <input type="password" class="form-control" id="password" name="password">
+                                    <label for="password" class="error"></label>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                                <button type="submit" class="btn btn-primary">登入</button>
+                            </div>
+                        </form>
+            
+                    </div>
+                </div>
+            </div>
+     <footer class="tm-footer text-center">
+                <p>Copyright &copy; 2022 蜂巢飯店</p>
+            </footer>
+        </div>
+
+    </body>
+    
+    </html>
