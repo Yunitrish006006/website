@@ -28,9 +28,7 @@
     <script>
             $(document).ready(function ()  {
                 // Handle click on paging links
-                $('.tm-paging-link').on("click",function(e) {
-                    e.preventDefault();
-
+                $('.tm-paging-link').on("click",function() {
                     var page = $(this).text().toLowerCase();
                     $('.tm-gallery-page').addClass('hidden');
                     $('#tm-gallery-page-' + page).removeClass('hidden');
