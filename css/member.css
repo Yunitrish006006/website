@@ -1,0 +1,45 @@
+.facilities_area {
+    position: relative;
+    z-index: 1;
+
+}
+
+.facilities_area .bg-parallax {
+    background: url("../../images/facilites_bg.jpg") no-repeat scroll center 0/cover;
+    opacity: 0.15;
+}
+
+.facilities_item {
+    border: 3px solid #54c0fb;
+    border-radius: 10px;
+    background-color: rgba(249, 249, 255, 0.102);
+    padding: 31px 40px 37px;
+    color: rgb(255, 253, 253);
+    margin-bottom: 175px;
+}
+
+.facilities_item .sec_h4 {
+    padding-bottom: 18px;
+    color: rgb(234, 233, 233);
+}
+
+.facilities_item p {
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 0px;
+}
+
+.facilities_areasection_gap {
+    background-image: url('/images/facilites_bg.jpg');
+    background-repeat: repeat;
+    padding-top: 3rem;
+}
+
+p,
+h4 {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
