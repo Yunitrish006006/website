@@ -1,3 +1,11 @@
+.error {
+    color: #D82424;
+    font-weight: normal;
+    font-family: "微軟正黑體";
+    display: inline;
+    padding: 1px;
+}
+
 figure {
     height: fit-content;
     width:fit-content;
@@ -635,7 +643,7 @@ button:focus {
 }
 
 .breadcrumb_area .bg-parallax {
-  background: url("../image/about_banner.jpg") no-repeat scroll center 0/cover;
+  background: url("../images/about_banner.jpg") no-repeat scroll center 0/cover;
   opacity: 0.50;
   z-index: -1;
 }
