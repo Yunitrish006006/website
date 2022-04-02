@@ -68,6 +68,13 @@ $(document).ready(function ($) {
             },
             checkpassword1: {
                 equalTo: "兩次密碼不相同",
+                required: "確認密碼為必填欄位",
+            },
+            password1: {
+                required: "密碼為必填欄位",
+            },
+            mail1: {
+                required: "電子郵件為必填欄位",
             },
 
         }
