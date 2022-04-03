@@ -33,3 +33,10 @@ main {
         flex-direction: column-reverse;
     }
 }
+.date1{
+    margin-left: 0.5rem; 
+    margin-bottom:1rem;    
+}
+.date2{
+    margin-left: 0.5rem;
+}
