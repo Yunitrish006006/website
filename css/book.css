@@ -18,7 +18,7 @@ html {
   box-sizing: inherit;
 }
 
-.container {
+.container_2 {
   width: 100%;
   max-width: 1200px;
   margin-right: auto;
@@ -191,7 +191,7 @@ body {
   overflow-x: hidden;
 }
 
-.container {
+.container_2 {
   background-color: white;
 }
 

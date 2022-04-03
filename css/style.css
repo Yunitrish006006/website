@@ -17,11 +17,48 @@ figure {
 
 /*---------------------------------------------------- */
 /*----------------------------------------------------*/
+.carousel-control-prev{
+  position: absolute;
+top: 0;
+bottom: 0;
+z-index: 1;
+display: flex;
+align-items: center;
+-ms-flex-pack: center;
+width: 15%;
+padding: 0;
+color: #fff;
+text-align: center;
+background: 0 0;
+border: 0;
+opacity: .5;
+transition: opacity .15s ease;
+}
+
+.carousel-control-next{
+  position: absolute;
+top: 0;
+bottom: 0;
+z-index: 1;
+display: flex;
+align-items: center;
+-ms-flex-pack: center;
+width: 15%;
+padding: 0;
+color: #fff;
+text-align: center;
+background: 0 0;
+border: 0;
+opacity: .5;
+transition: opacity .15s ease;
+}
+
 .list_style {
   list-style: none;
   margin: 0px;
   padding: 0px;
 }
+
 
 
 a {
@@ -470,7 +507,7 @@ button:focus {
 }
 
 .banner_area .bg-parallax {
-  background: url("../image/banner_bg.jpg") no-repeat scroll center 0/cover;
+  background: url("../images/banner_bg.jpg") no-repeat scroll center 0/cover;
   opacity: 0.50;
 }
 
@@ -522,6 +559,7 @@ button:focus {
   font-size: 14px;
   line-height: 24px;
   padding: 10px 0px 20px;
+  color: #fff;
 }
 
 /*============= End banner_area css =============*/
