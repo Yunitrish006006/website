@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蜂巢飯店</title>
+    <link rel="icon" href="images\honeycomb.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/product.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="vendors/linericon/style.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+    <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/localization/messages_zh_TW.js "></script>
+    <script>
+        $(document).ready(function ($) {
+            //for select
+            $.validator.addMethod("notEqualsto", function (value, element, arg) {
+                return arg != value;
+            }, "您尚未選擇!");
+
+            $("#form1").validate({
+                submitHandler: function (form) {
+                    alert("success!");
+                    form.submit();
+                },
+                rules: {
+                    account: {
+                        required: true,
+                        minlength: 4,
+                        maxlength: 10
+                    },
+                    password: {
+                        required: true,
+                        minlength: 6,
+                        maxlength: 12
+                    },
+
+                },
+                messages: {
+                    account: {
+                        required: "帳號為必填欄位",
+                    },
+                    password: {
+                        required: "密碼為必填欄位",
+                    },
+
+                }
+            });
+            $("#form2").validate({
+                submitHandler: function (form) {
+                    alert("success!");
+                    form.submit();
+                },
+                rules: {
+                    account1: {
+                        required: true,
+                        minlength: 4,
+                        maxlength: 10
+                    },
+                    mail1: {
+                        required: true,
+                        email: true
+                    },
+
+                    password1: {
+                        required: true,
+                        minlength: 6,
+                        maxlength: 12
+                    },
+                    checkpassword1: {
+                        required: true,
+                        equalTo: "#password1"
+                    },
+
+                },
+                messages: {
+                    account1: {
+                        required: "帳號為必填欄位",
+                        minlength: "帳號最少要4個字",
+                        maxlength: "帳號最長10個字"
+                    },
+                    checkpassword1: {
+                        equalTo: "兩次密碼不相同",
+                    },
+
+                }
+            });
+        });
+    </script>
+    <style>
+        .error {
+            color: #D82424;
+            font-weight: normal;
+            font-family: "微軟正黑體";
+            display: inline;
+            padding: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row header">
+            <!-- 語言 -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">語言 | Language</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">繁體中文</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">English</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">日本語</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- 導覽列 -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"><img src="images\honeycomb.png" width="24" height="24">蜂巢飯店</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
+                                    data-bs-target="#login" data-bs-whatever="@getbootstrap">登入</button>
+                            </li>
+                            <li class="nav-item">
+                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
+                                    data-bs-target="#register" data-bs-whatever="@getbootstrap">註冊</button>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">關於我們</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">聯絡我們</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="book.html">訂房</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="comment.html">留言板</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">旅遊休息的頂級選擇</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="搜尋" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <div class="option">
+                <ul>
+                    <li><a href="/index.html">首頁/</a></li>
+                    <li><a href="/book.html">訂房/</a></li>
+                    <li><a href="product.html">雙人商務套房</a></li>
+                </ul>
+            </div>
+            <main>
+                <div class="left">
+                    <div class="cards" style="width: 35rem; margin-left: 3rem;">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                                aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="./images/t-1.jpg" class="d-block w-100" alt="..." width="600px" height="390px">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./images/t-1-2.jpg" class="d-block w-100" alt="..." width="600px" height="390px">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./images/t-1-3.jpg" class="d-block w-100" alt="..." width="600px" height="390px">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                        <div class="card-body">
+                            <h3>商品介紹</h3>
+                            <hr>
+                            <p class="card-text">位於3~4樓低樓層一系列商務套房，安靜舒適、空間精巧、設備齊全，現代簡約風格為商旅出差或輕旅住宿最佳選擇。</p>
+                            <h3>主要設備</h3>
+                            <hr>
+                            <p class="card-text">–獨立淋浴間(開放式洗手台)　–冰箱　–液晶電視　–免費有線及無線寬頻上網　–快煮電熱水壺　–電話　–免費礦泉水　–免費咖啡及茗茶沖飲包
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="card-body">
+                        <h3>雙人商務套房</h3>
+                        <h1>NT$3500</h1>
+                        <label for="data">入住日期</label>
+                        <input id="date" name="data" type="date" style="margin-left: 0.5rem;"><br>
+                        <label for="night">住宿天數</label>
+                        <select name="night" class="form-control my-3" style="width:140px; display: inline; margin-left: 0.5rem;">
+                            <option value="1"> 一晚 </option>
+                            <option value="2"> 兩晚 </option>
+                            <option value="3"> 三晚 </option>
+                            <option value="4"> 四晚 </option>
+                            <option value="5"> 五晚 </option>
+                            <option value="6"> 六晚 </option>
+                            <option value="7"> 七晚 </option>
+                            <option value="8"> 八晚 </option>
+                            <option value="9"> 九晚 </option>
+                            <option value="10"> 十晚 </option>
+                        </select>
+                        <button type="submit" class="btn btn-primary" style="width:300px;">加入購物車</button>
+                        <h5>注意事項</h5>
+                        <hr>
+                        <p>無</p>
+                    </div>
+                </div>
+
+            </main>
+            <!--================ 推薦區 =================-->
+            <section class="accomodation_area section_gap">
+                <div class="container">
+                    <div class="section_title text-center">
+                        <h2 class="title_color">房型推薦</h2>
+                    </div>
+                    <div class="row mb_30">
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="accomodation_item text-center">
+                                <div class="hotel_img">
+                                    <img src="images/t-1.jpg" alt="" width="263px" height="270px">
+                                    <a href="#" class="btn theme_btn button_hover">加入購物車</a>
+                                </div>
+                                <a href="#">
+                                    <h4 class="sec_h4">雙人商務套房</h4>
+                                </a>
+                                <h5>$2800<small>/一晚</small></h5>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="accomodation_item text-center">
+                                <div class="hotel_img">
+                                    <img src="images/c-1.jpg" alt="" width="263px" height="270px">
+                                    <a href="#" class="btn theme_btn button_hover">加入購物車</a>
+                                </div>
+                                <a href="#">
+                                    <h4 class="sec_h4">商務套房</h4>
+                                </a>
+                                <h5>$4200<small>/一晚</small></h5>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="accomodation_item text-center">
+                                <div class="hotel_img">
+                                    <img src="images/r-1.jpg" alt="" width="263px" height="270px">
+                                    <a href="#" class="btn theme_btn button_hover">加入購物車</a>
+                                </div>
+                                <a href="#">
+                                    <h4 class="sec_h4">枯麻主題一館</h4>
+                                </a>
+                                <h5>$2350<small>/一晚</small></h5>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="accomodation_item text-center">
+                                <div class="hotel_img">
+                                    <img src="images/k-1.jpg" alt="" width="263px" height="270px">
+                                    <a href="#" class="btn theme_btn button_hover">加入購物車</a>
+                                </div>
+                                <a href="#">
+                                    <h4 class="sec_h4">商務套房</h4>
+                                </a>
+                                <h5>$3160<small>/一晚</small></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--================聯絡資訊=================-->
+
+            <!--footer-->
+            <footer class="footer-area section_gap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3  col-md-6 col-sm-6">
+                            <div class="single-footer-widget">
+                                <h6 class="footer_title">聯絡我們</h6>
+                            </div>
+                            <div class="single-footer-widget">
+                                <div>
+                                    <ul class="list_style">
+                                        <li>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 
+                                                2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 
+                                                0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 
+                                                2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 
+                                                0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                                            </svg>
+                                            <a>+886 2 27002323</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                                <div>
+                                    <ul class="list_style">
+                                        <li>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 
+                                                        0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13
+                                                        2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 
+                                                        3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+                                            </svg>
+                                            <a href="http://gmail.com">reservation@beehotel.com</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                                <div>
+                                    <ul class="list_style">
+                                        <li>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 
+                                                    7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 
+                                                    0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                                            </svg>
+                                            <a href="http://facebook.com">蜂巢飯店</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <ul class="list_style">
+                                        <li>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0
+                                                        .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 
+                                                        1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 
+                                                        3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 
+                                                        10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                                            </svg>
+                                            <a href="http://instagram.com">@beehotel20220601</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="single-footer-widget">
+                                <h6 class="footer_title">其他連結</h6>
+                                <div>
+                                    <ul class="list_style">
+                                        <li><a href="index.html">主頁</a></li>
+                                        <li><a href="#">關於我們</a></li>
+                                        <li><a href="types.html">房間種類</a></li>
+                                        <li><a href="history.html">訂房紀錄</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="single-footer-widget">
+                                <h6 class="footer_title">全台分店</h6>
+                                <div>
+                                    <ul class="list_style">
+                                        <li><a href="book.html">台中蜂巢飯店</a></li>
+                                        <li><a href="book.html">彰化蜂巢飯店</a></li>
+                                        <li><a href="book.html">高雄蜂巢飯店</a></li>
+                                        <li><a href="book.html">墾丁蜂巢飯店</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="single-footer-widget instafeed">
+                                <h6 class="footer_title">優惠資訊</h6>
+                                <ul class="list_style instafeed d-flex flex-wrap">
+                                    <li><img src="images/discount.jpeg" width="ˇ200" height="100"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border_line"></div>
+                    <div class="row footer-bottom d-flex  align-items-center">
+                        <p>
+                            Copyright@ bees-hotels., LTD.
+                            <script>document.write(new Date().getFullYear());</script> All Right Reserved.
+                        </p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+
+    </div>
+</div>
+    <!--================Contact Success and Error message Area =================-->
+    <div id="success" class="modal modal-message fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="fa fa-close"></i>
+                    </button>
+                    <h2>感謝您！</h2>
+                    <p>你的郵件已順利寄出....</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals error -->
+
+    <div id="error" class="modal modal-message fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="fa fa-close"></i>
+                    </button>
+                    <h2>拍謝!!</h2>
+                    <p> 一些地方出錯了 </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="register" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="" method="post" id="form2">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">註冊視窗</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="account" class="col-form-label">帳號:</label>
+                            <input type="text" class="form-control" id="account1" name="account1">
+                            <label for="account1" class="error"></label>
+                        </div>
+                        <div class="mb-3">
+                            <label for="mail" class="col-form-label">電子郵件:</label>
+                            <input type="email" class="form-control" id="mail1" name="mail1">
+                            <label for="mail1" class="error"></label>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="col-form-label">密碼:</label>
+                            <input type="password" class="form-control" id="password1" name="password1">
+                            <label for="password1" class="error"></label>
+                        </div>
+                        <div class="mb-3">
+                            <label for="checkpassword" class="col-form-label">確認密碼:</label>
+                            <input type="password" class="form-control" id="checkpassword1" name="checkpassword1">
+                            <label for="checkpassword1" class="error"></label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                        <button type="submit" class="btn btn-primary">註冊</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <!-- 登入視窗 -->
+    <div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="" method="post" id="form1">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">登入視窗</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="account" class="col-form-label">帳號:</label>
+                            <input type="text" class="form-control" id="account" name="account">
+                            <label for="account" class="error"></label>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="col-form-label">密碼:</label>
+                            <input type="password" class="form-control" id="password" name="password">
+                            <label for="password" class="error"></label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                        <button type="submit" class="btn btn-primary">登入</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
