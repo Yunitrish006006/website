@@ -6,173 +6,93 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>蜂巢飯店</title>
-    <link rel="icon" href="images\honeycomb.png" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/product.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+    <!--  boostrap css  -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="vendors/linericon/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+    <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!---JQuery-->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
     <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/localization/messages_zh_TW.js "></script>
-    <script>
-        $(document).ready(function ($) {
-            //for select
-            $.validator.addMethod("notEqualsto", function (value, element, arg) {
-                return arg != value;
-            }, "您尚未選擇!");
-
-            $("#form1").validate({
-                submitHandler: function (form) {
-                    alert("success!");
-                    form.submit();
-                },
-                rules: {
-                    account: {
-                        required: true,
-                        minlength: 4,
-                        maxlength: 10
-                    },
-                    password: {
-                        required: true,
-                        minlength: 6,
-                        maxlength: 12
-                    },
-
-                },
-                messages: {
-                    account: {
-                        required: "帳號為必填欄位",
-                    },
-                    password: {
-                        required: "密碼為必填欄位",
-                    },
-
-                }
-            });
-            $("#form2").validate({
-                submitHandler: function (form) {
-                    alert("success!");
-                    form.submit();
-                },
-                rules: {
-                    account1: {
-                        required: true,
-                        minlength: 4,
-                        maxlength: 10
-                    },
-                    mail1: {
-                        required: true,
-                        email: true
-                    },
-
-                    password1: {
-                        required: true,
-                        minlength: 6,
-                        maxlength: 12
-                    },
-                    checkpassword1: {
-                        required: true,
-                        equalTo: "#password1"
-                    },
-
-                },
-                messages: {
-                    account1: {
-                        required: "帳號為必填欄位",
-                        minlength: "帳號最少要4個字",
-                        maxlength: "帳號最長10個字"
-                    },
-                    checkpassword1: {
-                        equalTo: "兩次密碼不相同",
-                    },
-
-                }
-            });
-        });
-    </script>
-    <style>
-        .error {
-            color: #D82424;
-            font-weight: normal;
-            font-family: "微軟正黑體";
-            display: inline;
-            padding: 1px;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row header">
-            <!-- 語言 -->
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">語言 | Language</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">繁體中文</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">English</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">日本語</a></li>
+    <!--================Header Area =================-->
+    <header class="header_area">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light ">
+                <!-- 手機版下拉式選單-->
+                <a class="navbar-brand logo_h" href="index.html"><img src="images/logo.png" width="50" height="50">蜂巢飯店
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse offset " id="navbarSupportedContent">
+
+
+                    <ul class="nav navbar-nav menu_nav ml-auto  ">
+                        <form class="d-flex nav-link ">
+                            <input class="form-control me-2 " type="search" placeholder="搜尋" aria-label="Search">
+                            <button class="btn  btn-outline-secondary " type="submit">Search</button>
+                        </form>
+                        <li class="nav-item"><a class="nav-link" href="index.html">首頁</a></li>
+                        <li class="nav-item submenu dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false">聯絡/關於</a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a class="nav-link" href="about.html">關於我們</a></li>
+                                <li class="nav-item"><a class="nav-link" href="contact.html">聯絡我們</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item submenu dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false">訂房</a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a class="nav-link" href="book.html">訂房/房型介紹</a></li>
+                                <li class="nav-item"><a class="nav-link" href="history.html">訂房紀錄</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="comment.html">留言板</a></li>
+                        <li class="nav-item submenu dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false">登入|註冊</a>
+                            <ul class="dropdown-menu">
+
+                                <li class="nav-item"><a class="nav-link" data-bs-toggle="modal" data-bs-target="#login"
+                                        data-bs-whatever="@getbootstrap">登入</a></li>
+                                <li class="nav-item"><a class="nav-link" data-bs-toggle="modal"
+                                        data-bs-target="#register" data-bs-whatever="@getbootstrap">註冊</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item submenu dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false">EN/中</a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a class="nav-link" href="book.html">繁體中文</a></li>
+                                <li class="nav-item"><a class="nav-link" href="history.html">English</a></li>
+                                <li class="nav-item"><a class="nav-link" href="history.html">日本語</a></li>
                             </ul>
                         </li>
                     </ul>
                 </div>
             </nav>
-            <!-- 導覽列 -->
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#"><img src="images\honeycomb.png" width="24" height="24">蜂巢飯店</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
-                                    data-bs-target="#login" data-bs-whatever="@getbootstrap">登入</button>
-                            </li>
-                            <li class="nav-item">
-                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
-                                    data-bs-target="#register" data-bs-whatever="@getbootstrap">註冊</button>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="about.html">關於我們</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="contact.html">聯絡我們</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="book.html">訂房</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="comment.html">留言板</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">旅遊休息的頂級選擇</a>
-                            </li>
-                        </ul>
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="搜尋" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
-                    </div>
-                </div>
-            </nav>
+        </div>
+    </header>
             <div class="option">
                 <ul>
                     <li><a href="/index.html">首頁/</a></li>
@@ -206,12 +126,10 @@
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                             data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
                         </button>
                         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
                             data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
                         </button>
                     </div>
                         <div class="card-body">
@@ -229,23 +147,19 @@
                     <div class="card-body">
                         <h3>雙人商務套房</h3>
                         <h1>NT$3500</h1>
-                        <label for="data">入住日期</label>
-                        <input id="date" name="data" type="date" style="margin-left: 0.5rem; margin-bottom:1rem;"><br>
-                        <label for="data">退住日期</label>
-                        <input id="date" name="data" type="date" style="margin-left: 0.5rem;"><br>
-                        <label for="night">房間數量</label>
-                        <select name="night" class="form-control my-3" style="width:140px; display: inline; margin-left: 0.5rem;">
-                            <option value="1"> 一間 </option>
-                            <option value="2"> 兩間 </option>
-                            <option value="3"> 三間 </option>
-                            <option value="4"> 四間 </option>
-                            <option value="5"> 五間 </option>
-                            <option value="6"> 六間 </option>
-                            <option value="7"> 七間 </option>
-                            <option value="8"> 八間 </option>
-                            <option value="9"> 九間 </option>
-                            <option value="10"> 十間 </option>
-                        </select>
+                        <label for="date1">入住日期</label>
+                        <input id="date" name="date1" class="date1" type="date"><br>
+                        <label for="date2">退住日期</label>
+                        <input id="date" name="date2" class="date2" type="date"><br>
+                        <div class="input-group" style="margin-bottom: 1rem;">
+                            <select class="wide" name="night" style="margin-left:0.5rem; width: 140px;">
+                                <option data-display="房間數量">房間數量</option>
+                                <option value="1"> 1間 </option>
+                                <option value="2"> 2間 </option>
+                                <option value="3"> 3間 </option>
+                            </select>
+                        </div>
+                        
                         <button type="submit" class="btn btn-primary" style="width:300px;">加入購物車</button>
                         <h5>注意事項</h5>
                         <hr>
@@ -434,10 +348,6 @@
                 </div>
             </footer>
         </div>
-
-
-    </div>
-</div>
     <!--================Contact Success and Error message Area =================-->
     <div id="success" class="modal modal-message fade" role="dialog">
         <div class="modal-dialog">
@@ -536,6 +446,17 @@
             </div>
         </div>
     </div>
+    <script src="js/sign.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="vendors/nice-select/js/jquery.nice-select.js"></script>
+    <script src="js/stellar.js"></script>
+    <script src="vendors/lightbox/simpleLightbox.min.js"></script>
+    <script src="js/custom.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
         crossorigin="anonymous"></script>
