@@ -1,7 +1,8 @@
 .option ul {
     display: flex;
     list-style-type: none;
-    padding-top: 5rem ;
+    padding-top: 5rem;
+    padding-left: 3rem;
 }
 
 .option ul li {
@@ -31,7 +32,10 @@ main {
 
 @media (max-width: 700px) {
     main {
-        flex-direction: column-reverse;
+        display: inline-block;
+    }
+    .right{
+        padding-left: 2rem;
     }
 }
 .date1{
