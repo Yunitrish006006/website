@@ -1,0 +1,25 @@
+main{
+    padding: 1rem 0rem;
+}
+table{
+    margin:0 auto;
+}
+tr,td{
+    padding: 1rem 1rem;
+}
+.back{
+    background-color: azure; 
+    text-align: center; 
+}
+tr,td{
+    text-align: center;
+}
+@media (max-width: 700px) {
+    main{
+        padding: 0rem;
+    }
+    table{
+        margin:0rem 0rem;
+        width: 600px;
+    }
+}
