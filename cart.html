@@ -76,13 +76,14 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                                 aria-haspopup="true" aria-expanded="false">登入|註冊</a>
                             <ul class="dropdown-menu">
-
                                 <li class="nav-item"><a class="nav-link" data-bs-toggle="modal" data-bs-target="#login"
                                         data-bs-whatever="@getbootstrap">登入</a></li>
-                                <li class="nav-item"><a class="nav-link" data-bs-toggle="modal"
-                                        data-bs-target="#register" data-bs-whatever="@getbootstrap">註冊</a></li>
-                                <li class="nav-item"><a class="nav-link" data-bs-toggle="modal" data-bs-target="#pwd"
-                                        data-bs-whatever="@getbootstrap">密碼修改</a></li>
+                                <li class="nav-item"><a class="nav-link" data-bs-toggle="modal" data-bs-target="#register"
+                                        data-bs-whatever="@getbootstrap">註冊</a></li>
+                                <li class="nav-item"><a class="nav-link" data-bs-toggle="modal" data-bs-target="#information"
+                                        data-bs-whatever="@getbootstrap">會員資料</a></li>
+                                <li class="nav-item"><a class="nav-link" data-bs-toggle="modal" data-bs-target="#change"
+                                        data-bs-whatever="@getbootstrap">會員資料修改</a></li>
                             </ul>
                         </li>
                         <li class="nav-item submenu dropdown">
@@ -404,28 +405,33 @@
         </div>
     </div>
 </div>
-<!-- 密碼更改 -->
-<div class="modal fade" id="pwd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- 會員資料修改 -->
+<div class="modal fade" id="change" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <form action="" method="post" id="form3">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">密碼更改</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">會員資料修改</h5>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="account" class="col-form-label">原本密碼:</label>
-                        <input type="text" class="form-control" id="password2" name="password2">
+                        <label for="account" class="col-form-label">修改帳戶:</label>
+                        <input type="text" class="form-control" id="account2" name="account2">
+                        <label for="account" class="error"></label>
+                    </div>
+                    <div class="mb-3">
+                        <label for="account" class="col-form-label">修改信箱:</label>
+                        <input type="text" class="form-control" id="mail2" name="mail2">
                         <label for="account" class="error"></label>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="col-form-label">修改密碼:</label>
-                        <input type="password" class="form-control" id="password3" name="password3">
+                        <input type="password" class="form-control" id="password2" name="password2">
                         <label for="password" class="error"></label>
                     </div>
                     <div class="mb-3">
-                        <label for="password" class="col-form-label">確認密碼:</label>
-                        <input type="password" class="form-control" id="password4" name="password4">
+                        <label for="password" class="col-form-label">確認修改密碼:</label>
+                        <input type="password" class="form-control" id="password3" name="password3">
                         <label for="password" class="error"></label>
                     </div>
                 </div>
@@ -435,6 +441,37 @@
                 </div>
             </form>
 
+        </div>
+    </div>
+</div>
+<!-- 個人資料修改 -->
+<div class="modal fade" id="information" tabindex="-1" aria-labelledby="informationLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="" method="post" id="form1">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="informationLabel">會員資料</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="account" class="col-form-label">原帳號: </label><label>"原帳號"</label>
+                        <input type="text" class="form-control" id="account" name="account" value="previous">
+                        <label for="account" class="error"></label>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="col-form-label">原密碼: </label><label>"原密碼"</label>
+                        <input type="password" class="form-control" id="password" name="password" value="previous">
+                        <label for="password" class="error"></label>
+                    </div>
+                    <div class="form-check">
+                        <label><input type="checkbox" name="sport" id="getADD" data-bs-dismiss="modal"> 接收廣告</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary">儲存</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

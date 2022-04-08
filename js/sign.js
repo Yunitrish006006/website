@@ -85,17 +85,21 @@ $(document).ready(function ($) {
             form.submit();
         },
         rules:{
+            account2: {
+                required: true,
+                minlength: 4,
+                maxlength: 10
+            },
+            mail2:{
+                required:true,
+                email:true,
+            },
             password2:{
                 required:true,
                 minlength: 6,
                 maxlength: 12
             },
             password3:{
-                required:true,
-                minlength: 6,
-                maxlength: 12
-            },
-            password4:{
                 required:true,
                 minlength: 6,
                 maxlength: 12
@@ -103,15 +107,18 @@ $(document).ready(function ($) {
 
         },
         messages:{
-            password2:{
-                required:"原本密碼為必填欄位"
+            account2:{
+                required:"修改帳戶為必填欄位"
             },
-            password3:{
+            mail2:{
+                required:"修改信箱為必填欄位",
+                email:"請輸入正確的信箱"
+            },
+            password2:{
                 required:"修改密碼為必填欄位"
             },
-            password4:{
-                required:"確認密碼為必填欄位",  
-                equalTo:"#password3"
+            password3:{
+                required:"確認修改密碼為必填欄位"
             },
         }
     });
