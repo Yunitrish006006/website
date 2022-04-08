@@ -79,5 +79,34 @@ $(document).ready(function ($) {
 
         }
     });
+    $('#form3').validate({
+        submitHandler: function (form) {
+            alert("success!");
+            form.submit();
+        },
+        rules:{
+            password2:{
+                required:true,
+                minlength: 6,
+                maxlength: 12
+            },
+            password3:{
+                required:true,
+                minlength: 6,
+                maxlength: 12
+            },
+            password4:{
+                required:true,
+                minlength: 6,
+                maxlength: 12
+            },
+
+        },
+        messages:{
+            password3:{
+                equalTo:"#password3"
+            },
+        }
+    });
 });
 
