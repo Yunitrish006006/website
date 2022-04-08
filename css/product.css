@@ -36,6 +36,7 @@ main {
     }
     .right{
         padding-left: 2rem;
+        padding-top: 0rem;
     }
 }
 .date1{
