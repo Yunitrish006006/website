@@ -103,7 +103,14 @@ $(document).ready(function ($) {
 
         },
         messages:{
+            password2:{
+                required:"原本密碼為必填欄位"
+            },
             password3:{
+                required:"修改密碼為必填欄位"
+            },
+            password4:{
+                required:"確認密碼為必填欄位",  
                 equalTo:"#password3"
             },
         }
