@@ -5,18 +5,18 @@ $(document).ready(function ($) {
         return arg != value;
     }, "您尚未選擇!");
 
-    $("#form1").validate({
+    $("#login").validate({
         submitHandler: function (form) {
             alert("success!");
             form.submit();
         },
         rules: {
-            account: {
+            loginAccount: {
                 required: true,
                 minlength: 4,
                 maxlength: 10
             },
-            password: {
+            loginPassword: {
                 required: true,
                 minlength: 6,
                 maxlength: 12
@@ -24,82 +24,82 @@ $(document).ready(function ($) {
 
         },
         messages: {
-            account: {
+            loginAccount: {
                 required: "帳號為必填欄位",
             },
-            password: {
+            loginPassword: {
                 required: "密碼為必填欄位",
             },
 
         }
     });
-    $("#form2").validate({
+    $("#register").validate({
         submitHandler: function (form) {
             alert("success!");
             form.submit();
         },
         rules: {
-            account1: {
+            registerAccount: {
                 required: true,
                 minlength: 4,
                 maxlength: 10
             },
-            mail1: {
+            registerMail: {
                 required: true,
                 email: true
             },
 
-            password1: {
+            registerPassword: {
                 required: true,
                 minlength: 6,
                 maxlength: 12
             },
-            checkpassword1: {
+            registerCheckPassword: {
                 required: true,
-                equalTo: "#password1"
+                equalTo: "#registerPassword"
             },
 
         },
         messages: {
-            account1: {
+            registerAccount: {
                 required: "帳號為必填欄位",
                 minlength: "帳號最少要4個字",
                 maxlength: "帳號最長10個字"
             },
-            checkpassword1: {
+            registerCheckPassword: {
                 equalTo: "兩次密碼不相同",
                 required: "確認密碼為必填欄位",
             },
-            password1: {
+            registerPassword: {
                 required: "密碼為必填欄位",
             },
-            mail1: {
+            registerMail: {
                 required: "電子郵件為必填欄位",
             },
 
         }
     });
-    $('#form3').validate({
+    $('#information').validate({
         submitHandler: function (form) {
             alert("success!");
             form.submit();
         },
         rules:{
-            account2: {
+            informationAccount: {
                 required: true,
                 minlength: 4,
                 maxlength: 10
             },
-            mail2:{
+            informationMail:{
                 required:true,
                 email:true,
             },
-            password2:{
+            informationPassword:{
                 required:true,
                 minlength: 6,
                 maxlength: 12
             },
-            password3:{
+            informationPasswordCheck:{
                 required:true,
                 minlength: 6,
                 maxlength: 12
@@ -107,17 +107,17 @@ $(document).ready(function ($) {
 
         },
         messages:{
-            account2:{
+            informationAccount:{
                 required:"修改帳戶為必填欄位"
             },
-            mail2:{
+            informationMail:{
                 required:"修改信箱為必填欄位",
                 email:"請輸入正確的信箱"
             },
-            password2:{
+            informationPassword:{
                 required:"修改密碼為必填欄位"
             },
-            password3:{
+            informationPasswordCheck:{
                 required:"確認修改密碼為必填欄位"
             },
         }

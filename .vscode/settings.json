@@ -4,6 +4,7 @@
         "checkpassword",
         "Equalsto",
         "getbootstrap",
-        "HACCP"
+        "HACCP",
+        "maxlength"
     ]
 }
