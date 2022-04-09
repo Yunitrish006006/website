@@ -565,12 +565,28 @@
                         </div>
                         <div class="modal-footer">
                             <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
-                            <button type="submit" class="btn btn-primary" >寄送驗證信</button>
+                            <button type="submit" class="btn btn-primary" onclick="sendVerifyMail()">寄送驗證信</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script>
+            function sendVerifyMail() {
+                Email.send({
+                Host : "smtp.beehotel.com",
+                Username : "username",
+                Password : "password",
+                To : 'them@website.com',
+                From : "you@isp.com",
+                Subject : "This is the subject",
+                Body : "And this is the body"
+                }).then(
+                message => alert(message)
+                );
+            }
+        </script>
         <script src="js/sign.js"></script>
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/popper.js"></script>
