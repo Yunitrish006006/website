@@ -20,8 +20,8 @@
             <div class="page-cover text-center">
                 <h2 class="page-cover-tittle f_48">詳細評論</h2>
                 <ol class="breadcrumb">
-                    <li><a href="index.html">主頁</a></li>
-                    <li><a href="blog.html">評論</a></li>
+                    <li><a href="index.php">主頁</a></li>
+                    <li><a href="blog.php">評論</a></li>
                     <li class="active">詳細評論</li>
                 </ol>
             </div>
@@ -269,7 +269,7 @@
                             <div class="media post_item">
                                 <img src="images/blog/post1.jpg" alt="post">
                                 <div class="media-body">
-                                    <a href="blog-details.html">
+                                    <a href="blog-details.php">
                                         <h3>服務人員請不要氣餒</h3>
                                     </a>
                                     <p>5年前</p>
@@ -278,7 +278,7 @@
                             <div class="media post_item">
                                 <img src="images/blog/post2.jpg" alt="post">
                                 <div class="media-body">
-                                    <a href="blog-details.html">
+                                    <a href="blog-details.php">
                                         <h3>關於房間設計與服務人員看法</h3>
                                     </a>
                                     <p>2年前</p>
@@ -287,7 +287,7 @@
                             <div class="media post_item">
                                 <img src="images/blog/post3.jpg" alt="post">
                                 <div class="media-body">
-                                    <a href="blog-details.html">
+                                    <a href="blog-details.php">
                                         <h3>再也不來這住了</h3>
                                     </a>
                                     <p>2年前</p>
@@ -296,7 +296,7 @@
                             <div class="media post_item">
                                 <img src="images/blog/post4.jpg" alt="post">
                                 <div class="media-body">
-                                    <a href="blog-details.html">
+                                    <a href="blog-details.php">
                                         <h3>這家飯店的婚禮佈置</h3>
                                     </a>
                                     <p>5年前</p>

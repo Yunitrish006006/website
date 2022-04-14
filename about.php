@@ -21,7 +21,7 @@
             <div class="page-cover text-center">
                 <h2 class="page-cover-tittle">關於我們</h2>
                 <ol class="breadcrumb">
-                    <li><a href="index.html">主頁</a></li>
+                    <li><a href="index.php">主頁</a></li>
                     <li class="active">關於</li>
                 </ol>
             </div>

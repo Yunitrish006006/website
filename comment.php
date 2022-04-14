@@ -48,7 +48,7 @@
                         <img src="images/blog/cat-post/cat-post-2.jpg" alt="post">
                         <div class="categories_details">
                             <div class="categories_text">
-                                <a href="comment_detail.html">
+                                <a href="comment_detail.php">
                                     <h5>服務人員與套房</h5>
                                 </a>
                                 <div class="border_line"></div>
@@ -103,7 +103,7 @@
                                 <div class="blog_post">
                                     <img src="images/blog/main-blog/m-blog-1.jpg" alt="">
                                     <div class="blog_details">
-                                        <a href="comment_detail.html">
+                                        <a href="comment_detail.php">
                                             <h2>服務人員請不要氣餒</h2>
                                         </a>
                                         <p>好幾年公司尾牙都在此舉辦，今年當然也不例外，疫情當下在台灣還能大啖美食很幸福。今年有個小插曲，
@@ -111,7 +111,7 @@
                                             用餐過程到結束來了好幾位主管來跟我致歉，及詢問我需要什麼善後服務之類，還說要拿件衣服給我換，
                                             或者把衣服送過來清洗都沒關係，我回沒關係不介意別責怪那位服務員，希望那位工讀生別往心裡去，
                                             服務業辛苦了。</p>
-                                        <a href="comment_detail.html" class="view_btn button_hover">查看更多</a>
+                                        <a href="comment_detail.php" class="view_btn button_hover">查看更多</a>
                                     </div>
                                 </div>
                             </div>
@@ -360,7 +360,7 @@
                             <div class="media post_item">
                                 <img src="images/blog/post1.jpg" alt="post">
                                 <div class="media-body">
-                                    <a href="blog-details.html">
+                                    <a href="blog-details.php">
                                         <h3>服務人員請不要氣餒</h3>
                                     </a>
                                     <p>5年前</p>
@@ -369,7 +369,7 @@
                             <div class="media post_item">
                                 <img src="images/blog/post2.jpg" alt="post">
                                 <div class="media-body">
-                                    <a href="blog-details.html">
+                                    <a href="blog-details.php">
                                         <h3>關於房間設計與服務人員看法</h3>
                                     </a>
                                     <p>2年前</p>
@@ -378,7 +378,7 @@
                             <div class="media post_item">
                                 <img src="images/blog/post3.jpg" alt="post">
                                 <div class="media-body">
-                                    <a href="blog-details.html">
+                                    <a href="blog-details.php">
                                         <h3>再也不來這住了</h3>
                                     </a>
                                     <p>2年前</p>
@@ -387,7 +387,7 @@
                             <div class="media post_item">
                                 <img src="images/blog/post4.jpg" alt="post">
                                 <div class="media-body">
-                                    <a href="blog-details.html">
+                                    <a href="blog-details.php">
                                         <h3>這家飯店的婚禮佈置</h3>
                                     </a>
                                     <p>5年前</p>

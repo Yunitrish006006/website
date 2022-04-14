@@ -15,9 +15,9 @@
         <div class="container">
             <div class="option">
                 <ul class="nav nav-pills nav-fill">
-                    <li><a href="index.html">首頁/</a></li>
-                    <li><a href="book.html">訂房/</a></li>
-                    <li><a href="product.html">雙人商務套房</a></li>
+                    <li><a href="index.php">首頁/</a></li>
+                    <li><a href="book.php">訂房/</a></li>
+                    <li><a href="product.php">雙人商務套房</a></li>
                 </ul>
             </div>
             <main>

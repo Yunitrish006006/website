@@ -18,7 +18,7 @@
             <div class="page-cover text-center">
                 <h2 class="page-cover-tittle">訂單查詢</h2>
                     <ol class=" breadcrumb">
-                    <li><a href="index.html">主頁</a></li>
+                    <li><a href="index.php">主頁</a></li>
                     <li class="active">訂單查詢</li>
                     </ol>
             </div>

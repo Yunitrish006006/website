@@ -19,7 +19,7 @@
             <div class="page-cover text-center">
                 <h2 class="page-cover-tittle" ">購物車</h2>
                 <ol class="breadcrumb">
-                    <li><a href="index.html">主頁</a></li>
+                    <li><a href="index.php">主頁</a></li>
                     <li class="active">購物車</li>
                 </ol>
             </div>
@@ -104,7 +104,7 @@
             <div class="col-3 col-sm-2"><input type="submit" value="使用折扣券"></div>
         </div>
         <div class="row" style="margin: 1.5rem 0rem;">
-            <div class="col-2 col-sm-2"><a href="book.html" class="btn theme_btn button_hover">回上一頁</a></div>
+            <div class="col-2 col-sm-2"><a href="book.php" class="btn theme_btn button_hover">回上一頁</a></div>
             <div class="col-2 col-sm-2"></div>
             <div class="col-1 col-sm-2"></div>
             <div class="col-1 col-sm-2"></div>

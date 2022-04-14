@@ -66,7 +66,7 @@
                     <div class="accomodation_item text-center">
                         <div class="hotel_img">
                             <img src="images/room1.jpg" alt="">
-                            <a href="book.html" class="btn theme_btn button_hover">立即訂房</a>
+                            <a href="book.php" class="btn theme_btn button_hover">立即訂房</a>
                         </div>
                         <a href="#">
                             <h4 class="sec_h4">雙人房</h4>
@@ -78,7 +78,7 @@
                     <div class="accomodation_item text-center">
                         <div class="hotel_img">
                             <img src="images/room2.jpg" alt="">
-                            <a href="book.html" class="btn theme_btn button_hover">立即訂房</a>
+                            <a href="book.php" class="btn theme_btn button_hover">立即訂房</a>
                         </div>
                         <a href="#">
                             <h4 class="sec_h4">單人房</h4>
@@ -90,7 +90,7 @@
                     <div class="accomodation_item text-center">
                         <div class="hotel_img">
                             <img src="images/room3.jpg" alt="">
-                            <a href="book.html" class="btn theme_btn button_hover">立即訂房</a>
+                            <a href="book.php" class="btn theme_btn button_hover">立即訂房</a>
                         </div>
                         <a href="#">
                             <h4 class="sec_h4">蜜月房</h4>
@@ -102,7 +102,7 @@
                     <div class="accomodation_item text-center">
                         <div class="hotel_img">
                             <img src="images/room4.jpg" alt="">
-                            <a href="book.html" class="btn theme_btn button_hover">立即訂房</a>
+                            <a href="book.php" class="btn theme_btn button_hover">立即訂房</a>
                         </div>
                         <a href="#">
                             <h4 class="sec_h4">經濟雙人房</h4>
@@ -173,7 +173,7 @@
                             蜂巢飯店於台中賣快建成，剛開幕就獲得熱烈的回響，直至今日也依舊...飯店在2018年決定擴大營業，於彰化、高雄、墾丁開立分館。飯店外部使用了花崗岩的材料，以三種顏色推疊出蜂巢的形狀，別具獨特和創新的外觀設計，
                             吸引了不少慕名而來的顧客。
                         </p>
-                        <a href="about.html" class="button_hover theme_btn_two">了解更多</a>
+                        <a href="about.php" class="button_hover theme_btn_two">了解更多</a>
                     </div>
                 </div>
                 <div class="col-md-6" style="padding: 1rem;">
@@ -197,8 +197,8 @@
                         </div>
                         <div class="details">
                             <div class="tags">
-                                <a href="book.html" class="button_hover tag_btn">立即訂房</a>
-                                <a href="comment.html" class="button_hover tag_btn">更多評論</a>
+                                <a href="book.php" class="button_hover tag_btn">立即訂房</a>
+                                <a href="comment.php" class="button_hover tag_btn">更多評論</a>
                             </div>
                             <a href="#">
                                 <h4 class="sec_h4">來自花蓮的方小姐</h4>
@@ -216,8 +216,8 @@
                         </div>
                         <div class="details">
                             <div class="tags">
-                                <a href="book.html" class="button_hover tag_btn">立即訂房</a>
-                                <a href="comment.html" class="button_hover tag_btn">更多評論</a>
+                                <a href="book.php" class="button_hover tag_btn">立即訂房</a>
+                                <a href="comment.php" class="button_hover tag_btn">更多評論</a>
                             </div>
                             <a href="#">
                                 <h4 class="sec_h4">來自台北的陳先生</h4>
@@ -234,8 +234,8 @@
                         </div>
                         <div class="details">
                             <div class="tags">
-                                <a href="book.html" class="button_hover tag_btn">立即訂房</a>
-                                <a href="comment.html" class="button_hover tag_btn">更多評論</a>
+                                <a href="book.php" class="button_hover tag_btn">立即訂房</a>
+                                <a href="comment.php" class="button_hover tag_btn">更多評論</a>
                             </div>
                             <a href="#">
                                 <h4 class="sec_h4">來自宜蘭的林先生</h4>
