@@ -77,17 +77,17 @@
                     <div class="row ">
                         <div class="col-4">
                             <ul class="list_style">
-                                <li><a href="index.html">主頁</a></li>
-                                <li><a href="about.html">關於</a></li>
-                                <li><a href="contact.html">聯絡</a></li>
+                                <li><a href="index.php">主頁</a></li>
+                                <li><a href="about.php">關於</a></li>
+                                <li><a href="contact.php">聯絡</a></li>
 
                             </ul>
                         </div>
                         <div class="col-4">
                             <ul class="list_style">
-                                <li><a href="book.html">訂房</a></li>
-                                <li><a href="history.html">紀錄</a></li>
-                                <li><a href="comment.html">留言板</a></li>
+                                <li><a href="book.php">訂房</a></li>
+                                <li><a href="history.php">紀錄</a></li>
+                                <li><a href="comment.php">留言板</a></li>
                             </ul>
                         </div>
                     </div>
@@ -98,10 +98,10 @@
                     <h6 class="footer_title">全台分店</h6>
                     <div>
                         <ul class="list_style">
-                            <li><a href="book.html">台中蜂巢飯店</a></li>
-                            <li><a href="book.html">彰化蜂巢飯店</a></li>
-                            <li><a href="book.html">高雄蜂巢飯店</a></li>
-                            <li><a href="book.html">墾丁蜂巢飯店</a></li>
+                            <li><a href="book.php">台中蜂巢飯店</a></li>
+                            <li><a href="book.php">彰化蜂巢飯店</a></li>
+                            <li><a href="book.php">高雄蜂巢飯店</a></li>
+                            <li><a href="book.php">墾丁蜂巢飯店</a></li>
                         </ul>
                     </div>
                 </div>
