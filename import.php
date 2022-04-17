@@ -176,6 +176,12 @@
         );
     }
 </script>
+<script>
+    function play() {
+        var audio = new Audio('button.mp3');
+        audio.play();
+    }
+</script>
 <script src="js/sign.js"></script>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/popper.js"></script>
