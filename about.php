@@ -174,4 +174,9 @@
     </section>
     <?php include("footer.php") ?>
 </body>
+<!--留言板js-->
+<script src="js/sign.js"></script>
+<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="vendors/lightbox/simpleLightbox.min.js"></script>
+<script src="js/custom.js"></script>
 </html>

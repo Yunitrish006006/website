@@ -51,7 +51,7 @@ $(document).ready(function(){
                 },
                 message: {
                     required: "您需要寫些內容",
-                    minlength: "要寫多一點喔？"
+                    minlength: "要寫多一點喔!"
                 }
             },
             submitHandler: function(form) {
