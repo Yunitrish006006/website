@@ -38,40 +38,39 @@
         
         </div>
         
-        <div class="row" style="margin: 1.5rem 0rem;">
-            <div class="col-3 col-sm"><a href="#"><img src="./images/c-1.jpg" alt="" width="100%" height="90%"></a>
-            </div>
-            <div class="col-3 col-sm">商務套房</div>
-            <div class="col-3 col-sm"><input id="date" name="date1" class="date1" type="date"></div>
-            <div class="col-3 col-sm"><input id="date" name="date2" class="date2" type="date"></div>
-            <div class="col-6 col-sm"><select class="wide">
+        <?php
+         $link = mysqli_connect("localhost","root","");     
+         mysqli_select_db($link, "s0961007");
+         mysqli_query($link, "SET NAMES UTF8");
+	     $sqlstr = "SELECT * FROM cart as c, product as p WHERE c.pno=p.pno;";
+	     $result = mysqli_query($link, $sqlstr);
+	     $nrow = mysqli_num_rows($result);
+	     $i = 1;
+	   while($i<= $nrow)
+	   {
+	      $record = mysqli_fetch_object($result);
+          echo '<div class="row" style="margin: 1.5rem 0rem;">';
+          echo '<div class="col-3 col-sm"><img src="'.$record->picture.'" alt="" width="100%" height="90%"></div>';
+          echo '<div class="col-3 col-sm">'.$record->pname.'</div>';
+          echo '<div class="col-3 col-sm"><input id="date" name="date1" class="date1" type="date"></div>';
+          echo  '<div class="col-3 col-sm"><input id="date" name="date2" class="date2" type="date"></div>';
+		  echo'<div class="col-6 col-sm"><select class="wide">
                     <option data-display="房間數量">房間數量</option>
                     <option value="1"> 1間 </option>
                     <option value="2"> 2間 </option>
                     <option value="3"> 3間 </option>
                     <option value="4"> 4間 </option>
-                </select></div>
-            <div class="col-3 col-sm">$4200</div>
-            <div class="col-3 col-sm"><a href="#"><img src="./images/delete.png" alt="" width="30px" height="30px"></a>
-            </div>
-        </div>
-        <div class="row" style="margin: 1.5rem 0rem;">
-            <div class="col-3 col-sm"><a href="#"><img src="./images/c-2.jpg" alt="" width="100%" height="90%"></a>
-            </div>
-            <div class="col-3 col-sm">海景雙人房</div>
-            <div class="col-3 col-sm"><input type="date"></div>
-            <div class="col-3 col-sm"><input type="date"></div>
-            <div class="col-6 col-sm"><select class="wide">
-                    <option data-display="房間數量">房間數量</option>
-                    <option value="1"> 1間 </option>
-                    <option value="2"> 2間 </option>
-                    <option value="3"> 3間 </option>
-                    <option value="3"> 4間 </option>
-                </select></div>
-            <div class="col-3 col-sm">$4400</div>
-            <div class="col-3 col-sm"><a href="#"><img src="./images/delete.png" alt="" width="30px" height="30px"></a>
-            </div>
-        </div>
+                </select></div>';
+         echo '<div class="col-3 col-sm">'.$record->unitprice.'</div>';
+         echo '<div class="col-3 col-sm"><a href="#"><img src="./images/delete.png" alt="" width="30px" height="30px"></a>';
+         $i++;
+	   }
+	
+	   mysqli_free_result($result);
+       mysqli_close($link);
+	
+      
+        ?>
         <div class="row" style="margin: 1.5rem 0rem;">
             <div class="col col-sm"></div>
             <div class="col col-sm"></div>

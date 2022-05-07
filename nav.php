@@ -32,7 +32,7 @@
                             <li class="nav-item"><a class="nav-link" href="book.php">訂房/房型介紹</a></li>
                             <li class="nav-item"><a class="nav-link" href="history.php">訂房紀錄</a></li>
                             <li class="nav-item"><a class="nav-link" href="cart.php">購物車
-                                    <span class="toolbar-num">2</span></a></li>
+                                    <span class="toolbar-num"  id="cart_cnt"></span></a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="comment.php">留言板</a></li>
