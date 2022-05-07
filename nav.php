@@ -56,7 +56,6 @@
                         <ul class="dropdown-menu">
                             <li class="nav-item"><a class="nav-link" href="book.php">繁體中文</a></li>
                             <li class="nav-item"><a class="nav-link" href="history.php">English</a></li>
-                            <li class="nav-item"><a class="nav-link" href="history.php">日本語</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><audio autoplay="autoplay"><source src="sounds/minecraft_bgm.mp3"/></audio></li>
