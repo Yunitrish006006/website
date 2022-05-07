@@ -13,7 +13,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse offset " id="navbarSupportedContent">
                 <ul class="nav navbar-nav menu_nav ml-auto  ">
-                    <form class="d-flex nav-link ">
+                    <form class="d-flex nav-link form-inline">
                         <input class="form-control me-2 " type="search" placeholder="搜尋" aria-label="Search">
                         <button onclick="play()" class="btn  btn-outline-secondary " type="submit"><i class="bi bi-search"></i></button>
                     </form>
@@ -59,7 +59,7 @@
                             <li class="nav-item"><a class="nav-link" href="history.php">日本語</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><audio autoplay="autoplay"><source src="minecraft_bgm.mp3"/></audio></li>
+                    <li class="nav-item"><audio autoplay="autoplay"><source src="sounds/minecraft_bgm.mp3"/></audio></li>
                 </ul>
             </div>
         </nav>
