@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 <!-- icon import -->
+=======
+>>>>>>> 5b553241cf6361ff1fbc5e700ab2760841c97bcc
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 <header class="header_area">
     <div class="container">
@@ -58,7 +61,11 @@
                             <li class="nav-item"><a class="nav-link" href="history.php">日本語</a></li>
                         </ul>
                     </li>
+<<<<<<< HEAD
                     <li class="nav-item"><audio autoplay="autoplay"><source src="minecraft_bgm.mp3"/></audio></li>
+=======
+                    <li class="nav-item"><audio autoplay="autoplay"><source src="sounds/minecraft_bgm.mp3"/></audio></li>
+>>>>>>> 5b553241cf6361ff1fbc5e700ab2760841c97bcc
                 </ul>
             </div>
         </nav>
