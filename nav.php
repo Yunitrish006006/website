@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 <header class="header_area">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light ">
@@ -14,7 +15,7 @@
                 <ul class="nav navbar-nav menu_nav ml-auto  ">
                     <form class="d-flex nav-link ">
                         <input class="form-control me-2 " type="search" placeholder="搜尋" aria-label="Search">
-                        <button onclick="play()" class="btn  btn-outline-secondary " type="submit">Search</button>
+                        <button onclick="play()" class="btn  btn-outline-secondary " type="submit"><i class="bi bi-search"></i></button>
                     </form>
                     <li class="nav-item"><a class="nav-link" href="index.php">首頁</a></li>
                     <li class="nav-item submenu dropdown">
@@ -58,6 +59,7 @@
                             <li class="nav-item"><a class="nav-link" href="history.php">日本語</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item"><audio autoplay="autoplay"><source src="minecraft_bgm.mp3"/></audio></li>
                 </ul>
             </div>
         </nav>
