@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/comment.js"></script>
     <title>蜂巢飯店</title>
     <?php include("import.php") ?>
 </head>
@@ -51,7 +52,6 @@
                                     <li><a href="#">林小姐<i class="lnr lnr-user"></i></a></li>
                                     <li><a href="#">12 Dec, 2017<i class="lnr lnr-calendar-full"></i></a></li>
                                     <li><a href="#">1.2M 觀看者<i class="lnr lnr-eye"></i></a></li>
-                                    <li><a href="#">5 則留言<i class="lnr lnr-bubble"></i></a></li>
                                 </ul>
                                 <ul class="social-links">
                                     <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
@@ -113,126 +113,7 @@
                         </div>
                     </div>
                     <!---  留言區   -->
-                    <div class="comments-area">
-                        <h4>5則留言</h4>
-                        <div class="comment-list">
-                            <div class="single-comment justify-content-between d-flex">
-                                <div class="user justify-content-between d-flex">
-                                    <div class="thumb">
-                                        <img src="images/blog/c1.jpg" alt="">
-                                    </div>
-                                    <div class="desc">
-                                        <h5><a href="#">方小姐</a></h5>
-                                        <p class="date">December 4, 2017 at 3:12 pm </p>
-                                        <p class="comment">
-                                            希望工讀生不要氣餒！
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="reply-btn">
-                                    <a href="" class="btn-reply text-uppercase">回覆</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="comment-list left-padding">
-                            <div class="single-comment justify-content-between d-flex">
-                                <div class="user justify-content-between d-flex">
-                                    <div class="thumb">
-                                        <img src="images/blog/c2.jpg" alt="">
-                                    </div>
-                                    <div class="desc">
-                                        <h5><a href="#">高先生</a></h5>
-                                        <p class="date">December 4, 2017 at 3:12 pm </p>
-                                        <p class="comment">
-                                            +1
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="reply-btn">
-                                    <a href="" class="btn-reply text-uppercase">回覆</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="comment-list left-padding">
-                            <div class="single-comment justify-content-between d-flex">
-                                <div class="user justify-content-between d-flex">
-                                    <div class="thumb">
-                                        <img src="images/blog/c3.jpg" alt="">
-                                    </div>
-                                    <div class="desc">
-                                        <h5><a href="#">廖小姐</a></h5>
-                                        <p class="date">December 4, 2017 at 3:12 pm </p>
-                                        <p class="comment">
-                                            +1
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="reply-btn">
-                                    <a href="" class="btn-reply text-uppercase">回覆</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="comment-list">
-                            <div class="single-comment justify-content-between d-flex">
-                                <div class="user justify-content-between d-flex">
-                                    <div class="thumb">
-                                        <img src="images/blog/c4.jpg" alt="">
-                                    </div>
-                                    <div class="desc">
-                                        <h5><a href="#">吳小姐</a></h5>
-                                        <p class="date">December 4, 2017 at 3:12 pm </p>
-                                        <p class="comment">
-                                            妳人真好，要是我應該瘋掉了。
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="reply-btn">
-                                    <a href="" class="btn-reply text-uppercase">回覆</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="comment-list">
-                            <div class="single-comment justify-content-between d-flex">
-                                <div class="user justify-content-between d-flex">
-                                    <div class="thumb">
-                                        <img src="images/blog/c5.jpg" alt="">
-                                    </div>
-                                    <div class="desc">
-                                        <h5><a href="#">簡先生</a></h5>
-                                        <p class="date">December 4, 2017 at 3:12 pm </p>
-                                        <p class="comment">
-                                            好人有好報。
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="reply-btn">
-                                    <a href="" class="btn-reply text-uppercase">回覆</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="comment-form">
-                        <h4>留下您的意見吧！</h4>
-                        <form>
-                            <div class="form-group form-inline">
-                                <div class="form-group col-lg-6 col-md-6 name">
-                                    <input type="text" class="form-control" id="name" placeholder="填寫您的姓氏"
-                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Name'">
-                                </div>
-                                <div class="form-group col-lg-6 col-md-6 email">
-                                    <input type="email" class="form-control" id="email" placeholder="填寫您的郵件地址"
-                                        onfocus="this.placeholder = ''"
-                                        onblur="this.placeholder = 'Enter email address'">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control mb-10" rows="5" name="message" placeholder="填寫您的內容"
-                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'"
-                                    required=""></textarea>
-                            </div>
-                            <a href="#" class="primary-btn button_hover">傳送</a>
-                        </form>
-                    </div>
+                    <?php include("message.php") ?>
                 </div>
                 <!---      右側頁面  -->
                 <div class="col-lg-4">
