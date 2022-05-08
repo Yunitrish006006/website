@@ -1,6 +1,5 @@
 <!-- icon import -->
-=======
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 <header class="header_area">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light ">
