@@ -1,5 +1,5 @@
 <!-- icon import -->
-link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 <header class="header_area">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light ">
@@ -32,7 +32,7 @@ link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/f
                         <ul class="dropdown-menu">
                             <li class="nav-item"><a class="nav-link" href="book.php">訂房/房型介紹</a></li>
                             <li class="nav-item"><a class="nav-link" href="history.php">訂房紀錄</a></li>
-                            <li class="nav-item"><a class="nav-link" href="cart.php">購物車<span class="toolbar-num">2</span></a></li>
+                            <li class="nav-item"><a class="nav-link" href="cart.php">購物車<span class="toolbar-num" id="cart_cnt"></span></a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="comment.php">留言板</a></li>
