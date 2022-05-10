@@ -15,35 +15,14 @@
     text-decoration: none;
     padding: 1.5rem 0.3rem;
     transition: all 0.25s ease;
+    
 }
 
-main {
-    display: flex;
-
-}
-
-.right {
-    padding: 4rem 8rem;
-}
-
-.right h5 {
-    margin-top: 2rem;
-}
 
 @media (max-width: 700px) {
     main {
         display: inline-block;
     }
-    .right{
-        padding-left: 2rem;
-        padding-top: 0rem;
-    }
+    
 }
-.date1{
-    margin-left: 0.5rem; 
-    margin-bottom:1rem;    
-}
-.date2{
-    margin-left: 0.5rem;
-    margin-bottom:1rem;
-}
+
