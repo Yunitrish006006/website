@@ -57,11 +57,7 @@
                             <li class="nav-item"><a class="nav-link" href="history.php">English</a></li>
                         </ul>
                     </li>
-<<<<<<< HEAD
-                    <li class="nav-item"><audio autoplay="autoplay"><source src="minecraft_bgm.mp3"/></audio></li>
-=======
                     <li class="nav-item"><audio autoplay="autoplay"><source src="sounds/minecraft_bgm.mp3"/></audio></li>
->>>>>>> 5b553241cf6361ff1fbc5e700ab2760841c97bcc
                 </ul>
             </div>
         </nav>
