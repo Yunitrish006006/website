@@ -81,402 +81,119 @@
     <div class="row tm-gallery">
         <!-- gallery page 1 -->
         <div id="tm-gallery-page-台北旗艦店" class="tm-gallery-page">
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/r1.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-            
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">經典蜂巢房</h4>
-                        <p class="tm-gallery-description">參考蜂巢樣式設計，結合科技感打造出的房間。多孔洞的設計使得整個房間是通風的，冬暖夏涼。
-                        <section class="tm-gallery-price">$4100</section>
-                        </p>
-                        <button id="p1" class="btn btn-primary" onclick="cart(1,1)">加入購物車</button>
-            
-                    </figcaption>
+        <?php
+            $link = mysqli_connect("localhost","root","");     
+            mysqli_select_db($link, "s0961007");
+            mysqli_query($link, "SET NAMES UTF8");
+            for($i=1;$i<=6;$i++){
+                 $sqlstr1 = "SELECT `pno`, `pname`, `description`, `picture`, `unitprice`, `category` FROM `product` WHERE pno=".$i.";";
+                 $result=mysqli_query($link, $sqlstr1);
+                 $record = mysqli_fetch_object($result);
+                 echo '<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item"><figure><a href="./product.php"><img src="'.$record->picture.'alt="Image" class="img-fluid tm-gallery-img" /></a><figcaption style="text-align: center;">';
+                 echo '<h4 class="tm-gallery-title">'.$record->pname.'</h4>';
+                 echo '<p class="tm-gallery-description">'.$record->description;
+                 echo '<section class="tm-gallery-price">$'.$record->unitprice.'</section>';
+                 echo '<button id="p"'. $i .' class="btn btn-primary" onclick="cart(1,$i)">加入購物車</button></figcaption>
                 </figure>
-            </article>
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/t-1.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">雙人商務套房</h4>
-                        <p class="tm-gallery-description">典雅沈穩的空間佈置搭配柔軟舒適床組，營造出全然放鬆環境，讓疲累的身心享有片刻寧靜，換來一夜好眠。
-                        <section class="tm-gallery-price">$2800</section>
-                        </p>
-                        <button id="p2" class="btn btn-primary" onclick="cart(1,2)">加入購物車</button>
-
-                    </figcaption>
-                </figure>
-            </article>
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/t-2.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">單人商務套房</h4>
-                        <p class="tm-gallery-description">精緻且設備齊全的客房，舒適而毫無拘束感，讓您避免外界干擾，暫忘都市的塵囂，感受如家的自在與悠閒。
-                        <section class="tm-gallery-price">$2200</section>
-                        </p>
-                        <button id="p3" class="btn btn-primary" onclick="cart(1,3)">加入購物車</button>
-
-                    </figcaption>
-                </figure>
-            </article>
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/t-3.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">雅致客房</h4>
-                        <p class="tm-gallery-description">客房空間寬敞明亮，配備遼闊的視野、風格獨特的藝術畫作，疲累的旅人在此可享有舒適的休憩。
-                        <section class="tm-gallery-price">$2300</section>
-                        </p>
-                        <button id="p4" class="btn btn-primary" onclick="cart(1,4)">加入購物車</button>
-                    </figcaption>
-                </figure>
-            </article>
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/t-4.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">經典客房</h4>
-                        <p class="tm-gallery-description">運用溫暖色調及富時尚感的傢俱擺設，打造舒適、寬敞的休憩環境，更適合長期商旅住宿。
-                        <section class="tm-gallery-price">$3500</section>
-                        </p>
-                        <button id="p5" class="btn btn-primary" onclick="cart(1,5)">加入購物車</button>
-
-                    </figcaption>
-                </figure>
-            </article>
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/t-5.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">經典套房</h4>
-                        <p class="tm-gallery-description">明亮的光線、溫馨的陳設及獨具的風格藝術品，打造20坪客房及客廳的專屬私人休憩空間。
-                        <section class="tm-gallery-price">$3350</section>
-                        </p>
-                        <button id="p6" class="btn btn-primary" onclick="cart(1,6)">加入購物車</button>
-
-                    </figcaption>
-                </figure>
-            </article>
-
+            </article>';
+            }
+           
+            mysqli_close($link);
+        ?>
+           
         </div> <!-- gallery page 1 -->
 
         <!-- gallery page 2 -->
         <div id="tm-gallery-page-台中逢甲店" class="tm-gallery-page hidden">
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/k-1.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">商務套房</h4>
-                        <p class="tm-gallery-description">典雅沈穩的空間佈置搭配柔軟舒適床組，營造出全然放鬆環境，讓疲累的身心享有片刻寧靜，換來一夜好眠。
-                        <section class="tm-gallery-price">$3160</section>
-                        </p>
-                        <button id="p7" class="btn btn-primary" onclick="cart(1,7)">加入購物車</button>
-
-                    </figcaption>
+             <?php
+            $link = mysqli_connect("localhost","root","");     
+            mysqli_select_db($link, "s0961007");
+            mysqli_query($link, "SET NAMES UTF8");
+            for($i=7;$i<=11;$i++){
+                 $sqlstr1 = "SELECT `pno`, `pname`, `description`, `picture`, `unitprice`, `category` FROM `product` WHERE pno=".$i.";";
+                 $result=mysqli_query($link, $sqlstr1);
+                 $record = mysqli_fetch_object($result);
+                 echo '<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item"><figure><a href="./product.php"><img src="'.$record->picture.'alt="Image" class="img-fluid tm-gallery-img" /></a><figcaption style="text-align: center;">';
+                 echo '<h4 class="tm-gallery-title">'.$record->pname.'</h4>';
+                 echo '<p class="tm-gallery-description">'.$record->description;
+                 echo '<section class="tm-gallery-price">$'.$record->unitprice.'</section>';
+                 echo '<button id="p"'. $i .' class="btn btn-primary" onclick="cart(1,$i)">加入購物車</button></figcaption>
                 </figure>
-            </article>
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/k-2.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">海景雙人房</h4>
-                        <p class="tm-gallery-description">精緻且設備齊全的客房，舒適而毫無拘束感，讓您避免外界干擾，暫忘都市的塵囂，感受如家的自在與悠閒。
-                        <section class="tm-gallery-price">$3500</section>
-                        </p>
-                        <button id="p8" class="btn btn-primary" onclick="cart(1,8)">加入購物車</button>
-                    </figcaption>
-                </figure>
-            </article>
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/K-3.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">典雅四人房</h4>
-                        <p class="tm-gallery-description">客房空間寬敞明亮，配備遼闊的視野、風格獨特的藝術畫作，疲累的旅人在此可享有舒適的休憩。
-                        <section class="tm-gallery-price">$5000</section>
-                        </p>
-                        <button id="p9" class="btn btn-primary" onclick="cart(1,9)">加入購物車</button>
-
-                    </figcaption>
-                </figure>
-            </article>
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/k-4.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">大道套房</h4>
-                        <p class="tm-gallery-description">運用溫暖色調及富時尚感的傢俱擺設，打造舒適、寬敞的休憩環境，更適合長期商旅住宿。
-                        <section class="tm-gallery-price">$4800</section>
-                        </p>
-                        <button id="p10" class="btn btn-primary" onclick="cart(1,10)">加入購物車</button>
-
-                    </figcaption>
-                </figure>
-            </article>
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/k-5.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">行政套房</h4>
-                        <p class="tm-gallery-description">運用溫暖色調及富時尚感的傢俱擺設，打造舒適、寬敞的休憩環境，更適合長期商旅住宿。
-                        <section class="tm-gallery-price">$3350</section>
-                        </p>
-                        <button id="p11" class="btn btn-primary" onclick="cart(1,11)">加入購物車</button>
-
-                    </figcaption>
-                </figure>
-            </article>
-
+            </article>';
+            }
+           
+            mysqli_close($link);
+        ?>
         </div> <!-- gallery page 2 -->
 
         <!-- gallery page 3 -->
         <div id="tm-gallery-page-高雄愛河店" class="tm-gallery-page hidden">
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/c-1.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">商務套房</h4>
-                        <p class="tm-gallery-description">典雅沈穩的空間佈置搭配柔軟舒適床組，營造出全然放鬆環境，讓疲累的身心享有片刻寧靜，換來一夜好眠。
-                        <section class="tm-gallery-price">$4200</section>
-                        </p>
-                        <button id="p12" class="btn btn-primary" onclick="cart(1,12)">加入購物車</button>
-
-                    </figcaption>
+             <?php
+            $link = mysqli_connect("localhost","root","");     
+            mysqli_select_db($link, "s0961007");
+            mysqli_query($link, "SET NAMES UTF8");
+            for($i=12;$i<=15;$i++){
+                 $sqlstr1 = "SELECT `pno`, `pname`, `description`, `picture`, `unitprice`, `category` FROM `product` WHERE pno=".$i.";";
+                 $result=mysqli_query($link, $sqlstr1);
+                 $record = mysqli_fetch_object($result);
+                 echo '<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item"><figure><a href="./product.php"><img src="'.$record->picture.'alt="Image" class="img-fluid tm-gallery-img" /></a><figcaption style="text-align: center;">';
+                 echo '<h4 class="tm-gallery-title">'.$record->pname.'</h4>';
+                 echo '<p class="tm-gallery-description">'.$record->description;
+                 echo '<section class="tm-gallery-price">$'.$record->unitprice.'</section>';
+                 echo '<button id="p"'. $i .' class="btn btn-primary" onclick="cart(1,$i)">加入購物車</button></figcaption>
                 </figure>
-            </article>
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/c-2.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">海景雙人房</h4>
-                        <p class="tm-gallery-description">精緻且設備齊全的客房，舒適而毫無拘束感，讓您避免外界干擾，暫忘都市的塵囂，感受如家的自在與悠閒。
-                        <section class="tm-gallery-price">$4400</section>
-                        </p>
-                        <button id="p13" class="btn btn-primary" onclick="cart(1,13)">加入購物車</button>
-
-                    </figcaption>
-                </figure>
-            </article>
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/c-3.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">典雅四人房</h4>
-                        <p class="tm-gallery-description">客房空間寬敞明亮，配備遼闊的視野、風格獨特的藝術畫作，疲累的旅人在此可享有舒適的休憩。
-                        <section class="tm-gallery-price">$5300</section>
-                        </p>
-                        <button id="p14" class="btn btn-primary" onclick="cart(1,14)">加入購物車</button>
-
-                    </figcaption>
-                </figure>
-            </article>
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/c-4.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">森林套房</h4>
-                        <p class="tm-gallery-description">運用溫暖色調及富時尚感的傢俱擺設，打造舒適、寬敞的休憩環境，更適合長期商旅住宿。
-                        <section class="tm-gallery-price">$3750</section>
-                        </p>
-                        <button id="p15" class="btn btn-primary" onclick="cart(1,15)">加入購物車</button>
-
-                    </figcaption>
-                </figure>
-            </article>
-
+            </article>';
+            }
+           
+            mysqli_close($link);
+        ?>
         </div> <!-- gallery page 3 -->
 
         <!-- gallery page 4 -->
         <div id="tm-gallery-page-彰化鹿港店" class="tm-gallery-page hidden">
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/p-1.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">英倫皇風</h4>
-                        <p class="tm-gallery-description">典雅沈穩的空間佈置搭配柔軟舒適床組，營造出全然放鬆環境，讓疲累的身心享有片刻寧靜，換來一夜好眠。
-                        <section class="tm-gallery-price">$3900</section>
-                        </p>
-                        <button id="p16" class="btn btn-primary" onclick="cart(1,16)">加入購物車</button>
-
-                    </figcaption>
+             <?php
+            $link = mysqli_connect("localhost","root","");     
+            mysqli_select_db($link, "s0961007");
+            mysqli_query($link, "SET NAMES UTF8");
+            for($i=16;$i<=19;$i++){
+                 $sqlstr1 = "SELECT `pno`, `pname`, `description`, `picture`, `unitprice`, `category` FROM `product` WHERE pno=".$i.";";
+                 $result=mysqli_query($link, $sqlstr1);
+                 $record = mysqli_fetch_object($result);
+                 echo '<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item"><figure><a href="./product.php"><img src="'.$record->picture.'alt="Image" class="img-fluid tm-gallery-img" /></a><figcaption style="text-align: center;">';
+                 echo '<h4 class="tm-gallery-title">'.$record->pname.'</h4>';
+                 echo '<p class="tm-gallery-description">'.$record->description;
+                 echo '<section class="tm-gallery-price">$'.$record->unitprice.'</section>';
+                 echo '<button id="p"'. $i .' class="btn btn-primary" onclick="cart(1,$i)">加入購物車</button></figcaption>
                 </figure>
-            </article>
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/p-2.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">卡米樂</h4>
-                        <p class="tm-gallery-description">精緻且設備齊全的客房，舒適而毫無拘束感，讓您避免外界干擾，暫忘都市的塵囂，感受如家的自在與悠閒。
-                        <section class="tm-gallery-price">$3750</section>
-                        </p>
-                        <button id="p17" class="btn btn-primary" onclick="cart(1,17)">加入購物車</button>
-
-                    </figcaption>
-                </figure>
-            </article>
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/p-3.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">十里洋場</h4>
-                        <p class="tm-gallery-description">客房空間寬敞明亮，配備遼闊的視野、風格獨特的藝術畫作，疲累的旅人在此可享有舒適的休憩。
-                        <section class="tm-gallery-price">$4200</section>
-                        </p>
-                        <button id="p18" class="btn btn-primary" onclick="cart(1,18)">加入購物車</button>
-
-                    </figcaption>
-                </figure>
-            </article>
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/p-4.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">大唐盛世</h4>
-                        <p class="tm-gallery-description">運用溫暖色調及富時尚感的傢俱擺設，打造舒適、寬敞的休憩環境，更適合長期商旅住宿。
-                        <section class="tm-gallery-price">$4500</section>
-                        </p>
-                        <button id="p19" class="btn btn-primary" onclick="cart(1,19)">加入購物車</button>
-
-                    </figcaption>
-                </figure>
-            </article>
+            </article>';
+            }
+           
+            mysqli_close($link);
+        ?>
 
         </div> <!-- gallery page 4 -->
 
         <!-- gallery page 5 -->
         <div id="tm-gallery-page-墾丁恆春店" class="tm-gallery-page hidden">
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/r-1.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">枯麻主題一館</h4>
-                        <p class="tm-gallery-description">典雅沈穩的空間佈置搭配柔軟舒適床組，營造出全然放鬆環境，讓疲累的身心享有片刻寧靜，換來一夜好眠。
-                        <section class="tm-gallery-price">$2350</section>
-                        </p>
-                        <button id="p20" class="btn btn-primary" onclick="cart(1,20)">加入購物車</button>
-
-                    </figcaption>
+             <?php
+            $link = mysqli_connect("localhost","root","");     
+            mysqli_select_db($link, "s0961007");
+            mysqli_query($link, "SET NAMES UTF8");
+            for($i=20;$i<=27;$i++){
+                 $sqlstr1 = "SELECT `pno`, `pname`, `description`, `picture`, `unitprice`, `category` FROM `product` WHERE pno=".$i.";";
+                 $result=mysqli_query($link, $sqlstr1);
+                 $record = mysqli_fetch_object($result);
+                 echo '<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item"><figure><a href="./product.php"><img src="'.$record->picture.'alt="Image" class="img-fluid tm-gallery-img" /></a><figcaption style="text-align: center;">';
+                 echo '<h4 class="tm-gallery-title">'.$record->pname.'</h4>';
+                 echo '<p class="tm-gallery-description">'.$record->description;
+                 echo '<section class="tm-gallery-price">$'.$record->unitprice.'</section>';
+                 echo '<button id="p"'. $i .' class="btn btn-primary" onclick="cart(1,$i)">加入購物車</button></figcaption>
                 </figure>
-            </article>
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/r-2.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">枯麻主題二館</h4>
-                        <p class="tm-gallery-description">精緻且設備齊全的客房，舒適而毫無拘束感，讓您避免外界干擾，暫忘都市的塵囂，感受如家的自在與悠閒。
-                        <section class="tm-gallery-price">$2400</section>
-                        </p>
-                        <button id="p21" class="btn btn-primary" onclick="cart(1,21)">加入購物車</button>
-
-                    </figcaption>
-                </figure>
-            </article>
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/r-3.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">枯麻主題三館</h4>
-                        <p class="tm-gallery-description">客房空間寬敞明亮，配備遼闊的視野、風格獨特的藝術畫作，疲累的旅人在此可享有舒適的休憩。
-                        <section class="tm-gallery-price">$2450</section>
-                        </p>
-                        <button id="p22" class="btn btn-primary" onclick="cart(1,22)">加入購物車</button>
-
-                    </figcaption>
-                </figure>
-            </article>
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/r-4.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">妖怪列車</h4>
-                        <p class="tm-gallery-description">運用溫暖色調及富時尚感的傢俱擺設，打造舒適、寬敞的休憩環境，更適合長期商旅住宿。
-                        <section class="tm-gallery-price">$2300</section>
-                        </p>
-                        <button id="p23" class="btn btn-primary" onclick="cart(1,23)">加入購物車</button>
-
-                    </figcaption>
-                </figure>
-            </article>
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/r-5.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">粉紅城堡</h4>
-                        <p class="tm-gallery-description">運用溫暖色調及富時尚感的傢俱擺設，打造舒適、寬敞的休憩環境，更適合長期商旅住宿。
-                        <section class="tm-gallery-price">$3350</section>
-                        </p>
-                        <button id="p24" class="btn btn-primary" onclick="cart(1,24)">加入購物車</button>
-
-                    </figcaption>
-                </figure>
-            </article>
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/r-6.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">百老匯</h4>
-                        <p class="tm-gallery-description">運用溫暖色調及富時尚感的傢俱擺設，打造舒適、寬敞的休憩環境，更適合長期商旅住宿。
-                        <section class="tm-gallery-price">$3500</section>
-                        </p>
-                        <button id="p25" class="btn btn-primary" onclick="cart(1,25)">加入購物車</button>
-
-                    </figcaption>
-                </figure>
-            </article>
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/r-7.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">歡樂屋</h4>
-                        <p class="tm-gallery-description">運用溫暖色調及富時尚感的傢俱擺設，打造舒適、寬敞的休憩環境，更適合長期商旅住宿。
-                        <section class="tm-gallery-price">$4250</section>
-                        </p>
-                        <button id="p26" class="btn btn-primary" onclick="cart(1,26)">加入購物車</button>
-
-                    </figcaption>
-                </figure>
-            </article>
-            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                <figure>
-                    <a href="./product.php"><img src="images/r-8.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a>
-
-                    <figcaption style="text-align: center;">
-                        <h4 class="tm-gallery-title">夜森之謎</h4>
-                        <p class="tm-gallery-description">運用溫暖色調及富時尚感的傢俱擺設，打造舒適、寬敞的休憩環境，更適合長期商旅住宿。
-                        <section class="tm-gallery-price">$3800</section>
-                        </p>
-                        <button id="p27" class="btn btn-primary" onclick="cart(1,27)">加入購物車</button>
-
-                    </figcaption>
-                </figure>
-            </article>
+            </article>';
+            }
+           
+            mysqli_close($link);
+        ?>
         </div> <!-- gallery page 5 -->
     </div>
     <?php include("footer.php") ?>
