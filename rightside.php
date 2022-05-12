@@ -74,43 +74,43 @@
             <h4 class="widget_title">貼文種類</h4>
             <ul class="list_style cat-list">
                 <li>
-                    <a href="#" class="d-flex justify-content-between">
+                    <a  class="d-flex justify-content-between">
                         <p>食物</p>
                         <p>37</p>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="d-flex justify-content-between">
+                    <a  class="d-flex justify-content-between">
                         <p>套房</p>
                         <p>24</p>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="d-flex justify-content-between">
+                    <a  class="d-flex justify-content-between">
                         <p>服務人員</p>
                         <p>59</p>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="d-flex justify-content-between">
+                    <a  class="d-flex justify-content-between">
                         <p>飯店活動</p>
                         <p>29</p>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="d-flex justify-content-between">
+                    <a  class="d-flex justify-content-between">
                         <p>飯店設施</p>
                         <p>15</p>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="d-flex justify-content-between">
+                    <a  class="d-flex justify-content-between">
                         <p>飯店外觀</p>
                         <p>09</p>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="d-flex justify-content-between">
+                    <a  class="d-flex justify-content-between">
                         <p>飯店cp值</p>
                         <p>44</p>
                     </a>
@@ -140,14 +140,14 @@
         <aside class="single-sidebar-widget tag_cloud_widget">
             <h4 class="widget_title">標籤</h4>
             <ul class="list_style">
-                <li><a href="#">食物</a></li>
-                <li><a href="#">服務人員</a></li>
-                <li><a href="#">套房</a></li>
-                <li><a href="#">飯店外觀</a></li>
-                <li><a href="#">飯店活動</a></li>
-                <li><a href="#">飯店cp值</a></li>
-                <li><a href="#">飯店清潔</a></li>
-                <li><a href="#">其他</a></li>
+                <li><a >食物</a></li>
+                <li><a >服務人員</a></li>
+                <li><a >套房</a></li>
+                <li><a >飯店外觀</a></li>
+                <li><a >飯店活動</a></li>
+                <li><a >飯店cp值</a></li>
+                <li><a >飯店清潔</a></li>
+                <li><a >其他</a></li>
 
             </ul>
         </aside>

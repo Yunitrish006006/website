@@ -28,7 +28,6 @@
 				<div class="c1 reply-btn">
 					<span>林昀佑:</span>
 					<span>這個人好智障</span>
-					<a href="" class="btn-reply text-uppercase">刪除</a>
 				</div>
 				<div >01月04日 01：28</div>
 			</div>
@@ -36,7 +35,6 @@
 				<div class="c1 reply-btn">
 					<span>匿名:</span>
 					<span>服務人員真辛苦</span>
-					<a href="" class="btn-reply text-uppercase">刪除</a>
 				</div>
 				<div >01月04日 01：28</div>
 			</div>

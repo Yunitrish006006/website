@@ -86,16 +86,16 @@
                             <div class="col-md-3">
                                 <div class="blog_info text-right">
                                     <div class="post_tag">
-                                        <a href="#">食物,</a>
-                                        <a href="#">飯店活動,</a>
-                                        <a href="#">服務人員,</a>
-                                        <a href="#">套房</a>
+                                        <a >食物,</a>
+                                        <a >飯店活動,</a>
+                                        <a >服務人員,</a>
+                                        <a >套房</a>
                                     </div>
                                     <ul class="blog_meta list_style">
-                                        <li><a href="#">林小姐<i class="lnr lnr-user"></i></a></li>
-                                        <li><a href="#">12 Dec, 2017<i class="lnr lnr-calendar-full"></i></a></li>
-                                        <li><a href="#">1.2M 觀看者<i class="lnr lnr-eye"></i></a></li>
-                                        <li><a href="#">5 則留言<i class="lnr lnr-bubble"></i></a></li>
+                                        <li><a >林小姐<i class="lnr lnr-user"></i></a></li>
+                                        <li><a >12 Dec, 2017<i class="lnr lnr-calendar-full"></i></a></li>
+                                        <li><a >1.2M 觀看者<i class="lnr lnr-eye"></i></a></li>
+                                        <li><a >5 則留言<i class="lnr lnr-bubble"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -120,22 +120,22 @@
                             <div class="col-md-3">
                                 <div class="blog_info text-right">
                                     <div class="post_tag">
-                                        <a href="#">食物,</a>
-                                        <a href="#">飯店活動,</a>
-                                        <a href="#">服務人員,</a>
-                                        <a href="#">套房</a>
+                                        <a >食物,</a>
+                                        <a >飯店活動,</a>
+                                        <a >服務人員,</a>
+                                        <a >套房</a>
                                     </div>
                                     <ul class="blog_meta list_style">
-                                        <li><a href="#">楊先生<i class="lnr lnr-user"></i></a></li>
-                                        <li><a href="#">25 Jun, 2019<i class="lnr lnr-calendar-full"></i></a></li>
-                                        <li><a href="#">1.0M 觀看者<i class="lnr lnr-eye"></i></a></li>
-                                        <li><a href="#">3 則留言<i class="lnr lnr-bubble"></i></a></li>
+                                        <li><a >楊先生<i class="lnr lnr-user"></i></a></li>
+                                        <li><a >25 Jun, 2019<i class="lnr lnr-calendar-full"></i></a></li>
+                                        <li><a >1.0M 觀看者<i class="lnr lnr-eye"></i></a></li>
+                                        <li><a >3 則留言<i class="lnr lnr-bubble"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-md-9">
                                 <div class="blog_post">
-                                    <img src="images/blog/main-blog/m-blog-2.jpg" alt="">
+                                    <img src="images/blog/main-blog/m-blog-8.jpg" alt="">
                                     <div class="blog_details">
                                         <a href="#">
                                             <h2>關於房間設計與服務人員看法</h2>
@@ -158,16 +158,16 @@
                             <div class="col-md-3">
                                 <div class="blog_info text-right">
                                     <div class="post_tag">
-                                        <a href="#">食物,</a>
-                                        <a href="#">飯店活動,</a>
-                                        <a href="#">服務人員,</a>
-                                        <a href="#">套房</a>
+                                        <a >食物,</a>
+                                        <a >飯店活動,</a>
+                                        <a >服務人員,</a>
+                                        <a >套房</a>
                                     </div>
                                     <ul class="blog_meta list_style">
-                                        <li><a href="#">劉小姐<i class="lnr lnr-user"></i></a></li>
-                                        <li><a href="#">1 May, 2019<i class="lnr lnr-calendar-full"></i></a></li>
-                                        <li><a href="#">3.2M 觀看者<i class="lnr lnr-eye"></i></a></li>
-                                        <li><a href="#">19 則留言<i class="lnr lnr-bubble"></i></a></li>
+                                        <li><a >劉小姐<i class="lnr lnr-user"></i></a></li>
+                                        <li><a >1 May, 2019<i class="lnr lnr-calendar-full"></i></a></li>
+                                        <li><a >3.2M 觀看者<i class="lnr lnr-eye"></i></a></li>
+                                        <li><a >19 則留言<i class="lnr lnr-bubble"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -194,16 +194,16 @@
                             <div class="col-md-3">
                                 <div class="blog_info text-right">
                                     <div class="post_tag">
-                                        <a href="#">食物,</a>
-                                        <a href="#">飯店活動,</a>
-                                        <a href="#">服務人員,</a>
-                                        <a href="#">套房</a>
+                                        <a >食物,</a>
+                                        <a >飯店活動,</a>
+                                        <a >服務人員,</a>
+                                        <a >套房</a>
                                     </div>
                                     <ul class="blog_meta list_style">
-                                        <li><a href="#">方小姐<i class="lnr lnr-user"></i></a></li>
-                                        <li><a href="#">19 Feb, 2017<i class="lnr lnr-calendar-full"></i></a></li>
-                                        <li><a href="#">1.8M 觀看者<i class="lnr lnr-eye"></i></a></li>
-                                        <li><a href="#">3 則留言<i class="lnr lnr-bubble"></i></a></li>
+                                        <li><a >方小姐<i class="lnr lnr-user"></i></a></li>
+                                        <li><a >19 Feb, 2017<i class="lnr lnr-calendar-full"></i></a></li>
+                                        <li><a >1.8M 觀看者<i class="lnr lnr-eye"></i></a></li>
+                                        <li><a >3 則留言<i class="lnr lnr-bubble"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -230,24 +230,24 @@
                             <div class="col-md-3">
                                 <div class="blog_info text-right">
                                     <div class="post_tag">
-                                        <a href="#">食物,</a>
-                                        <a href="#">飯店活動,</a>
-                                        <a href="#">服務人員,</a>
-                                        <a href="#">套房</a>
+                                        <a >食物,</a>
+                                        <a >飯店活動,</a>
+                                        <a >服務人員,</a>
+                                        <a >套房</a>
                                     </div>
                                     <ul class="blog_meta list_style">
-                                        <li><a href="#">葉先生<i class="lnr lnr-user"></i></a></li>
-                                        <li><a href="#">12 Jul, 2017<i class="lnr lnr-calendar-full"></i></a></li>
-                                        <li><a href="#">1.4M 觀看者<i class="lnr lnr-eye"></i></a></li>
-                                        <li><a href="#">3 則留言<i class="lnr lnr-bubble"></i></a></li>
+                                        <li><a >葉先生<i class="lnr lnr-user"></i></a></li>
+                                        <li><a >12 Jul, 2017<i class="lnr lnr-calendar-full"></i></a></li>
+                                        <li><a >1.4M 觀看者<i class="lnr lnr-eye"></i></a></li>
+                                        <li><a >3 則留言<i class="lnr lnr-bubble"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-md-9">
                                 <div class="blog_post">
-                                    <img src="images/blog/main-blog/m-blog-5.jpg" alt="">
+                                    <img src="images/blog/main-blog/m-blog-7.jpg" alt="">
                                     <div class="blog_details">
-                                        <a href="#">
+                                        <a >
                                             <h2>房間還不錯但餐點就....</h2>
                                         </a>
                                         <p>
@@ -271,32 +271,127 @@
                                 </div>
                             </div>
                         </article>
+                        <?php if(isset($_POST['send'])) {?>
+                            <article class="row blog_item">
+                                <div class="col-md-3">
+                                    <div class="blog_info text-right">
+                                        <div class="post_tag">
+
+                                            <?php
+                                                $array_tag=array(1=>"食物", "飯店活動", "服務人員", "套房");
+                                                $tag=$_POST['to'];
+                                                for($i=0;$i<count($tag);$i++){
+                                                    $item_value=$tag[$i];
+                                                    echo  "$array_tag[$item_value],";                                                   
+                                                }   
+                                            ?>
+                                            <?php
+                                                if(isset($_POST["tag"]))
+                                                {
+                                                $tag = $_POST["tag"];
+                                                } 
+                                                else {
+                                                $tag= " ";
+                                                }
+                                                echo $tag ;
+                                            ?>
+
+                                        </div>
+                                        <ul class="blog_meta list_style">
+                                            <li><a >
+                                                <?php
+                                                        if(isset($_POST["name"]))
+                                                        {
+                                                            $name = $_POST["name"];
+                                                        } 
+                                                        else {
+                                                            $name= " ";
+                                                        }
+                                                        echo $name ;
+                                                ?>
+                                            <i class="lnr lnr-user"></i></a></li>
+                                            <li><a >14 Jun, 2022<i class="lnr lnr-calendar-full"></i></a></li>
+                                            <li><a >1 觀看者<i class="lnr lnr-eye"></i></a></li>
+                                            <li><a >0 則留言<i class="lnr lnr-bubble"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="blog_post">
+                                        <img src="images/blog/main-blog/m-blog-6.jpg" alt="">
+                                        <div class="blog_details">
+                                            <a href="#">
+                                                <h2>
+                                                    <?php
+                                                        if(isset($_POST["subject"]))
+                                                        {
+                                                            $subject = $_POST["subject"];
+                                                        } 
+                                                        else {
+                                                            $subject= " ";
+                                                        }
+                                                        echo $subject ;
+                                                    ?>
+                                                </h2>
+                                            </a>
+                                            <p>
+                                                <?php
+                                                    if(isset($_POST["message"]))
+                                                    {
+                                                        $message = $_POST["message"];
+                                                    } 
+                                                    else {
+                                                        $message= " ";
+                                                    }
+                                                    echo $message ;
+                                                ?>
+                                            </p>
+                                            <a href="#" class="view_btn button_hover">查看更多</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        <?php } ?>
                         <article>
                             <div class="comment-form">
                                 <h4>留下您的貼文吧！</h4>
-                                <form>
+                                <form name="form1" id="form1" action="" method="POST">
+                                    <div class="form-group form-inline">
+                                        <div class="form-group col-lg-6 col-md-6 " >
+                                            文章標籤:&nbsp;&nbsp;
+                                            <input type="checkbox"  name="to[]" value="1">食物&nbsp;
+                                            <input type="checkbox"  name="to[]" value="2">飯店活動&nbsp;
+                                            <input type="checkbox"  name="to[]" value="3">服務人員&nbsp;
+                                            <input type="checkbox"  name="to[]" value="4">套房&nbsp;
+                                        </div>
+                                        <div class="form-group col-lg-6 col-md-6 ">
+                                            <input type="text" class="form-control" id="tag" name="tag" placeholder="填寫其他標籤"
+                                                onfocus="this.placeholder = ''"
+                                                onblur="this.placeholder = '填寫其他標籤'">
+                                        </div>
+                                    </div>
                                     <div class="form-group form-inline">
                                         <div class="form-group col-lg-6 col-md-6 name">
-                                            <input type="text" class="form-control" id="name" placeholder="填寫您的姓氏"
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="填寫您的姓氏"
                                                 onfocus="this.placeholder = ''"
-                                                onblur="this.placeholder = 'Enter Name'">
+                                                onblur="this.placeholder = '填寫您的姓氏'">
                                         </div>
                                         <div class="form-group col-lg-6 col-md-6 email">
                                             <input type="email" class="form-control" id="email" placeholder="填寫您的郵件地址"
                                                 onfocus="this.placeholder = ''"
-                                                onblur="this.placeholder = 'Enter email address'">
+                                                onblur="this.placeholder = '填寫您的郵件地址'">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="subject" placeholder="填寫您的主旨"
-                                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Subject'">
+                                        <input type="text" class="form-control " id="subject" name="subject" placeholder="填寫您的主旨"
+                                            onfocus="this.placeholder = ''" onblur="this.placeholder = '填寫您的主旨'">
                                     </div>
                                     <div class="form-group">
                                         <textarea class="form-control mb-10" rows="5" name="message"
                                             placeholder="填寫您的內容" onfocus="this.placeholder = ''"
-                                            onblur="this.placeholder = 'Messege'" required=""></textarea>
+                                            onblur="this.placeholder = '填寫您的內容'" required=""></textarea>
                                     </div>
-                                    <a href="#" class="primary-btn button_hover">傳送</a>
+                                    <button type="submit" name='send' class="primary-btn button_hover">傳送</button>
                                 </form>
                             </div>
                         </article>
