@@ -1,4 +1,6 @@
-
+.brand {
+  mix-blend-mode: multiply;
+}
 
 figure {
     height: fit-content;
@@ -337,7 +339,8 @@ button:focus {
 }
 
 .navbar {
-  background: #04091e;
+  /* navbar 背景顏色 */
+  /* background: #ffffff; */
   padding: 0px 25px;
 }
 
@@ -347,7 +350,8 @@ button:focus {
 
 .navbar .menu_nav .nav-item .nav-link {
   font: 500 12px/80px "Poppins", sans-serif;
-  color: #222222;
+  /* navbar 內容文字顏色 */
+  /* color: #222222; */
   text-transform: uppercase;
   padding: 0px;
 }
@@ -357,6 +361,7 @@ button:focus {
 }
 
 .navbar .menu_nav .nav-item:hover .nav-link, .navbar .menu_nav .nav-item.active .nav-link {
+  /* navbar 內容文字的hover顏色 */
   color: #52c5fd;
 }
 
@@ -399,7 +404,7 @@ button:focus {
   height: 0;
   border-style: solid;
   border-width: 10px 10px 0 10px;
-  border-color: #eeeeee transparent transparent transparent;
+  /* border-color: #eeeeee transparent transparent transparent; */
   position: absolute;
   right: 24px;
   top: 45px;
@@ -430,7 +435,8 @@ button:focus {
 
 .navbar .menu_nav .nav-item.submenu ul .nav-item .nav-link {
   line-height: 45px;
-  color: #222222;
+  /* nav 下拉選單文字顏色 */
+  color: #979797;
   padding: 0px 30px;
   -webkit-transition: all 150ms linear;
   -o-transition: all 150ms linear;
