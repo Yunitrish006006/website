@@ -20,8 +20,7 @@
             // // 資料庫查詢(送出查詢的SQL指令)
             if ($result = mysqli_query($link, "SELECT * FROM account")) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                    //認證(Authentication):連線資料庫驗證使用者的帳號密碼是否正確
-                    //授權(Authorization):連線資料庫檢查使用者的身分別(會員、管理者....)
+                    //帳號登入
                     if ($_POST['account'] == $row['account'] && $_POST['password'] == $row['password']) {
                         $_SESSION['account'] = $row["account"];
                         $_SESSION['level'] = $row["level"];

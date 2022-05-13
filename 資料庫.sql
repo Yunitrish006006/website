@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2022-05-13 14:33:23
+-- 產生時間： 2022-05-13 17:25:30
 -- 伺服器版本： 10.4.22-MariaDB
 -- PHP 版本： 8.1.2
 
@@ -43,7 +43,45 @@ CREATE TABLE `account` (
 INSERT INTO `account` (`account`, `level`, `password`, `email`) VALUES
 ('admin', 99, 'admin123456', 'admin@BeeHotel.com.tw'),
 ('guest', 0, '********', 'guest@gmail.com'),
+('LinYun', 6, '123456', 'yunthomas006@gmail.com'),
 ('member', 1, 'member123456', 'member@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `account_temp`
+--
+
+CREATE TABLE `account_temp` (
+  `account` varchar(20) NOT NULL,
+  `level` int(2) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `verify_code` int(6) NOT NULL,
+  `email` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(10) NOT NULL,
+  `account` varchar(20) NOT NULL,
+  `date` date NOT NULL,
+  `food_tag` tinyint(1) NOT NULL,
+  `service_tag` tinyint(1) NOT NULL,
+  `activity_tag` tinyint(1) NOT NULL,
+  `room_tag` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 傾印資料表的資料 `comments`
+--
+
+INSERT INTO `comments` (`id`, `account`, `date`, `food_tag`, `service_tag`, `activity_tag`, `room_tag`) VALUES
+(0, 'guest01', '2022-05-13', 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -89,6 +127,13 @@ CREATE TABLE `rooms` (
 --
 ALTER TABLE `account`
   ADD PRIMARY KEY (`account`);
+
+--
+-- 資料表索引 `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `account` (`account`);
 
 --
 -- 資料表索引 `rooms`
