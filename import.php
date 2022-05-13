@@ -126,14 +126,14 @@
 <div class="modal fade" id="informationWindow" tabindex="-1" aria-labelledby="informationWindow" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="" method="post" id="information">
+            <form action="login.php" method="post" id="information">
                 <div class="modal-header">
                     <h5 class="modal-title" id="informationWindow">會員資料修改</h5>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="informationAccount" class="col-form-label">帳戶:</label>
-                        <input type="text" class="form-control" id="informationAccount" name="informationAccount"
+                        <input type="text" class="form-control" id="informationAccount" name="account"
                             value="<?php 
                                         if(isset($_SESSION['account'])) echo $_SESSION['account'];
                                         else echo "none";
@@ -142,7 +142,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="informationMail" class="col-form-label">信箱:</label>
-                        <input type="text" class="form-control" id="informationMail" name="informationMail"
+                        <input type="text" class="form-control" id="informationMail" name="email"
                             value="<?php 
                                         if(isset($_SESSION['email'])) echo $_SESSION['email'];
                                         else echo "none";
@@ -151,7 +151,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="informationPassword" class="col-form-label">密碼:</label>
-                        <input type="informationPassword" class="form-control" id="informationPassword"
+                        <input type="informationPassword" class="form-control" id="password"
                             name="password" value="<?php 
                                         if(isset($_SESSION['password'])) echo $_SESSION['password'];
                                         else echo "none";
@@ -161,7 +161,7 @@
                     <div class="mb-3">
                         <label for="informationPasswordCheck" class="col-form-label">確認密碼:</label>
                         <input type="informationPasswordCheck" class="form-control" id="informationPasswordCheck"
-                            name="password3">
+                            name="password_check">
                         <label for="informationPasswordCheck" class="error"></label>
                     </div>
                     <div class="form-check">
