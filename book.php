@@ -16,18 +16,9 @@
 </head>
 <script>
         function cart(add_remove,id) {
-            $.ajax({
-                url: 'cart_ajax.php',
-                data: {
-                    oper: add_remove, //1:add 2:remove
-                    id: id
-                },
-                type: 'POST',
-                dataType: "json",
-                success: function(Jdata) {
-                    for(var i=1 ; i<=28;i++)
+          for(var i=1 ; i<=28;i++)
                     {
-                        if (jQuery.inArray(i.toString(), Jdata)>=0)//物品已在購物車
+                        if (select)//物品已在購物車
                         {
                             $("#p"+i).text("取消購物車");
                             $("#p"+i).attr("onclick","cart(2,"+ i +")");
@@ -85,11 +76,11 @@
             $link = mysqli_connect("localhost","root","");     
             mysqli_select_db($link, "s0961007");
             mysqli_query($link, "SET NAMES UTF8");
-            for($i=1;$i<=6;$i++){
-                 $sqlstr1 = "SELECT `pno`, `pname`, `description`, `picture`, `unitprice`, `category` FROM `product` WHERE pno=".$i.";";
+            for($i=1;$i<=5;$i++){
+                 $sqlstr1 = "SELECT * FROM `product` WHERE pno=".$i.";";
                  $result=mysqli_query($link, $sqlstr1);
                  $record = mysqli_fetch_object($result);
-                 echo '<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item"><figure><a href="./product.php"><img src="'.$record->picture.'alt="Image" class="img-fluid tm-gallery-img" /></a><figcaption style="text-align: center;">';
+                 echo '<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item"><figure><a href="./product.php"><img src="images/product/p-'.$i.'.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a><figcaption style="text-align: center;">';
                  echo '<h4 class="tm-gallery-title">'.$record->pname.'</h4>';
                  echo '<p class="tm-gallery-description">'.$record->description;
                  echo '<section class="tm-gallery-price">$'.$record->unitprice.'</section>';
@@ -109,11 +100,11 @@
             $link = mysqli_connect("localhost","root","");     
             mysqli_select_db($link, "s0961007");
             mysqli_query($link, "SET NAMES UTF8");
-            for($i=7;$i<=11;$i++){
-                 $sqlstr1 = "SELECT `pno`, `pname`, `description`, `picture`, `unitprice`, `category` FROM `product` WHERE pno=".$i.";";
+            for($i=6;$i<=9;$i++){
+                 $sqlstr1 = "SELECT * FROM `product` WHERE pno=".$i.";";
                  $result=mysqli_query($link, $sqlstr1);
                  $record = mysqli_fetch_object($result);
-                 echo '<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item"><figure><a href="./product.php"><img src="'.$record->picture.'alt="Image" class="img-fluid tm-gallery-img" /></a><figcaption style="text-align: center;">';
+                 echo '<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item"><figure><a href="./product.php"><img src="images/product/p-'.$i.'.jpg" class="img-fluid tm-gallery-img" /></a><figcaption style="text-align: center;">';
                  echo '<h4 class="tm-gallery-title">'.$record->pname.'</h4>';
                  echo '<p class="tm-gallery-description">'.$record->description;
                  echo '<section class="tm-gallery-price">$'.$record->unitprice.'</section>';
@@ -132,11 +123,11 @@
             $link = mysqli_connect("localhost","root","");     
             mysqli_select_db($link, "s0961007");
             mysqli_query($link, "SET NAMES UTF8");
-            for($i=12;$i<=15;$i++){
-                 $sqlstr1 = "SELECT `pno`, `pname`, `description`, `picture`, `unitprice`, `category` FROM `product` WHERE pno=".$i.";";
+            for($i=10;$i<=14;$i++){
+                 $sqlstr1 = "SELECT * FROM `product` WHERE pno=".$i.";";
                  $result=mysqli_query($link, $sqlstr1);
                  $record = mysqli_fetch_object($result);
-                 echo '<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item"><figure><a href="./product.php"><img src="'.$record->picture.'alt="Image" class="img-fluid tm-gallery-img" /></a><figcaption style="text-align: center;">';
+                 echo '<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item"><figure><a href="./product.php"><img src="images/product/p-'.$i.'.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a><figcaption style="text-align: center;">';
                  echo '<h4 class="tm-gallery-title">'.$record->pname.'</h4>';
                  echo '<p class="tm-gallery-description">'.$record->description;
                  echo '<section class="tm-gallery-price">$'.$record->unitprice.'</section>';
@@ -155,11 +146,11 @@
             $link = mysqli_connect("localhost","root","");     
             mysqli_select_db($link, "s0961007");
             mysqli_query($link, "SET NAMES UTF8");
-            for($i=16;$i<=19;$i++){
-                 $sqlstr1 = "SELECT `pno`, `pname`, `description`, `picture`, `unitprice`, `category` FROM `product` WHERE pno=".$i.";";
+            for($i=15;$i<=18;$i++){
+                 $sqlstr1 = "SELECT * FROM `product` WHERE pno=".$i.";";
                  $result=mysqli_query($link, $sqlstr1);
                  $record = mysqli_fetch_object($result);
-                 echo '<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item"><figure><a href="./product.php"><img src="'.$record->picture.'alt="Image" class="img-fluid tm-gallery-img" /></a><figcaption style="text-align: center;">';
+                 echo '<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item"><figure><a href="./product.php"><img src="images/product/p-'.$i.'.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a><figcaption style="text-align: center;">';
                  echo '<h4 class="tm-gallery-title">'.$record->pname.'</h4>';
                  echo '<p class="tm-gallery-description">'.$record->description;
                  echo '<section class="tm-gallery-price">$'.$record->unitprice.'</section>';
@@ -179,11 +170,11 @@
             $link = mysqli_connect("localhost","root","");     
             mysqli_select_db($link, "s0961007");
             mysqli_query($link, "SET NAMES UTF8");
-            for($i=20;$i<=27;$i++){
-                 $sqlstr1 = "SELECT `pno`, `pname`, `description`, `picture`, `unitprice`, `category` FROM `product` WHERE pno=".$i.";";
+            for($i=19;$i<=26;$i++){
+                 $sqlstr1 = "SELECT * FROM `product` WHERE pno=".$i.";";
                  $result=mysqli_query($link, $sqlstr1);
                  $record = mysqli_fetch_object($result);
-                 echo '<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item"><figure><a href="./product.php"><img src="'.$record->picture.'alt="Image" class="img-fluid tm-gallery-img" /></a><figcaption style="text-align: center;">';
+                 echo '<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item"><figure><a href="./product.php"><img src="images/product/p-'.$i.'.jpg" alt="Image" class="img-fluid tm-gallery-img" /></a><figcaption style="text-align: center;">';
                  echo '<h4 class="tm-gallery-title">'.$record->pname.'</h4>';
                  echo '<p class="tm-gallery-description">'.$record->description;
                  echo '<section class="tm-gallery-price">$'.$record->unitprice.'</section>';
