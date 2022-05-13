@@ -1,3 +1,46 @@
+<?php
+    $host = 'localhost';
+    $user ='root';
+    $access = '';
+    $datagram = 'beehotel';
+    $link = mysqli_connect($host,$user,$access,$datagram);
+
+    if ( !$link ) {
+        echo "連結錯誤代碼: ".mysqli_connect_errno()."<br>";//顯示錯誤代碼
+        echo "連結錯誤訊息: ".mysqli_connect_error()."<br>";//顯示錯誤訊息
+        exit();
+    }
+    else
+    {
+        mysqli_query($link, 'SET CHARACTER SET utf8');
+        mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
+        //資料庫新增存檔
+        $msg = "";
+        if (isset($_POST['account'])) {
+            $sql = "insert into account values ('" . $_POST['account'] . "','" . $_POST['level'] . "','" . $_POST['password'] . "','" . $_POST['email'] . "')";
+        
+            if ($result = mysqli_query($link, $sql)) // 送出查詢的SQL指令
+            {
+                $msg = "<span style='color:#0000FF'>資料新增成功!</span>";
+            } else {
+                $msg = "<span style='color:#FF0000'>資料新增失敗！<br>錯誤代碼：" . mysqli_errno($link) . "<br>錯誤訊息：" . mysqli_error($link) . "</span>";
+            }
+        
+        }
+
+        // // 資料庫查詢(送出查詢的SQL指令)
+        if ($result = mysqli_query($link, "SELECT * FROM account")) {
+            $rows = "";
+            while ($row = mysqli_fetch_assoc($result)) {
+                $rows .= "<form action='' method='submit'><tr><td><input type='text' name='account' value='" . $row["account"] . "'></td><td><input type='text' name='level' value='" . $row["level"] . "'></td><td><input type='text' name='password' value='" . $row["password"] . "'></td><td><input type='text' name='email' value='" . $row["email"] . "'></td><td><button type='submit'>修改資料</button></td></tr></form>";
+            }
+            $num = mysqli_num_rows($result); //查詢結果筆數
+            mysqli_free_result($result); // 釋放佔用的記憶體
+        }
+
+        mysqli_close($link); // 關閉資料庫連結
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,6 +49,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>管理</title>
+    <style>
+        table {
+            margin: 0 auto;
+            border: 1px blue solid;
+            border-collapse: collapse;
+        }
+
+        tr, td, th ,button{
+            border: 1px blue solid;
+            text-align: center
+        }
+        caption{
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
     <?php include("import.php") ?>
 </head>
 
@@ -44,6 +103,29 @@
                 </div>
             </div>
         </div>
+    </section>
+    <section>
+        <table>
+            <tr><td colspan="2">資料庫名稱: <?php echo $datagram; ?></td><td colspan="3">帳號資料一共 <?php echo $num; ?> 筆</td></tr>
+            <tr>
+                <th>帳號</th>
+                <th>權限等級</th>
+                <th>密碼</th>
+                <th>email</th>
+                <th>操作</th>
+            </tr>
+            <?php echo $rows; ?>
+            <form action="" method="POST">
+                <tr>
+                    <td><input type="text" name="account"></td>
+                    <td><input type="text" name="level"></td>
+                    <td><input type="text" name="password"></td>
+                    <td><input type="text" name="email"></td>
+                    <td><button type="submit">新增存檔</button></td>
+                </tr>
+            </form>
+        </table>
+        <div class="message"><?php echo $msg ?></div>
     </section>
     <section style="padding: 5%;">
         <div class="container_2">

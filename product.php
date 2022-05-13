@@ -21,7 +21,7 @@
             </div>
             <div class="main" style="display:flex">
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="margin-left:3rem;width:600px;">
-                       
+
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <img src="./images/t-1.jpg" class="d-block w-100" alt="..." width="600px" height="390px">
@@ -42,7 +42,7 @@
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         </button>
                     </div>
-                       
+                    
                     <div class="card-body" style="margin:0rem 3rem;width:300px;text-align: center;">
                         <h1 style="margin-bottom:1.5rem">雙人商務套房</h1>
                         
