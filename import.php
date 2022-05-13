@@ -1,3 +1,8 @@
+<?php
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+?>
 <link rel="icon" href="images/honeycomb.png" type="image/x-icon">
 <!--  boostrap css  -->
 <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -9,6 +14,7 @@
 <!-- main css -->
 <link rel="stylesheet" href="css/product.css">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/nav-style.css">
 <link rel="stylesheet" href="css/responsive.css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <!---JQuery-->
@@ -91,19 +97,19 @@
 <div class="modal fade" id="loginWindow" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="" method="post" id="login">
+            <form action="login.php" method="post" id="login">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">登入視窗</h5>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="loginAccount" class="col-form-label">帳號:</label>
-                        <input type="text" class="form-control" id="loginAccount" name="loginAccount">
+                        <input type="text" class="form-control" id="loginAccount" name="account">
                         <label for="loginAccount" class="error"></label>
                     </div>
                     <div class="mb-3">
                         <label for="loginPassword" class="col-form-label">密碼:</label>
-                        <input type="loginPassword" class="form-control" id="loginPassword" name="loginPassword">
+                        <input type="loginPassword" class="form-control" id="loginPassword" name="password">
                         <label for="loginPassword" class="error"></label>
                     </div>
                 </div>
@@ -128,19 +134,28 @@
                     <div class="mb-3">
                         <label for="informationAccount" class="col-form-label">帳戶:</label>
                         <input type="text" class="form-control" id="informationAccount" name="informationAccount"
-                            value="originAccount">
+                            value="<?php 
+                                        if(isset($_SESSION['account'])) echo $_SESSION['account'];
+                                        else echo "none";
+                                    ?>">
                         <label for="informationAccount" class="error"></label>
                     </div>
                     <div class="mb-3">
                         <label for="informationMail" class="col-form-label">信箱:</label>
                         <input type="text" class="form-control" id="informationMail" name="informationMail"
-                            value="origin@gmail.com">
+                            value="<?php 
+                                        if(isset($_SESSION['email'])) echo $_SESSION['email'];
+                                        else echo "none";
+                                    ?>">
                         <label for="informationMail" class="error"></label>
                     </div>
                     <div class="mb-3">
                         <label for="informationPassword" class="col-form-label">密碼:</label>
                         <input type="informationPassword" class="form-control" id="informationPassword"
-                            name="password" value="originPassword">
+                            name="password" value="<?php 
+                                        if(isset($_SESSION['password'])) echo $_SESSION['password'];
+                                        else echo "none";
+                                    ?>">
                         <label for="informationPassword" class="error"></label>
                     </div>
                     <div class="mb-3">

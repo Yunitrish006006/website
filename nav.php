@@ -1,8 +1,11 @@
+<?php
+    if (session_status() === PHP_SESSION_NONE) session_start();
+?>
 <!-- icon import -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 <header class="header_area">
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light ">
+        <nav class="navbar navbar-expand-lg navbar-light navbar-light bg-light">
             <!-- 手機版下拉式選單-->
             <a class="navbar-brand logo_h" href="index.php"><img src="images/logo.png" width="50" height="50">蜂巢飯店
             </a>
@@ -41,15 +44,18 @@
                     </li>
                     <li class="nav-item"><a class="nav-link" href="comment.php">留言板</a></li>
                     <li class="nav-item submenu dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-                            aria-haspopup="true" aria-expanded="false" onclick="play()">登入|註冊</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" onclick="play()">帳戶</a>
                         <ul class="dropdown-menu">
-                            <li class="nav-item"><a class="nav-link" data-bs-toggle="modal"
-                                    data-bs-target="#loginWindow" data-bs-whatever="@getbootstrap">登入</a></li>
-                            <li class="nav-item"><a class="nav-link" data-bs-toggle="modal"
-                                    data-bs-target="#registerWindow" data-bs-whatever="@getbootstrap">註冊</a></li>
-                            <li class="nav-item"><a class="nav-link" data-bs-toggle="modal"
-                                    data-bs-target="#informationWindow" data-bs-whatever="@getbootstrap">會員資料</a></li>
+                            <?php 
+                                if(isset($_SESSION['account'])) {
+                                    echo "<li class='nav-item'><a class='nav-link' href='logout.php'>登出</a></li>";
+                                    echo "<li class='nav-item'><a class='nav-link' data-bs-toggle='modal' data-bs-target='#informationWindow' data-bs-whatever='@getbootstrap'>會員資料</a></li>";
+                                }
+                                else {
+                                    echo "<li class='nav-item'><a class='nav-link' data-bs-toggle='modal' data-bs-target='#loginWindow' data-bs-whatever='@getbootstrap' >登入</a></li>";
+                                    echo "<li class='nav-item'><a class='nav-link' data-bs-toggle='modal' data-bs-target='#registerWindow' data-bs-whatever='@getbootstrap'>註冊</a></li>";
+                                }
+                            ?>
                         </ul>
                     </li>
                     <li class="nav-item submenu dropdown">
@@ -60,9 +66,7 @@
                             <li class="nav-item"><a class="nav-link" href="history.php">English</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><audio autoplay="autoplay">
-                            <source src="sounds/minecraft_bgm.mp3" />
-                        </audio></li>
+                    <!-- <li class="nav-item"><audio autoplay="autoplay"><source src="sounds/minecraft_bgm.mp3" /></audio></li> -->
                 </ul>
             </div>
         </nav>

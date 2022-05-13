@@ -10,8 +10,8 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand logo_h" href="index.php"><img src="images/logo.png" width="50" height="50">蜂巢飯店
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand logo_h" href="index.php"><img src="images/logo.png" width="50" height="50" class="brand">蜂巢飯店
         </a>
         <button onclick="play()" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
