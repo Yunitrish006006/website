@@ -1,18 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-   if(isset($_SESSION['account'])){
-    link = mysqli_connect("localhost","root","");     
-    mysqli_select_db($link, "beehotel");
-    mysqli_query($link, "SET NAMES UTF8");
-    if($result = mysqli_query($link,"SELECT * FROM cart WHERE  id=_SESSION['account_id']")){
-        
-    }
-    }else{
-        header("Location:login.php");
-    }
-?>
-
+<?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
+<!-- 分頁產生內容 -->
 <?php
     if(isset($_POST['require_category']))
     {
@@ -28,12 +17,48 @@
     mysqli_query($link, "SET NAMES UTF8");
     if($result = mysqli_query($link,"SELECT * FROM `product` WHERE `category` = '$category'"))
     {
+        $bought_items = array();
+
+        if(isset($_SESSION['account'])) {
+            $link = mysqli_connect("localhost","root","");     
+            mysqli_select_db($link, "beehotel");
+            mysqli_query($link, "SET NAMES UTF8");
+            $id_of_account = $_SESSION['account_id'];
+            if($cart_result = mysqli_query($link,"SELECT * FROM cart WHERE account_id = $id_of_account")) {
+                while ($cart_item = mysqli_fetch_assoc($cart_result)) {
+                    array_push($bought_items,$cart_item['pno']);
+                }
+            }
+        }
+
         while($room = mysqli_fetch_assoc($result)) {
             $pno = $room['pno'];
             $pname = $room['pname'];
             $description = $room['description'];
             $file_type = $room['file_type'];
             $unitprice = $room['unitprice'];
+            $cart_item_id = $pno;
+            if(isset($_SESSION['account'])) {
+                for($i=0;$i<sizeof($bought_items);$i++) {
+                    if($pno==$bought_items[$i])
+                    {
+                        $status_of_item = 'btn-danger';
+                        $text_of_item = '移出';
+                        $cart_operation = 'remove';
+                    }
+                    else {
+                        $status_of_item = 'btn-primary';
+                        $text_of_item = '加入';
+                        $cart_operation = 'add';
+                    }
+                }
+            }
+            else {
+                $status_of_item = 'btn-primary';
+                $text_of_item = '加入';
+                $cart_operation = 'add';
+            }
+            
             $item="";
             $item .= '
             <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">' .
@@ -52,9 +77,13 @@
                         '<section class="tm-gallery-price">$'.
                             $unitprice.
                         '</section>'.
-                        '<button id="p'. $pno .'" class="btn btn-primary" onclick="cart(1,'. $pno .')">'.
-                            '加入購物車'.
-                        '</button>'.
+                        '<form action="" method="post" >'.
+                            '<input type="hidden" name="cart_operation" value="'.$cart_operation.'">'.
+                            '<input type="hidden" name="cart_item_id" value="'.$cart_item_id.'">'.
+                            '<button id="p'. $pno .'" class="btn '. $status_of_item .'" type = submit>'.
+                                $text_of_item .'購物車' .
+                            '</button>'.
+                        '</form>'.
                     '</figcaption>'.
                 '</figure>'.
             '</article>';
@@ -64,6 +93,28 @@
     mysqli_close($link);
     $items .= '</div>';
     
+?>
+
+<!-- cart sql 操作 -->
+<?php 
+    if(isset($_POST['cart_operation']) && isset($_SESSION['account'])) {
+        $cart_link = mysqli_connect("localhost","root","");     
+        mysqli_select_db($cart_link, "beehotel");
+        mysqli_query($cart_link, "SET NAMES UTF8");
+        $id_of_account = $_SESSION['account_id'];
+        switch($_POST['cart_operation']){
+            case "add":
+                if(!($cart_result = mysqli_query($cart_link,"SELECT * FROM cart WHERE account_id = '$id_of_account' AND pno = '$cart_item_id'"))) {
+                    mysqli_query($cart_link,"INSERT INTO cart (account_id, pno) VALUES ('$id_of_account', '$cart_item_id');");
+                }
+            case "remove":
+                if($cart_result = mysqli_query($cart_link,"SELECT * FROM cart WHERE account_id = '$id_of_account' AND pno = '$cart_item_id'")) {
+                    mysqli_query($cart_link,"DELETE FROM cart WHERE cart.id = '$cart_item_id'");
+                }
+            default:
+            break;
+        }
+    }
 ?>
 <head>
     <meta charset="UTF-8">
@@ -99,11 +150,11 @@
         <span style="margin:0px 2px;"><form action="" method="post" ><input type="hidden" name='require_category' value="彰化鹿港店"><input type="submit" class="btn theme_btn button_hover" value = "彰化鹿港店"></form></span>
         <span style="margin:0px 2px;"><form action="" method="post" ><input type="hidden" name='require_category' value="墾丁恆春店"><input type="submit" class="btn theme_btn button_hover" value = "墾丁恆春店"></form></span>
     </section>
-    
     <!-- Gallery -->
     <div class="row tm-gallery">
         <?php echo $items; ?>
     </div>
+    <?php include("footer.php") ?>
 </body>
 
 </html>
