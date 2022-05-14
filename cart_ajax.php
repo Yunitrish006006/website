@@ -14,7 +14,7 @@ if ($oper==1)//加入購物車
     if (!in_array($id,$arr_cart)){
     $arr_cart[]=$id;//加入陣列
     $link = mysqli_connect("localhost","root","");     
-    mysqli_select_db($link, "beehotel");
+    mysqli_select_db($link, "S0961007");
     mysqli_query($link, "SET NAMES UTF8");
     $sqlstr1 = "SELECT * FROM `product` WHERE pno=".$id.";";
     $result=mysqli_query($link, $sqlstr1);

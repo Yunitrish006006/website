@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-    if (session_status() === PHP_SESSION_NONE) session_start();
-    if(isset($_SESSION['cart'])){
-        $arr_cart = array_filter(explode(",",$_SESSION['cart']));
+   if(isset($_SESSION['account'])){
+    link = mysqli_connect("localhost","root","");     
+    mysqli_select_db($link, "beehotel");
+    mysqli_query($link, "SET NAMES UTF8");
+    if($result = mysqli_query($link,"SELECT * FROM cart WHERE  id=_SESSION['account_id']")){
+        
+    }
+    }else{
+        header("Location:login.php");
     }
 ?>
+
 <?php
     if(isset($_POST['require_category']))
     {
@@ -66,36 +73,7 @@
     <?php include("import.php") ?>
     <title>訂房</title>
 </head>
-<script>
-        function cart(add_remove,id) {
-            $.ajax({
-                url: 'cart_ajax.php',
-                data: {
-                    oper: add_remove, //1:add 2:remove
-                    id: id
-                },
-                type: 'POST',
-                dataType: "json",
-                success: function(Jdata) {
-                    for(var i=1 ; i<=28;i++)
-                    {
-                        if (jQuery.inArray(i.toString(), Jdata)>=0)//物品已在購物車
-                        {
-                            $("#p"+i).text("取消購物車");
-                            $("#p"+i).attr("onclick","cart(2,"+ i +")");
-                        }
-                        else
-                        {
-                            $("#p"+i).text("加入購物車");
-                            $("#p"+i).attr("onclick","cart(1,"+ i +")");
-                        }
-                }
-                $("#cart_cnt").html(Jdata.length);//顯示購物車物品數量
-            },
-            error: function(xhr, ajaxOptions, thrownError) {}
-        });
-    }
-    </script>
+
 <body>
     <!--================Header Area =================-->
     <?php include("nav.php") ?>

@@ -23,6 +23,7 @@
                 while ($row = mysqli_fetch_assoc($result)) {
                     //帳號登入
                     if ($_POST['account'] == $row['account'] && $_POST['password'] == $row['password']) {
+                        $_SESSION["account_id"]=$row["id"]; 
                         $_SESSION['account'] = $row["account"];
                         $_SESSION['level'] = $row["level"];
                         $_SESSION['password'] = $row["password"];
