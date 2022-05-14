@@ -18,7 +18,8 @@
             mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
     
             // // 資料庫查詢(送出查詢的SQL指令)
-            if ($result = mysqli_query($link, "SELECT * FROM account")) {
+            $aaa = $_POST['password']; $bbb = $_POST['account'];
+            if ($result = mysqli_query($link, "SELECT * FROM account where password = '$aaa' and account = '$bbb'")) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     //帳號登入
                     if ($_POST['account'] == $row['account'] && $_POST['password'] == $row['password']) {

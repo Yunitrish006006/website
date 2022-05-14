@@ -14,26 +14,52 @@
     {
         mysqli_query($link, 'SET CHARACTER SET utf8');
         mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
-        //資料庫新增存檔
+        
         $msg = "";
-        if (isset($_POST['account'])) {
-            $sql = "insert into account values ('" . $_POST['account'] . "','" . $_POST['level'] . "','" . $_POST['password'] . "','" . $_POST['email'] . "')";
-        
-            if ($result = mysqli_query($link, $sql)) // 送出查詢的SQL指令
-            {
-                $msg = "<span style='color:#0000FF'>資料新增成功!</span>";
-            } else {
-                $msg = "<span style='color:#FF0000'>資料新增失敗！<br>錯誤代碼：" . mysqli_errno($link) . "<br>錯誤訊息：" . mysqli_error($link) . "</span>";
+        if (isset($_POST['operate'])) {
+            switch ($_POST['operate']) {
+                case "add":
+                    //資料庫新增存檔
+                    $sql = "insert into account " . 
+                    "(account, level, password, email) values " .
+                    "('" . $_POST['account'] . "','" . $_POST['level'] . "','" . $_POST['password'] . "','" . $_POST['email'] . "')";
+            
+                    if ($result = mysqli_query($link, $sql)) { $msg = "<span style='color:#0000FF'>資料新增成功!</span>"; }
+                    else { $msg = "<span style='color:#FF0000'>資料新增失敗！<br>錯誤代碼：" . mysqli_errno($link) . "<br>錯誤訊息：" . mysqli_error($link) . "</span>"; }
+                    break;
+                case "modify":
+                    //資料庫修改存檔
+                    $sql = "update account set" . 
+                    " account = '" . $_POST['account'] . "'," .
+                    " level = '" . $_POST['level'] . "'," .
+                    " password = '" . $_POST['password'] . "'," .
+                    " email = '" . $_POST['email'] . "'" .
+                    " where account.id = '" . $_POST['id'] . "'";
+                    if ($result = mysqli_query($link, $sql)){ $msg = "<span style='color:#0000FF'>資料修改成功!</span>"; }
+                    else { $msg = "<span style='color:#FF0000'>資料修改失敗！<br>錯誤代碼：" . mysqli_errno($link) . "<br>錯誤訊息：" . mysqli_error($link) . "</span>"; }
+                    break;
+                default:
+                    $msg = "<span style='color:#FF0000'>無此操作</span>";
+                    break;
             }
-        
         }
 
         // // 資料庫查詢(送出查詢的SQL指令)
         if ($result = mysqli_query($link, "SELECT * FROM account")) {
             $rows = "";
-            while ($row = mysqli_fetch_assoc($result)) {
-                $rows .= "<form action='' method='submit'><tr><td><input type='text' name='account' value='" . $row["account"] . "'></td><td><input type='text' name='level' value='" . $row["level"] . "'></td><td><input type='text' name='password' value='" . $row["password"] . "'></td><td><input type='text' name='email' value='" . $row["email"] . "'></td><td><button type='submit'>修改資料</button></td></tr></form>";
-            }
+            while ($col = mysqli_fetch_assoc($result)) {
+                $rows .= "
+                <form action='' method='Post'>    
+                    <tr>
+                        <td><input type='hidden' name='id' value='" . $col["id"] . "'><input type='text' name='account' value='" . $col["account"] . "'></td>
+                        <td><input type='text' name='level' value='" . $col["level"] . "'></td>
+                        <td><input type='text' name='password' value='" . $col["password"] . "'></td>
+                        <td><input type='text' name='email' value='" . $col["email"] . "'></td>
+                        <td><input type='hidden' name='operate' value='modify'><button type='submit'>修改資料</button></td>
+                    </tr>
+                </form>"
+                ;
+            };
             $num = mysqli_num_rows($result); //查詢結果筆數
             mysqli_free_result($result); // 釋放佔用的記憶體
         }
@@ -104,9 +130,10 @@
             </div>
         </div>
     </section>
+    <!--================帳號管理 =================-->
     <section>
         <table>
-            <tr><td colspan="2">資料庫名稱: <?php echo $datagram; ?></td><td colspan="3">帳號資料一共 <?php echo $num; ?> 筆</td></tr>
+            <tr><td colspan="3">資料庫名稱: <?php echo $datagram; ?></td><td colspan="3">帳號資料一共 <?php echo $num; ?> 筆</td></tr>
             <tr>
                 <th>帳號</th>
                 <th>權限等級</th>
@@ -115,17 +142,16 @@
                 <th>操作</th>
             </tr>
             <?php echo $rows; ?>
-            <form action="" method="POST">
-                <tr>
-                    <td><input type="text" name="account"></td>
+            <tr>
+                <form action="" method="POST">
+                    <td><input type="hidden" name="id"><input type="text" name="account"></td>
                     <td><input type="text" name="level"></td>
                     <td><input type="text" name="password"></td>
                     <td><input type="text" name="email"></td>
-                    <td><button type="submit">新增存檔</button></td>
-                </tr>
-            </form>
+                    <td><input type="hidden" name="operate" value="add"><button type="submit">新增存檔</button></td>
+                </form>
+            </tr>
         </table>
-        <div class="message"><?php echo $msg ?></div>
     </section>
     <section style="padding: 5%;">
         <div class="container_2">
