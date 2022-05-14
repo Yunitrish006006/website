@@ -114,12 +114,12 @@
         </div>
         </div>
     </section>
-    <section style="padding: 5%; display:flex margin:">
-        <span><form action="" method="post" ><input type="hidden" name='require_category' value="台北旗艦店"><input type="submit" class="btn theme_btn button_hover" value = "台北旗艦店"></form></span>
-        <span><form action="" method="post" ><input type="hidden" name='require_category' value="台中逢甲店"><input type="submit" class="btn theme_btn button_hover" value = "台中逢甲店"></form></span>
-        <span><form action="" method="post" ><input type="hidden" name='require_category' value="高雄愛河店"><input type="submit" class="btn theme_btn button_hover" value = "高雄愛河店"></form></span>
-        <span><form action="" method="post" ><input type="hidden" name='require_category' value="彰化鹿港店"><input type="submit" class="btn theme_btn button_hover" value = "彰化鹿港店"></form></span>
-        <span><form action="" method="post" ><input type="hidden" name='require_category' value="墾丁恆春店"><input type="submit" class="btn theme_btn button_hover" value = "墾丁恆春店"></form></span>
+    <section style="padding: 5% 20%; display:flex;">
+        <span style="margin:0px 2px;"><form action="" method="post" ><input type="hidden" name='require_category' value="台北旗艦店"><input type="submit" class="btn theme_btn button_hover" value = "台北旗艦店"></form></span>
+        <span style="margin:0px 2px;"><form action="" method="post" ><input type="hidden" name='require_category' value="台中逢甲店"><input type="submit" class="btn theme_btn button_hover" value = "台中逢甲店"></form></span>
+        <span style="margin:0px 2px;"><form action="" method="post" ><input type="hidden" name='require_category' value="高雄愛河店"><input type="submit" class="btn theme_btn button_hover" value = "高雄愛河店"></form></span>
+        <span style="margin:0px 2px;"><form action="" method="post" ><input type="hidden" name='require_category' value="彰化鹿港店"><input type="submit" class="btn theme_btn button_hover" value = "彰化鹿港店"></form></span>
+        <span style="margin:0px 2px;"><form action="" method="post" ><input type="hidden" name='require_category' value="墾丁恆春店"><input type="submit" class="btn theme_btn button_hover" value = "墾丁恆春店"></form></span>
     </section>
     
     <!-- Gallery -->
