@@ -42,7 +42,21 @@
                     }
                 }
                 $num = mysqli_num_rows($result); //查詢結果筆數
-                mysqli_free_result($result); // 釋放佔用的記憶體
+                // 建立購物車的數量
+                $links = mysqli_connect("localhost","root","","beehotel");     
+                mysqli_query($links, "SET NAMES UTF8");
+                $account = $_SESSION['account_id'];
+                $cart_quanity=0;
+                if($cart_result = mysqli_query($links,"SELECT * FROM cart WHERE account_id = $account")) {
+                    while ($cart_item = mysqli_fetch_assoc($cart_result)) {
+                        $cart_quanity++;
+                    }
+                }
+            $_SESSION["cart_quaity"]=$cart_quanity;
+            mysqli_close($link);
+            mysqli_close($links);
+            mysqli_free_result($result); // 釋放佔用的記憶體
+            mysqli_free_result($cart_result); // 釋放佔用的記憶體
             }
             mysqli_close($link); // 關閉資料庫連結
         }

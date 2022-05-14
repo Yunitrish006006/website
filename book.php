@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
+ <!-- 購物車數量 -->
+    <?php
+    if(isset($_SESSION['account'])){
+        $link = mysqli_connect("localhost","root","");     
+            mysqli_select_db($link, "beehotel");
+            mysqli_query($link, "SET NAMES UTF8");
+            $account = $_SESSION['account_id'];
+            $cart_quanity=0;
+            if($cart_result = mysqli_query($link,"SELECT * FROM cart WHERE account_id = $account")) {
+                while ($cart_item = mysqli_fetch_assoc($cart_result)) {
+                    $cart_quanity++;
+                }
+            }
+            $_SESSION["cart_quaity"]=$cart_quanity;
+            mysqli_close($link);
+    }
+    ?>
 <!-- 分頁產生內容 -->
 <?php
     if(isset($_POST['require_category']))
@@ -30,7 +47,6 @@
                 }
             }
         }
-
         while($room = mysqli_fetch_assoc($result)) {
             $pno = $room['pno'];
             $pname = $room['pname'];
@@ -40,14 +56,15 @@
             $cart_operation='';
             $status_of_item='';
             $text_of_item='';
-            $cart_item_id = $pno;
             if(isset($_SESSION['account'])) {
-                for($i=0;$i<sizeof($bought_items);$i++) {
+                if(sizeof($bought_items)!=0){
+                    for($i=0;$i<sizeof($bought_items);$i++) {
                     if($pno==$bought_items[$i])
                     {
                         $status_of_item = 'btn-danger';
                         $text_of_item = '移出';
                         $cart_operation = 'remove';
+                        break;
                     }
                     else {
                         $status_of_item = 'btn-primary';
@@ -55,6 +72,12 @@
                         $cart_operation = 'add';
                     }
                 }
+                }else{
+                    $status_of_item = 'btn-primary';
+                    $text_of_item = '加入';
+                    $cart_operation = 'add';
+                }
+                
             }
             else {
                 $status_of_item = 'btn-primary';
@@ -82,7 +105,7 @@
                         '</section>'.
                         '<form action="" method="post" >'.
                             '<input type="hidden" name="cart_operation" value="'.$cart_operation.'">'.
-                            '<input type="hidden" name="cart_item_id" value="'.$cart_item_id.'">'.
+                            '<input type="hidden" name="cart_item_id" value="'.$pno.'">'.
                             '<button id="p'. $pno .'" class="btn '. $status_of_item .'" type = submit>'.
                                 $text_of_item .'購物車' .
                             '</button>'.
@@ -98,22 +121,21 @@
         $cart_link = mysqli_connect("localhost","root","");     
         mysqli_select_db($cart_link, "beehotel");
         mysqli_query($cart_link, "SET NAMES UTF8");
+        $add_cart=$_POST['cart_item_id'];
         $id_of_account = $_SESSION['account_id'];
         switch($_POST['cart_operation']){
             case "add":
-                if(!($cartop_result = mysqli_query($cart_link,"SELECT * FROM cart WHERE account_id = '$id_of_account' AND pno = '$cart_item_id'"))) {
-                    mysqli_query($cart_link,"INSERT INTO cart (account_id, pno) VALUES ('$id_of_account', '$cart_item_id');");
-                }
-                mysqli_query($cart_link,"INSERT INTO cart (account_id, pno) VALUES ('$id_of_account', '$cart_item_id');");
+                mysqli_query($cart_link,"INSERT INTO cart (account_id, pno) VALUES ('$id_of_account', '$add_cart');");
                 break;
             case "remove":
-                if($cartop_result = mysqli_query($cart_link,"SELECT * FROM cart WHERE account_id = '$id_of_account' AND pno = '$cart_item_id'")) {
-                    mysqli_query($cart_link,"DELETE FROM cart WHERE cart.pno = '$cart_item_id'");
+                if($cartop_result = mysqli_query($cart_link,"SELECT * FROM cart WHERE account_id = '$id_of_account' AND pno = '$add_cart'")) {
+                    mysqli_query($cart_link,"DELETE FROM cart WHERE cart.pno = '$add_cart'");
                 }
                 break;
-            default:
+            // default:
             break;
         }
+        header("Location:book.php");
     }
     mysqli_close($link);
 ?>
@@ -145,11 +167,11 @@
         </div>
     </section>
     <section style="padding: 5% 20%; display:flex;">
-        <span style="margin:0px 2px;"><form action="" method="post" ><input type="hidden" name='require_category' value="台北旗艦店"><input type="submit" class="btn theme_btn button_hover" value = "台北旗艦店"></form></span>
-        <span style="margin:0px 2px;"><form action="" method="post" ><input type="hidden" name='require_category' value="台中逢甲店"><input type="submit" class="btn theme_btn button_hover" value = "台中逢甲店"></form></span>
-        <span style="margin:0px 2px;"><form action="" method="post" ><input type="hidden" name='require_category' value="高雄愛河店"><input type="submit" class="btn theme_btn button_hover" value = "高雄愛河店"></form></span>
-        <span style="margin:0px 2px;"><form action="" method="post" ><input type="hidden" name='require_category' value="彰化鹿港店"><input type="submit" class="btn theme_btn button_hover" value = "彰化鹿港店"></form></span>
-        <span style="margin:0px 2px;"><form action="" method="post" ><input type="hidden" name='require_category' value="墾丁恆春店"><input type="submit" class="btn theme_btn button_hover" value = "墾丁恆春店"></form></span>
+        <span  class="col col-sm"><form action="" method="post" ><input type="hidden" name='require_category' value="台北旗艦店"><input type="submit" class="btn theme_btn button_hover" value = "台北旗艦店"></form></span>
+        <span  class="col col-sm"><form action="" method="post" ><input type="hidden" name='require_category' value="台中逢甲店"><input type="submit" class="btn theme_btn button_hover" value = "台中逢甲店"></form></span>
+        <span  class="col col-sm"><form action="" method="post" ><input type="hidden" name='require_category' value="高雄愛河店"><input type="submit" class="btn theme_btn button_hover" value = "高雄愛河店"></form></span>
+        <span  class="col col-sm"><form action="" method="post" ><input type="hidden" name='require_category' value="彰化鹿港店"><input type="submit" class="btn theme_btn button_hover" value = "彰化鹿港店"></form></span>
+        <span  class="col col-sm"><form action="" method="post" ><input type="hidden" name='require_category' value="墾丁恆春店"><input type="submit" class="btn theme_btn button_hover" value = "墾丁恆春店"></form></span>
     </section>
     <!-- Gallery -->
     <div class="row tm-gallery">
