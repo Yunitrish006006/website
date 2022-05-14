@@ -104,13 +104,16 @@
         $id_of_account = $_SESSION['account_id'];
         switch($_POST['cart_operation']){
             case "add":
-                if(!($cart_result = mysqli_query($cart_link,"SELECT * FROM cart WHERE account_id = '$id_of_account' AND pno = '$cart_item_id'"))) {
+                if(!($cartop_result = mysqli_query($cart_link,"SELECT * FROM cart WHERE account_id = '$id_of_account' AND pno = '$cart_item_id'"))) {
                     mysqli_query($cart_link,"INSERT INTO cart (account_id, pno) VALUES ('$id_of_account', '$cart_item_id');");
                 }
+                mysqli_query($cart_link,"INSERT INTO cart (account_id, pno) VALUES ('$id_of_account', '$cart_item_id');");
+                break;
             case "remove":
-                if($cart_result = mysqli_query($cart_link,"SELECT * FROM cart WHERE account_id = '$id_of_account' AND pno = '$cart_item_id'")) {
-                    mysqli_query($cart_link,"DELETE FROM cart WHERE cart.id = '$cart_item_id'");
+                if($cartop_result = mysqli_query($cart_link,"SELECT * FROM cart WHERE account_id = '$id_of_account' AND pno = '$cart_item_id'")) {
+                    mysqli_query($cart_link,"DELETE FROM cart WHERE cart.pno = '$cart_item_id'");
                 }
+                break;
             default:
             break;
         }
