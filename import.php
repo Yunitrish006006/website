@@ -33,6 +33,7 @@
             $('#tm-gallery-page-' + page).removeClass('hidden');
             $('.tm-paging-link').removeClass('active');
             $(this).addClass("active");
+            <?php $_SESSION['require_category']?>
         });
     });
 </script>
