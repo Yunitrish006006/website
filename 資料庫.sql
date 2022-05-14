@@ -30,6 +30,7 @@ USE `beehotel`;
 --
 
 CREATE TABLE `account` (
+  `id` int(11) NOT NULL,
   `account` varchar(20) NOT NULL,
   `level` int(2) NOT NULL,
   `password` varchar(20) NOT NULL,
@@ -40,11 +41,12 @@ CREATE TABLE `account` (
 -- 傾印資料表的資料 `account`
 --
 
-INSERT INTO `account` (`account`, `level`, `password`, `email`) VALUES
-('admin', 99, 'admin123456', 'admin@BeeHotel.com.tw'),
-('guest', 0, '********', 'guest@gmail.com'),
-('LinYun', 6, '123456', 'yunthomas006@gmail.com'),
-('member', 1, 'member123456', 'member@gmail.com');
+INSERT INTO `account` (`id`, `account`, `level`, `password`, `email`) VALUES
+(0, 'test', 1, 'test123456', 'test@gmail.com'),
+(1, 'admin', 99, 'admin123456', 'admin@BeeHotel.com.tw'),
+(2, 'guest', 0, 'guest123456', 'guest@gmail.com'),
+(3, 'LinYunYou', 23, '0937565253', 'yunthomas@gmail.com'),
+(4, 'member', 1, 'member123456', 'member@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -68,8 +70,9 @@ CREATE TABLE `account_temp` (
 
 CREATE TABLE `comments` (
   `id` int(10) NOT NULL,
-  `account` varchar(20) NOT NULL,
+  `account_id` int(11) NOT NULL,
   `date` date NOT NULL,
+  `picture_path` varchar(20) DEFAULT NULL,
   `food_tag` tinyint(1) NOT NULL,
   `service_tag` tinyint(1) NOT NULL,
   `activity_tag` tinyint(1) NOT NULL,
@@ -80,8 +83,8 @@ CREATE TABLE `comments` (
 -- 傾印資料表的資料 `comments`
 --
 
-INSERT INTO `comments` (`id`, `account`, `date`, `food_tag`, `service_tag`, `activity_tag`, `room_tag`) VALUES
-(0, 'guest01', '2022-05-13', 0, 0, 0, 0);
+INSERT INTO `comments` (`id`, `account_id`, `date`, `picture_path`, `food_tag`, `service_tag`, `activity_tag`, `room_tag`) VALUES
+(0, 0, '2022-05-13', '', 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -126,14 +129,14 @@ CREATE TABLE `rooms` (
 -- 資料表索引 `account`
 --
 ALTER TABLE `account`
-  ADD PRIMARY KEY (`account`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- 資料表索引 `comments`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `account` (`account`);
+  ADD KEY `account_id` (`account_id`);
 
 --
 -- 資料表索引 `rooms`
@@ -208,6 +211,9 @@ ALTER TABLE `product`
   MODIFY `pno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 COMMIT;
 
+ALTER TABLE `account`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

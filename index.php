@@ -27,21 +27,21 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="5000">
-                <img src="images/r1.jpg" class="d-block w-100" width="1148" height="500">
+                <img src="images/r1.jpg" class="d-block w-100" width="1148" xheight="500">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>經典蜂巢房</h5>
                     <p>參考蜂巢樣式設計，結合科技感打造出的房間。</p>
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="5000">
-                <img src="images/r2.jpg" class="d-block w-100" width="1148" height="500">
+                <img src="images/r2.jpg" class="d-block w-100" width="1148" xheight="500">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>飯店外觀</h5>
                     <p>一棟棟的小木屋，讓您與大自然能更加靠近！</p>
                 </div>
             </div>
             <div class="carousel-item" data-bs-interval="5000">
-                <img src="images/r3.jpg" class="d-block w-100" width="1148" height="500">
+                <img src="images/r3.jpg" class="d-block w-100" width="1148" xheight="500">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>飯店外觀</h5>
                     <p>不僅有小木屋，還有高聳的大樓供您選擇。</p>
