@@ -37,21 +37,52 @@
                     <div class="single-post row">
                         <div class="col-lg-12">
                             <div class="feature-img">
-                                <img class="img-fluid" src="images/blog/feature-img1.jpg" alt="">
+                                <img class="img-fluid" src="
+                                    <?php
+                                        $pages=$_SESSION['page'];
+                                        include "db.php";
+                                        $sql = "SELECT * FROM `comments` WHERE id='$pages'";
+                                        $result = mysqli_query($db, $sql);
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            echo  $row['picture_path'];
+                                        }
+                                    ?>   
+                                " alt="">
                             </div>
                         </div>
                         <div class="col-lg-3  col-md-3">
                             <div class="blog_info text-right">
                                 <div class="post_tag">
-                                    <a href="#">食物,</a>
-                                    <a href="#">飯店活動,</a>
-                                    <a href="#">服務人員,</a>
-                                    <a href="#">套房</a>
+                                    <?php
+                                        include "db.php";
+                                        $sql = "SELECT * FROM `comments` WHERE id='$pages'";
+                                        $result = mysqli_query($db, $sql);
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            echo  $row['tag'];
+                                        }
+                                    ?>  
                                 </div>
                                 <ul class="blog_meta list_style">
-                                    <li><a href="#">林小姐<i class="lnr lnr-user"></i></a></li>
-                                    <li><a href="#">12 Dec, 2017<i class="lnr lnr-calendar-full"></i></a></li>
-                                    <li><a href="#">1.2M 觀看者<i class="lnr lnr-eye"></i></a></li>
+                                    <li><a href="#">
+                                        <?php
+                                            include "db.php";
+                                            $sql = "SELECT * FROM `comments` WHERE id='$pages'";
+                                            $result = mysqli_query($db, $sql);
+                                            while ($row = mysqli_fetch_assoc($result)) {
+                                                echo  $row['name'];
+                                            }
+                                        ?>  
+                                    <i class="lnr lnr-user"></i></a></li>
+                                    <li><a href="#">
+                                        <?php
+                                            include "db.php";
+                                            $sql = "SELECT * FROM `comments` WHERE id='$pages'";
+                                            $result = mysqli_query($db, $sql);
+                                            while ($row = mysqli_fetch_assoc($result)) {
+                                                echo  $row['date'];
+                                            }
+                                        ?> 
+                                    <i class="lnr lnr-calendar-full"></i></a></li>
                                 </ul>
                                 <ul class="social-links">
                                     <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
@@ -62,16 +93,25 @@
                             </div>
                         </div>
                         <div class="col-lg-9 col-md-9 blog_details">
-                            <h2>服務人員請不要氣餒</h2>
+                            <h2>
+                                <?php
+                                    include "db.php";
+                                    $sql = "SELECT * FROM `comments` WHERE id='$pages'";
+                                    $result = mysqli_query($db, $sql);
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        echo  $row['subject'];
+                                    }
+                                ?> 
+                            </h2>
                             <p class="excert">
-                                好幾年公司尾牙都在此舉辦，今年當然也不例外，疫情當下在台灣還能大啖美食很幸福。今年有個小插曲，
-                                服務員在送餐時（玉露海石斑）不小心湯汁濺灑在我衣服整隻袖子。
-                            </p>
-                            <p>
-                                感覺服務員很生澀應該是工讀生，
-                                用餐過程到結束來了好幾位主管來跟我致歉，及詢問我需要什麼善後服務之類，還說要拿件衣服給我換，
-                                或者把衣服送過來清洗都沒關係，我回沒關係不介意別責怪那位服務員，希望那位工讀生別往心裡去，
-                                服務業辛苦了。
+                                <?php           
+                                    include "db.php";
+                                    $sql = "SELECT * FROM `comments` WHERE id='$pages'";
+                                    $result = mysqli_query($db, $sql);
+                                     while ($row = mysqli_fetch_assoc($result)) {
+                                        echo  $row['comment'];
+                                        }
+                                ?> 
                             </p>
 
                         </div>
@@ -91,7 +131,27 @@
                                 <div class="detials">
                                     <p>上個貼文</p>
                                     <a href="#">
-                                        <h4>這家飯店的婚禮佈置</h4>
+                                        <h4>
+                                            <?php
+                                                include "db.php";
+                                                $pages_last=$_SESSION['page'];
+                                                $sql = "SELECT count(*) FROM `comments` WHERE 1";
+                                                $result = mysqli_query($db, $sql);
+                                                while ($row = mysqli_fetch_assoc($result)) {
+                                                    $max=$row['count(*)'];
+                                                }
+                                                if($pages>1){
+                                                    $pages_last=$pages-1;                         
+                                                }else{
+                                                    $pages_last=$max;
+                                                }
+                                                $sql = "SELECT * FROM `comments` WHERE id='$pages_last'";
+                                                $result = mysqli_query($db, $sql);
+                                                while ($row = mysqli_fetch_assoc($result)) {
+                                                    echo  $row['subject'];
+                                                } 
+                                            ?> 
+                                        </h4>
                                     </a>
                                 </div>
                             </div>
@@ -100,7 +160,22 @@
                                 <div class="detials">
                                     <p>下個貼文</p>
                                     <a href="#">
-                                        <h4>關於房間設計與服務人員看法</h4>
+                                        <h4>
+                                            <?php
+                                                $pages_next=$_SESSION['page'];
+                                                include "db.php";
+                                                if($pages_next==$max){
+                                                    $pages_next=1;
+                                                }else{
+                                                    $pages_next=$pages_next+1;
+                                                }
+                                                $sql = "SELECT * FROM `comments` WHERE id='$pages_next'";
+                                                $result = mysqli_query($db, $sql);
+                                                while ($row = mysqli_fetch_assoc($result)) {
+                                                    echo  $row['subject'];
+                                                } 
+                                            ?> 
+                                        </h4>
                                     </a>
                                 </div>
                                 <div class="arrow">
