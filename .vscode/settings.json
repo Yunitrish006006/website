@@ -6,7 +6,11 @@
         "Equalsto",
         "getbootstrap",
         "HACCP",
+        "Jdata",
         "maxlength",
-        "minecraft"
+        "minecraft",
+        "oper",
+        "sqlstr",
+        "unitprice"
     ]
 }
