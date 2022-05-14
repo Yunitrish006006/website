@@ -15,7 +15,7 @@
     $link = mysqli_connect("localhost","root","");     
     mysqli_select_db($link, "beehotel");
     mysqli_query($link, "SET NAMES UTF8");
-    if($result = mysqli_query($link,"SELECT * FROM `product` WHERE `category` = '$category'"))
+    if($result = mysqli_query($link,"SELECT * FROM product WHERE category = '$category'"))
     {
         $bought_items = array();
 
@@ -37,6 +37,9 @@
             $description = $room['description'];
             $file_type = $room['file_type'];
             $unitprice = $room['unitprice'];
+            $cart_operation='';
+            $status_of_item='';
+            $text_of_item='';
             $cart_item_id = $pno;
             if(isset($_SESSION['account'])) {
                 for($i=0;$i<sizeof($bought_items);$i++) {
@@ -90,13 +93,7 @@
             $items .= $item;
         }
     }
-    mysqli_close($link);
     $items .= '</div>';
-    
-?>
-
-<!-- cart sql 操作 -->
-<?php 
     if(isset($_POST['cart_operation']) && isset($_SESSION['account'])) {
         $cart_link = mysqli_connect("localhost","root","");     
         mysqli_select_db($cart_link, "beehotel");
@@ -118,6 +115,7 @@
             break;
         }
     }
+    mysqli_close($link);
 ?>
 <head>
     <meta charset="UTF-8">
