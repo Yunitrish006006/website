@@ -1,3 +1,12 @@
+<?php
+    if (session_status() === PHP_SESSION_NONE) session_start();
+    if(isset($_POST['email'])) {
+        $headers = "From:". $_POST['email'] ."(".$_POST['name'].")"."\r\n";
+        $mailto = "beehoteltw@gmail.com";
+        mail($mailto,$_POST['subject'],$_POST['message'],$headers);
+        if (count($_POST) > 0) { $_POST = array(); }
+    }
+?>
 <!doctype html>
 <html lang="en">
 
@@ -49,13 +58,13 @@
                         </div>
                         <div class="info_item">
                             <i class="lnr lnr-envelope"></i>
-                            <h6><a href="#">reservation@beehotel.com</a></h6>
+                            <h6><a href="#">beehoteltw@gmail.com</a></h6>
                             <p>任何時候皆可寫信！</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-9">
-                    <form class="row contact_form" action="contact_process.php" method="post" id="contactForm"
+                    <form class="row contact_form" action="" method="POST" id="contactForm"
                         novalidate="novalidate">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -86,7 +95,7 @@
     </section>
     <?php include("footer.php") ?>
 </body>
- <!--gmaps Js-->
+<!--gmaps Js-->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 <script src="js/gmaps.min.js"></script>
 <!-- contact js -->
