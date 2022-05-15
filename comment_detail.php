@@ -39,13 +39,22 @@
                             <div class="feature-img">
                                 <img class="img-fluid" src="
                                     <?php
-                                        $pages=$_SESSION['page'];
                                         include "db.php";
+                                        mysqli_query($db, 'SET CHARACTER SET utf8');
+                                        mysqli_query($db, "SET collation_connection = 'utf8_general_ci'");
+                                        $pages=$_SESSION['page'];           
                                         $sql = "SELECT * FROM `comments` WHERE id='$pages'";
                                         $result = mysqli_query($db, $sql);
                                         while ($row = mysqli_fetch_assoc($result)) {
-                                            echo  $row['picture_path'];
+                                            $detail_path=$row['picture_path'];
+                                            $detail_tag=$row['tag'];
+                                            $detail_name=$row['name'];
+                                            $detail_date=$row['date'];
+                                            $detail_subject=$row['subject'];
+                                            $detail_comment=$row['comment'];
                                         }
+                                        mysqli_free_result($result); // 釋放佔用的記憶體
+                                        echo $detail_path;
                                     ?>   
                                 " alt="">
                             </div>
@@ -53,35 +62,14 @@
                         <div class="col-lg-3  col-md-3">
                             <div class="blog_info text-right">
                                 <div class="post_tag">
-                                    <?php
-                                        include "db.php";
-                                        $sql = "SELECT * FROM `comments` WHERE id='$pages'";
-                                        $result = mysqli_query($db, $sql);
-                                        while ($row = mysqli_fetch_assoc($result)) {
-                                            echo  $row['tag'];
-                                        }
-                                    ?>  
+                                    <?php echo  $detail_tag;?>  
                                 </div>
                                 <ul class="blog_meta list_style">
                                     <li><a href="#">
-                                        <?php
-                                            include "db.php";
-                                            $sql = "SELECT * FROM `comments` WHERE id='$pages'";
-                                            $result = mysqli_query($db, $sql);
-                                            while ($row = mysqli_fetch_assoc($result)) {
-                                                echo  $row['name'];
-                                            }
-                                        ?>  
+                                        <?php echo  $detail_name;?>  
                                     <i class="lnr lnr-user"></i></a></li>
                                     <li><a href="#">
-                                        <?php
-                                            include "db.php";
-                                            $sql = "SELECT * FROM `comments` WHERE id='$pages'";
-                                            $result = mysqli_query($db, $sql);
-                                            while ($row = mysqli_fetch_assoc($result)) {
-                                                echo  $row['date'];
-                                            }
-                                        ?> 
+                                        <?php echo  $detail_date;?> 
                                     <i class="lnr lnr-calendar-full"></i></a></li>
                                 </ul>
                                 <ul class="social-links">
@@ -94,24 +82,10 @@
                         </div>
                         <div class="col-lg-9 col-md-9 blog_details">
                             <h2>
-                                <?php
-                                    include "db.php";
-                                    $sql = "SELECT * FROM `comments` WHERE id='$pages'";
-                                    $result = mysqli_query($db, $sql);
-                                    while ($row = mysqli_fetch_assoc($result)) {
-                                        echo  $row['subject'];
-                                    }
-                                ?> 
+                                <?php echo  $detail_subject;?> 
                             </h2>
                             <p class="excert">
-                                <?php           
-                                    include "db.php";
-                                    $sql = "SELECT * FROM `comments` WHERE id='$pages'";
-                                    $result = mysqli_query($db, $sql);
-                                     while ($row = mysqli_fetch_assoc($result)) {
-                                        echo  $row['comment'];
-                                        }
-                                ?> 
+                                <?php echo  $detail_comment;?> 
                             </p>
 
                         </div>
@@ -133,13 +107,13 @@
                                     <a href="#">
                                         <h4>
                                             <?php
-                                                include "db.php";
                                                 $pages_last=$_SESSION['page'];
                                                 $sql = "SELECT count(*) FROM `comments` WHERE 1";
                                                 $result = mysqli_query($db, $sql);
                                                 while ($row = mysqli_fetch_assoc($result)) {
                                                     $max=$row['count(*)'];
                                                 }
+                                                mysqli_free_result($result); // 釋放佔用的記憶體
                                                 if($pages>1){
                                                     $pages_last=$pages-1;                         
                                                 }else{
@@ -149,7 +123,8 @@
                                                 $result = mysqli_query($db, $sql);
                                                 while ($row = mysqli_fetch_assoc($result)) {
                                                     echo  $row['subject'];
-                                                } 
+                                                }
+                                                mysqli_free_result($result); // 釋放佔用的記憶體 
                                             ?> 
                                         </h4>
                                     </a>
@@ -173,7 +148,8 @@
                                                 $result = mysqli_query($db, $sql);
                                                 while ($row = mysqli_fetch_assoc($result)) {
                                                     echo  $row['subject'];
-                                                } 
+                                                }
+                                                mysqli_free_result($result); // 釋放佔用的記憶體 
                                             ?> 
                                         </h4>
                                     </a>
