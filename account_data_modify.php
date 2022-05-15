@@ -20,9 +20,6 @@
             // // 資料庫查詢(送出查詢的SQL指令)
             if( $_POST['password'] ==  $_POST['password_check']) {
                 $account_id = $_SESSION['account_id'];
-                $account_name = $_SESSION['account'];
-                $account_password = $_SESSION['password'];
-                $account_email = $_SESSION["email"];
 
                 $sql = "update account set" . 
                         " account = '" . $_POST['account'] . "'," .
@@ -30,6 +27,10 @@
                         " email = '" . $_POST['email'] . "'" .
                         " where account.id = '" . $account_id . "'";     
                 mysqli_query($link, $sql);
+                
+                $_SESSION['account'] = $_POST['account'];
+                $_SESSION['password'] = $_POST['password'];
+                $_SESSION["email"] = $_POST['email'];
                 mysqli_close($link); // 關閉資料庫連結
             }
             else {
