@@ -32,15 +32,7 @@
                             <li class="nav-item"><a class="nav-link" href="contact.php">聯絡我們</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item submenu dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-                            aria-haspopup="true" aria-expanded="false" onclick="play()">訂房</a>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item"><a class="nav-link" href="book.php">訂房/房型介紹</a></li>
-                            <li class="nav-item"><a class="nav-link" href="history.php">訂房紀錄</a></li>
-                            <li class="nav-item"><a class="nav-link" href="cart.php">購物車<span class="toolbar-num"><?php if(isset($_SESSION['account'])) echo $_SESSION["cart_quaity"]; ?></span></a></li>
-                        </ul>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="book.php">房型介紹</a></li>
                     <li class="nav-item"><a class="nav-link" href="comment.php">留言板</a></li>
                     <li class="nav-item submenu dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" onclick="play()">帳戶</a>
@@ -49,6 +41,8 @@
                                 if(isset($_SESSION['account'])) {
                                     echo "<li class='nav-item'><a class='nav-link' href='logout.php'>登出</a></li>";
                                     echo "<li class='nav-item'><a class='nav-link' data-bs-toggle='modal' data-bs-target='#informationWindow' data-bs-whatever='@getbootstrap'>會員資料</a></li>";
+                                    echo "<li class='nav-item'><a class='nav-link' href='cart.php'>購物車<span class='toolbar-num'>(".$_SESSION['cart_quantity'].")</span></a></li>";
+                                    echo "<li class='nav-item'><a class='nav-link' href='history.php'>訂房紀錄</a></li>";
                                 }
                                 else {
                                     echo "<li class='nav-item'><a class='nav-link' data-bs-toggle='modal' data-bs-target='#loginWindow' data-bs-whatever='@getbootstrap' >登入</a></li>";

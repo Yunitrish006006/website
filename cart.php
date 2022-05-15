@@ -40,35 +40,30 @@
             <div class="col-3 col-sm">刪除</div>
         
         </div>
-        
-         <?php
-         if(isset($_SESSION['account'])){
-        $link = mysqli_connect("localhost","root","","beehotel");     
-         mysqli_query($link, "SET NAMES UTF8");
-         $account = $_SESSION['account_id'];
-         if($result = mysqli_query($link,"SELECT * FROM cart as c, product as p WHERE  c.pno=p.pno AND c.account_id = $account;")) {
+        <?php
+            if(isset($_SESSION['account'])){
+                $link = mysqli_connect("localhost","root","","beehotel");     
+                mysqli_query($link, "SET NAMES UTF8");
+                $account = $_SESSION['account_id'];
+                if($result = mysqli_query($link,"SELECT * FROM cart as c, product as p WHERE  c.pno=p.pno AND c.account_id = $account;")) {
                     while ($record = mysqli_fetch_assoc($result)) {
-          echo '<div class="row" style="padding: 2rem 0rem;">';
-          echo '<div class="col-3 col-sm"><img src="images/product/'.$record['file_type'].'" alt="" width="120px" height="90px"></div>';
-          echo '<div class="col-3 col-sm">'.$record['pname'].'</div>';
-          echo '<div class="col-3 col-sm"><input type="date"></div>';
-          echo  '<div class="col-3 col-sm"><input type="date"></div>';
-		  echo'<div class="col-6 col-sm"><select >
-                    <option value="1"> 1間 </option>
-                    <option value="2"> 2間 </option>
-                    <option value="3"> 3間 </option>
-                    <option value="4"> 4間 </option></select></div>';
-         echo '<div class="col-3 col-sm">'.$record["unitprice"].'</div>';
-         echo '<div class="col-3 col-sm"><a href="#"><img src="./images/delete.png" alt="" width="30px" height="30px"></a></div></div>';
+                        echo '<div class="row" style="padding: 2rem 0rem;">';
+                        echo '<div class="col-3 col-sm"><img src="images/product/'.$record['file_type'].'" alt="" width="120px" height="90px"></div>';
+                        echo '<div class="col-3 col-sm">'.$record['pname'].'</div>';
+                        echo '<div class="col-3 col-sm"><input type="date"></div>';
+                        echo  '<div class="col-3 col-sm"><input type="date"></div>';
+                        echo'<div class="col-6 col-sm"><select >
+                                    <option value="1"> 1間 </option>
+                                    <option value="2"> 2間 </option>
+                                    <option value="3"> 3間 </option>
+                                    <option value="4"> 4間 </option></select></div>';
+                        echo '<div class="col-3 col-sm">'.$record["unitprice"].'</div>';
+                        echo '<div class="col-3 col-sm"><a href="#"><img src="./images/delete.png" alt="" width="30px" height="30px"></a></div></div>';
                     }
                 }
-
-	   mysqli_free_result($result);
-       mysqli_close($link);
-             }
-         
-
-
+                mysqli_free_result($result);
+                mysqli_close($link);
+            }
         ?>
         <div class="row" style="padding: 2rem 0rem;">
             <div class="col col-sm"></div>
