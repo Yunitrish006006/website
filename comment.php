@@ -93,41 +93,35 @@
                             while ($row = mysqli_fetch_assoc($result)) {
                                 $max=$row['count(*)'];
                                 }
+                            mysqli_free_result($result); // 釋放佔用的記憶體
                             for($i=1;$i<=$max;$i++){
                         ?>
+                        <form name="form2" id="form2" action="" method="POST">
                         <article class="row blog_item">
                             <div class="col-md-3">
                                 <div class="blog_info text-right">
                                     <div class="post_tag">
                                         <?php
-                                            include "db.php";
                                             $sql = "SELECT * FROM `comments` WHERE id='$i'";
                                             $result = mysqli_query($db, $sql);
                                             while ($row = mysqli_fetch_assoc($result)) {
-                                                echo  $row['tag'];
+                                                $t=  $row['tag'];           //存入第i行tag
+                                                $n=  $row['name'];          //存入第i行name
+                                                $d=  $row['date'];          //存入第i行date
+                                                $path=$row['picture_path']; //存入第i行picture_path
+                                                $s=$row['subject'];          //存入第i行subject
+                                                $c=$row['comment'];            //存入第i行comment
                                                 }
+                                            mysqli_free_result($result); // 釋放佔用的記憶體
+                                            echo $t;
                                         ?>                              
                                     </div>
                                     <ul class="blog_meta list_style">
                                         <li><a >
-                                            <?php
-                                                include "db.php";
-                                                $sql = "SELECT * FROM `comments` WHERE id='$i'";
-                                                $result = mysqli_query($db, $sql);
-                                                while ($row = mysqli_fetch_assoc($result)) {
-                                                    echo  $row['name'];
-                                                    }
-                                            ?>  
+                                            <?php echo  $n;?>  
                                         <i class="lnr lnr-user"></i></a></li>
                                         <li><a>
-                                            <?php
-                                                include "db.php";
-                                                $sql = "SELECT * FROM `comments` WHERE id='$i'";
-                                                $result = mysqli_query($db, $sql);
-                                                while ($row = mysqli_fetch_assoc($result)) {
-                                                    echo  $row['date'];
-                                                    }
-                                            ?> 
+                                            <?php echo  $t;?> 
                                         <i class="lnr lnr-calendar-full"></i></a></li>
                                         <li><a >5 則留言<i class="lnr lnr-bubble"></i></a></li>
                                     </ul>
@@ -136,44 +130,23 @@
                             <div class="col-md-9">
                                 <div class="blog_post">
                                     <img src="
-                                            <?php
-                                                include "db.php";
-                                                $sql = "SELECT * FROM `comments` WHERE id='$i'";
-                                                $result = mysqli_query($db, $sql);
-                                                while ($row = mysqli_fetch_assoc($result)) {
-                                                    echo  $row['picture_path'];
-                                                    }
-                                            ?>   
-                                    " >
+                                            <?php echo  $path;?> " >
                                     <div class="blog_details">
                                         <a href="comment_detail.php">
                                             <h2>
-                                                <?php
-                                                    include "db.php";
-                                                    $sql = "SELECT * FROM `comments` WHERE id='$i'";
-                                                    $result = mysqli_query($db, $sql);
-                                                    while ($row = mysqli_fetch_assoc($result)) {
-                                                        echo  $row['subject'];
-                                                        }
-                                                ?> 
+                                                <?php echo  $s; ?> 
                                             </h2>
                                         </a>
                                         <p>
-                                            <?php
-                                                include "db.php";
-                                                $sql = "SELECT * FROM `comments` WHERE id='$i'";
-                                                $result = mysqli_query($db, $sql);
-                                                while ($row = mysqli_fetch_assoc($result)) {
-                                                    echo  $row['comment'];
-                                                    }
-                                            ?> 
+                                            <?php  echo  $c;?> 
                                         </p>
-                                        <a href="comment_detail.php"  class="view_btn button_hover">查看更多 </a>
-                                        <?php $_SESSION['page']=1?>;
+                                        <a href="comment_detail.php"  class="view_btn button_hover">查看更多</a>
+                                        <?php $_SESSION['page']=1?>
                                     </div>
                                 </div>
                             </div>
                         </article>
+                        </form>
                         <?php }?>
                         <article>
                             <div class="comment-form">
@@ -204,7 +177,6 @@
                                 </form>
                                 <?php
                                     if (isset($_POST['send'])) {
-                                        include "db.php";
                                         $name = $_POST['name'];
                                         $subject = $_POST['subject'];
                                         $content = $_POST['message'];
@@ -214,7 +186,6 @@
                                         $account=$_SESSION['account'];
                                         $sql = "INSERT INTO `comments` (`id`, `account`, `name`, `date`, `picture_path`, `tag`, `subject`, `comment`)
                                         VALUES ('$index','$account','$name',now(),'$image','$tag', '$subject', '$content')";
-                                    
                                         if (!mysqli_query($db, $sql)) {
                                             die(mysqli_error());
                                         }else {
