@@ -127,7 +127,7 @@
 <div class="modal fade" id="informationWindow" tabindex="-1" aria-labelledby="informationWindow" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="login.php" method="post" id="information">
+            <form action="account_data_modify.php" method="POST" id="information">
                 <div class="modal-header">
                     <h5 class="modal-title" id="informationWindow">會員資料修改</h5>
                 </div>
@@ -171,7 +171,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
-                    <button type="submit" class="btn btn-primary" onclick="sendVerifyMail()">寄送驗證信</button>
+                    <button type="submit" class="btn btn-primary">寄送驗證信</button>
+                    <!-- <button type="submit" class="btn btn-primary" onclick="sendVerifyMail()">寄送驗證信</button> -->
                 </div>
             </form>
         </div>

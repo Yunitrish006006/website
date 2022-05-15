@@ -40,6 +40,9 @@
                                 break;
                         }
                     }
+                    else{
+                        header("Location:index.php");
+                    }
                 }
                 $num = mysqli_num_rows($result); //查詢結果筆數
                 // 建立購物車的數量
