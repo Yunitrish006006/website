@@ -43,6 +43,9 @@
                                     echo "<li class='nav-item'><a class='nav-link' data-bs-toggle='modal' data-bs-target='#informationWindow' data-bs-whatever='@getbootstrap'>會員資料</a></li>";
                                     echo "<li class='nav-item'><a class='nav-link' href='cart.php'>購物車<span class='toolbar-num'>(".$_SESSION['cart_quantity'].")</span></a></li>";
                                     echo "<li class='nav-item'><a class='nav-link' href='history.php'>訂房紀錄</a></li>";
+                                    if($_SESSION['level']==99) {
+                                        echo "<li class='nav-item'><a class='nav-link' href='backend.php'>帳號列表</a></li>";
+                                    }
                                 }
                                 else {
                                     echo "<li class='nav-item'><a class='nav-link' data-bs-toggle='modal' data-bs-target='#loginWindow' data-bs-whatever='@getbootstrap' >登入</a></li>";
