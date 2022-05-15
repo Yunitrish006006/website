@@ -1,7 +1,7 @@
 <?php
     $host = 'localhost';
     $user ='root';
-    $access = '';
+    $access = 'root123456';
     $datagram = 'beehotel';
     $link = mysqli_connect($host,$user,$access,$datagram);
 

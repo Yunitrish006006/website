@@ -4,7 +4,7 @@
  <!-- 購物車數量 -->
     <?php
     if(isset($_SESSION['account'])){
-        $link = mysqli_connect("localhost","root","");     
+        $link = mysqli_connect("localhost","root","root123456");     
             mysqli_select_db($link, "beehotel");
             mysqli_query($link, "SET NAMES UTF8");
             $account = $_SESSION['account_id'];
@@ -29,7 +29,7 @@
     }
     $items = "";
     $items .= '<div id="tm-gallery-page-' . $category . '" class="tm-gallery-page">';
-    $link = mysqli_connect("localhost","root","");     
+    $link = mysqli_connect("localhost","root","root123456");     
     mysqli_select_db($link, "beehotel");
     mysqli_query($link, "SET NAMES UTF8");
     if($result = mysqli_query($link,"SELECT * FROM product WHERE category = '$category'"))
@@ -37,7 +37,7 @@
         $bought_items = array();
 
         if(isset($_SESSION['account'])) {
-            $link = mysqli_connect("localhost","root","");     
+            $link = mysqli_connect("localhost","root","root123456");     
             mysqli_select_db($link, "beehotel");
             mysqli_query($link, "SET NAMES UTF8");
             $id_of_account = $_SESSION['account_id'];
@@ -118,7 +118,7 @@
     }
     $items .= '</div>';
     if(isset($_POST['cart_operation']) && isset($_SESSION['account'])) {
-        $cart_link = mysqli_connect("localhost","root","");     
+        $cart_link = mysqli_connect("localhost","root","root123456");     
         mysqli_select_db($cart_link, "beehotel");
         mysqli_query($cart_link, "SET NAMES UTF8");
         $add_cart=$_POST['cart_item_id'];
@@ -135,7 +135,7 @@
             // default:
             break;
         }
-            $links = mysqli_connect("localhost","root","","beehotel");     
+            $links = mysqli_connect("localhost","root","root123456","beehotel");     
             mysqli_query($links, "SET NAMES UTF8");
             $account = $_SESSION['account_id'];
             $cart_quantity=0;

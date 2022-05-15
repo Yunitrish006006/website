@@ -3,7 +3,7 @@
     if (isset($_POST['account']) && isset($_POST['password'])) {
         $host = 'localhost';
         $user ='root';
-        $access = '';
+        $access = 'root123456';
         $datagram = 'beehotel';
         $link = mysqli_connect($host,$user,$access,$datagram);
     
@@ -47,7 +47,7 @@
                 if(isset($_SESSION['account_id'])) {
                     $num = mysqli_num_rows($result); //查詢結果筆數
                     // 建立購物車的數量
-                    $links = mysqli_connect("localhost","root","","beehotel");     
+                    $links = mysqli_connect("localhost","root","root123456","beehotel");     
                     mysqli_query($links, "SET NAMES UTF8");
                     $account = $_SESSION['account_id'];
                     $cart_quantity=0;

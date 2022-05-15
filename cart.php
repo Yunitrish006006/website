@@ -7,7 +7,7 @@
 <html lang="en">
 <?php
      if(isset($_POST['cart_pno']) && isset($_SESSION['account'])) {
-        $link = mysqli_connect("localhost","root","","beehotel"); 
+        $link = mysqli_connect("localhost","root","root123456","beehotel"); 
         mysqli_query($link, "SET NAMES UTF8");
         $cart_pno = $_POST['cart_pno'];
         $cart_account=$_SESSION['account_id'];
@@ -15,7 +15,7 @@
         if($cart_result=mysqli_query($link,"SELECT * FROM cart WHERE pno = $cart_pno and account_id=$cart_account")){
             mysqli_query($link,"DELETE FROM cart WHERE pno = '$cart_pno'");
         }
-        $links = mysqli_connect("localhost","root","","beehotel");     
+        $links = mysqli_connect("localhost","root","root123456","beehotel");     
         mysqli_query($links, "SET NAMES UTF8");
         if($cart_result = mysqli_query($links,"SELECT * FROM cart WHERE account_id = $cart_account")) {
                 while ($cart_item = mysqli_fetch_assoc($cart_result)) {
@@ -65,7 +65,7 @@
         </div>
         <?php
             if(isset($_SESSION['account'])){
-                $link = mysqli_connect("localhost","root","","beehotel");     
+                $link = mysqli_connect("localhost","root","root123456","beehotel");     
                 mysqli_query($link, "SET NAMES UTF8");
                 $account = $_SESSION['account_id'];
                 if($result = mysqli_query($link,"SELECT * FROM cart as c, product as p WHERE  c.pno=p.pno AND c.account_id = $account;")) {
