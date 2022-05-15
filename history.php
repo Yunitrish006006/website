@@ -46,7 +46,7 @@
         <div class="card-body">
             <div class="row">
             <div class="col-3 col-sm">A0001</div>
-            <div class="col-3 col-sm"><a href="#"><img src="./images/c-1.jpg" alt="" width="50px" height="50px" style="padding-bottom: 0.5rem;"></a></div>
+            <div class="col-3 col-sm"><a href="#"><img src="images/product/p-1.jpg" alt="" width="50px" height="50px" style="padding-bottom: 0.5rem;"></a></div>
             <div class="col-3 col-sm">商務套房</div>
             <div class="col-3 col-sm">2022/04/26</div>
             <div class="col-3 col-sm">2022/04/27</div>
@@ -55,7 +55,7 @@
             </div>
             <div class="row">
                 <div class="col-3 col-sm">A0001</div>
-                <div class="col-3 col-sm"><a href="#"><img src="./images/c-2.jpg" alt="" width="50px" height="50px" style="padding-bottom: 0.5rem;"></a></div>
+                <div class="col-3 col-sm"><a href="#"><img src="images/product/p-2.jpg" alt="" width="50px" height="50px" style="padding-bottom: 0.5rem;"></a></div>
                 <div class="col-3 col-sm">海景雙人房</div>
                 <div class="col-3 col-sm">2022/04/11</div>
                 <div class="col-3 col-sm">2022/04/12</div>
