@@ -85,6 +85,8 @@
                     <div class="blog_left_sidebar">
                         <?php 
                             include "db.php";
+                            mysqli_query($db, 'SET CHARACTER SET utf8');
+                            mysqli_query($db, "SET collation_connection = 'utf8_unicode_ci'");
                             $sql = "SELECT count(*) FROM `comments` WHERE 1";
                             $result = mysqli_query($db, $sql);
                             while ($row = mysqli_fetch_assoc($result)) {
@@ -225,6 +227,7 @@
                                     } else {
                                         echo '<div class="success">Click <strong>Send</strong> when you\'re done.</div>';
                                     }
+                                    mysqli_close($db); // 關閉資料庫連結
                                 ?>
                             </div>
                         </article>
