@@ -18,15 +18,24 @@
             mysqli_query($link, "SET collation_connection = 'utf8_unicode_ci'");
     
             // // 資料庫查詢(送出查詢的SQL指令)
-            $account_password = $_POST['password']; $account_name = $_POST['account'];
-            if ($result = mysqli_query($link, "SELECT * FROM account where password = '$account_password' and account = '$account_name'")) {
-                while ($row = mysqli_fetch_assoc($result)) {
+            if( $_POST['password'] ==  $_POST['password_check']) {
+                $account_id = $_SESSION['account_id'];
 
-                }
-                $num = mysqli_num_rows($result); //查詢結果筆數
+                $sql = "update account set" . 
+                        " account = '" . $_POST['account'] . "'," .
+                        " password = '" . $_POST['password'] . "'," .
+                        " email = '" . $_POST['email'] . "'" .
+                        " where account.id = '" . $account_id . "'";     
+                mysqli_query($link, $sql);
                 
+                $_SESSION['account'] = $_POST['account'];
+                $_SESSION['password'] = $_POST['password'];
+                $_SESSION["email"] = $_POST['email'];
+                mysqli_close($link); // 關閉資料庫連結
             }
-            mysqli_close($link); // 關閉資料庫連結
+            else {
+                echo "<script> alert('密碼不符合'); </script>";
+            }
         }
         include("index.php");
     }
