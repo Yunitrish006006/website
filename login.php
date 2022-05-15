@@ -44,22 +44,24 @@
                         header("Location:index.php");
                     }
                 }
-                $num = mysqli_num_rows($result); //查詢結果筆數
-                // 建立購物車的數量
-                $links = mysqli_connect("localhost","root","","beehotel");     
-                mysqli_query($links, "SET NAMES UTF8");
-                $account = $_SESSION['account_id'];
-                $cart_quantity=0;
-                if($cart_result = mysqli_query($links,"SELECT * FROM cart WHERE account_id = $account")) {
-                    while ($cart_item = mysqli_fetch_assoc($cart_result)) {
-                        $cart_quantity++;
+                if(isset($_SESSION['account_id'])) {
+                    $num = mysqli_num_rows($result); //查詢結果筆數
+                    // 建立購物車的數量
+                    $links = mysqli_connect("localhost","root","","beehotel");     
+                    mysqli_query($links, "SET NAMES UTF8");
+                    $account = $_SESSION['account_id'];
+                    $cart_quantity=0;
+                    if($cart_result = mysqli_query($links,"SELECT * FROM cart WHERE account_id = $account")) {
+                        while ($cart_item = mysqli_fetch_assoc($cart_result)) {
+                            $cart_quantity++;
+                        }
                     }
+                    $_SESSION["cart_quantity"]=$cart_quantity;
+                    mysqli_close($link);
+                    mysqli_close($links);
+                    mysqli_free_result($result); // 釋放佔用的記憶體
+                    mysqli_free_result($cart_result); // 釋放佔用的記憶體
                 }
-                $_SESSION["cart_quantity"]=$cart_quantity;
-                mysqli_close($link);
-                mysqli_close($links);
-                mysqli_free_result($result); // 釋放佔用的記憶體
-                mysqli_free_result($cart_result); // 釋放佔用的記憶體
             }
             mysqli_close($link); // 關閉資料庫連結
         }

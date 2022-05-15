@@ -11,6 +11,7 @@
         "minecraft",
         "oper",
         "sqlstr",
-        "unitprice"
+        "unitprice",
+        "updator"
     ]
 }
