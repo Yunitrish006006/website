@@ -1,9 +1,33 @@
 <?php
-    if (session_status() === PHP_SESSION_NONE) session_start();
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+     if(isset($_POST['cart_pno']) && isset($_SESSION['account'])) {
+        $link = mysqli_connect("localhost","root","","beehotel"); 
+        mysqli_query($link, "SET NAMES UTF8");
+        $cart_pno = $_POST['cart_pno'];
+        $cart_account=$_SESSION['account_id'];
+        $cart_quantity=0;
+        if($cart_result=mysqli_query($link,"SELECT * FROM cart WHERE pno = $cart_pno and account_id=$cart_account")){
+            mysqli_query($link,"DELETE FROM cart WHERE pno = '$cart_pno'");
+        }
+        $links = mysqli_connect("localhost","root","","beehotel");     
+        mysqli_query($links, "SET NAMES UTF8");
+        if($cart_result = mysqli_query($links,"SELECT * FROM cart WHERE account_id = $cart_account")) {
+                while ($cart_item = mysqli_fetch_assoc($cart_result)) {
+                        $cart_quantity++;
+                    }
+                }
+        $_SESSION["cart_quantity"]=$cart_quantity;
+        mysqli_close($link);         
+        mysqli_close($links);   
+        header("Location:cart.php");
+     }
+    ?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,7 +53,6 @@
         </div>
     </section>
 <div class="container" style="text-align: center; padding:1rem; font-size: 1rem;">
-    <form action="" method="post" name="form1">
             <div class="row" style="padding: 2rem 0rem; color: black; border-bottom: 0.05rem solid rgb(232, 228, 228);">
             <div class="col-3 col-sm">縮圖</div>
             <div class="col-3 col-sm">房型名稱</div>
@@ -58,7 +81,7 @@
                                     <option value="3"> 3間 </option>
                                     <option value="4"> 4間 </option></select></div>';
                         echo '<div class="col-3 col-sm">'.$record["unitprice"].'</div>';
-                        echo '<div class="col-3 col-sm"><a href="#"><img src="./images/delete.png" alt="" width="30px" height="30px"></a></div></div>';
+                        echo '<div class="col-3 col-sm"><form method="post" action=""><input type="hidden" name="cart_pno" value="'.$record['pno'].'"><input type="submit" value="刪除" class="btn btn-danger"></form></div></div>';
                     }
                 }
                 mysqli_free_result($result);
@@ -105,7 +128,7 @@
             <div class="col-2 col-sm-2"><button type="submit" value="submit"
                     class="btn theme_btn button_hover">確認結帳</button></div>
         </div>
-    </form>
+    
 </div>
 <?php include("footer.php") ?>
 </body>

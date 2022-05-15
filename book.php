@@ -135,9 +135,21 @@
             // default:
             break;
         }
+            $links = mysqli_connect("localhost","root","","beehotel");     
+            mysqli_query($links, "SET NAMES UTF8");
+            $account = $_SESSION['account_id'];
+            $cart_quantity=0;
+            if($cart_result = mysqli_query($links,"SELECT * FROM cart WHERE account_id = $account")) {
+                while ($cart_item = mysqli_fetch_assoc($cart_result)) {
+                        $cart_quantity++;
+                    }
+                }
+            $_SESSION["cart_quantity"]=$cart_quantity;
+         mysqli_close($link);
+        mysqli_close($links);          
         header("Location:book.php");
     }
-    mysqli_close($link);
+    
 ?>
 <head>
     <meta charset="UTF-8">

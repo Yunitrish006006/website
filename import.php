@@ -24,19 +24,6 @@
 <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/localization/messages_zh_TW.js "></script>
 <!-- else -->
-<script>
-    $(document).ready(function () {
-        // Handle click on paging links
-        $('.tm-paging-link').on("click", function () {
-            var page = $(this).text().toLowerCase();
-            $('.tm-gallery-page').addClass('hidden');
-            $('#tm-gallery-page-' + page).removeClass('hidden');
-            $('.tm-paging-link').removeClass('active');
-            $(this).addClass("active");
-            <?php $_SESSION['require_category']?>
-        });
-    });
-</script>
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
     function sendVerifyMail() {
