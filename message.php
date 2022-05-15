@@ -23,7 +23,14 @@
 		</div>
 	</form>
 	<?php
+	if (session_status() === PHP_SESSION_NONE) session_start();
 	$pages=$_SESSION['page'];
+	$sql = "SELECT count(*) FROM `details` WHERE 1";
+	$result = mysqli_query($db, $sql);
+	while ($row = mysqli_fetch_assoc($result)) {
+			$index=$row['count(*)'];
+	}
+	mysqli_free_result($result); // 釋放佔用的記憶體
 	$sql = "SELECT count(*) FROM `details` WHERE main='$pages'";
 	$result = mysqli_query($db, $sql);
 	while ($row = mysqli_fetch_assoc($result)) {
@@ -33,8 +40,10 @@
     if (isset($_POST['send'])) {
     	$name = $_POST['name'];
         $content = $_POST['content'];
-        $account=$_SESSION['account'];
-		$index=$max+1;
+		if (isset($_SESSION['account'])) {
+			$account=$_SESSION['account'];
+		}
+		$index=$index+1;
         $sql = "INSERT INTO `details`(`id`, `account`, `main`, `name`, `content`, `time`) 
                 VALUES ('$index','$account','$pages','$name','$content',now())";
                 if (!mysqli_query($db, $sql)) {
@@ -54,28 +63,40 @@
 		<h4>留言版</h4>
 		<div id="box">
 			<?php
-			$account=$_SESSION['account']; 	
 			for($i=1;$i<=$max;$i++){ ?>
 				<div class="comment-list">
 					<div class="c1 reply-btn">
-						<span>
-							<?php									         
-								$sql = "SELECT * FROM `details` WHERE main='$pages' and id='$i'";
-								$result = mysqli_query($db, $sql);
-								while ($row = mysqli_fetch_assoc($result)) {
-									$name_detail=$row['name'];
-									$content_detail=$row['content'];
-									$time_detail=$row['time'];
+						<?php 
+							$sql = "SELECT * FROM `details` WHERE main='$pages' and id='$i'";
+							$result = mysqli_query($db, $sql);
+							while ($row = mysqli_fetch_assoc($result)) {
+								$_SESSION['id']=$row['id'];
+								$_SESSION['name']=$row['name'];
+								$name_detail=$row['name'];
+								$content_detail=$row['content'];
+								$time_detail=$row['time'];
+								if (isset($_SESSION['account'])) {
+									$account=$_SESSION['account'];
+									if($account == 'admin') {  //若登入者名稱和留言者名稱一致，顯示出編輯和刪除的連結
+										echo '
+										<a href="delete.php?no=' . $row['id'] . '" class="btn-reply text-uppercase">刪除</a>';
+										}										
+									else if ($account == $row['account']) {  //若登入者名稱和留言者名稱一致，顯示出編輯和刪除的連結
+									echo '
+										<a href="delete.php?no=' . $row['id'] . '" class="btn-reply text-uppercase">刪除</a>';
+										}
 									}
-								mysqli_free_result($result); // 釋放佔用的記憶體
-								echo $name_detail.":";						                 
-							?>  
+								}
+							mysqli_free_result($result); // 釋放佔用的記憶體
+						?>
+						<span>
+							<?php echo $name_detail.":";?>  
 						</span>
 						<span><?php echo $content_detail; ?></span>
 					</div>
 					<div ><?php echo $time_detail; ?></div>
 				</div>
-			<?php }
+			<?php } 
 			mysqli_close($db); // 關閉資料庫連結?>
 		</div>
 	</div>

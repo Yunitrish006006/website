@@ -42,7 +42,9 @@
                                         include "db.php";
                                         mysqli_query($db, 'SET CHARACTER SET utf8');
                                         mysqli_query($db, "SET collation_connection = 'utf8_general_ci'");
-                                        $pages=$_SESSION['page'];           
+                                        if (session_status() === PHP_SESSION_NONE) session_start();
+                                        if (isset($_SESSION['page'])){
+                                            $pages=$_SESSION['page'];}          
                                         $sql = "SELECT * FROM `comments` WHERE id='$pages'";
                                         $result = mysqli_query($db, $sql);
                                         while ($row = mysqli_fetch_assoc($result)) {

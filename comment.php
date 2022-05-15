@@ -96,7 +96,7 @@
                             mysqli_free_result($result); // 釋放佔用的記憶體
                             for($i=1;$i<=$max;$i++){
                         ?>
-                        <form name="form2" id="form2" action="comment_detail.php" method="POST">
+                        <form name="<?php echo $i ?>" id="<?php echo $i ?>" action="comment_detail.php" method="POST">
                         <article class="row blog_item">
                             <div class="col-md-3">
                                 <div class="blog_info text-right">
@@ -114,6 +114,12 @@
                                                 }
                                             mysqli_free_result($result); // 釋放佔用的記憶體
                                             echo $t;
+                                            $sql = "SELECT count(*) FROM `details` WHERE main=$i";
+                                            $result = mysqli_query($db, $sql);
+                                            while ($row = mysqli_fetch_assoc($result)) {
+                                                $num=$row['count(*)'];  
+                                            }
+                                            mysqli_free_result($result); // 釋放佔用的記憶體
                                         ?>                              
                                     </div>
                                     <ul class="blog_meta list_style">
@@ -123,7 +129,9 @@
                                         <li><a>
                                             <?php echo  $t;?> 
                                         <i class="lnr lnr-calendar-full"></i></a></li>
-                                        <li><a >5 則留言<i class="lnr lnr-bubble"></i></a></li>
+                                        <li><a >
+                                            <?php echo  $num."則留言";?> 
+                                        <i class="lnr lnr-bubble"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -141,21 +149,21 @@
                                             <?php  echo  $c;?> 
                                         </p>
                                        
-                                        <button  type="submit"  name="<?php echo $i ?>"  class="view_btn button_hover">查看更多</button>
+                                        <button  type="submit"  name="submit"  class="view_btn button_hover">查看更多</button>
                                     </div>
                                 </div>
                             </div>
                         </article>
-                        </form>
-                        <?php }?>
+                        </form>   
                         <?php 
-                            if (isset($_POST['2'])){
-                               $_SESSION['page']=2;
+                            if (isset($_POST['submit'])){
+                               $_SESSION['page']=1;
                             }
                             else{
                                 $_SESSION['page']=1;
                             }
                         ?>
+                        <?php }?>
                         <article>
                             <div class="comment-form">
                                 <h4>留下您的貼文吧！</h4>
