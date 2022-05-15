@@ -42,7 +42,8 @@
         </div>
         
          <?php
-         $link = mysqli_connect("localhost","root","","beehotel");     
+         if(isset($_SESSION['account'])){
+        $link = mysqli_connect("localhost","root","","beehotel");     
          mysqli_query($link, "SET NAMES UTF8");
          $account = $_SESSION['account_id'];
          if($result = mysqli_query($link,"SELECT * FROM cart as c, product as p WHERE  c.pno=p.pno AND c.account_id = $account;")) {
@@ -64,6 +65,8 @@
 
 	   mysqli_free_result($result);
        mysqli_close($link);
+             }
+         
 
 
         ?>
@@ -92,7 +95,7 @@
             <div class="col col-sm"></div>
             <div class="col-2 col-sm"></div>
             <div class="col-2 col-sm">應計</div>
-            <div class="col-2 col-sm">$8600</div>
+            <div class="col-2 col-sm">2300</div>
         </div>
         <div class="row" style="margin: 1.5rem 0rem;">
             <div class="col-9 col-sm-10"><input type="text" value="請輸入折扣碼" style="width:95%; height:40px;"></div>
