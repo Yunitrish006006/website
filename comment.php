@@ -96,7 +96,7 @@
                             mysqli_free_result($result); // 釋放佔用的記憶體
                             for($i=1;$i<=$max;$i++){
                         ?>
-                        <form name="form2" id="form2" action="" method="POST">
+                        <form name="form2" id="form2" action="comment_detail.php" method="POST">
                         <article class="row blog_item">
                             <div class="col-md-3">
                                 <div class="blog_info text-right">
@@ -140,14 +140,22 @@
                                         <p>
                                             <?php  echo  $c;?> 
                                         </p>
-                                        <a href="comment_detail.php"  class="view_btn button_hover">查看更多</a>
-                                        <?php $_SESSION['page']=1?>
+                                       
+                                        <button  type="submit"  name="<?php echo $i ?>"  class="view_btn button_hover">查看更多</button>
                                     </div>
                                 </div>
                             </div>
                         </article>
                         </form>
                         <?php }?>
+                        <?php 
+                            if (isset($_POST['2'])){
+                               $_SESSION['page']=2;
+                            }
+                            else{
+                                $_SESSION['page']=1;
+                            }
+                        ?>
                         <article>
                             <div class="comment-form">
                                 <h4>留下您的貼文吧！</h4>
