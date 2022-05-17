@@ -127,7 +127,7 @@
                                             <?php echo  $n;?>  
                                         <i class="lnr lnr-user"></i></a></li>
                                         <li><a>
-                                            <?php echo  $t;?> 
+                                            <?php echo  $d;?> 
                                         <i class="lnr lnr-calendar-full"></i></a></li>
                                         <li><a >
                                             <?php echo  $num."則留言";?> 
