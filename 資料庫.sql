@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2022 年 05 月 15 日 07:09
+-- 產生時間： 2022 年 05 月 17 日 08:45
 -- 伺服器版本： 10.4.21-MariaDB
 -- PHP 版本： 7.4.29
 
@@ -119,6 +119,7 @@ INSERT INTO `comments` (`id`, `account`, `name`, `date`, `picture_path`, `tag`, 
 CREATE TABLE `details` (
   `id` varchar(10) NOT NULL,
   `account` varchar(20) NOT NULL,
+  `index` varchar(10) NOT NULL,
   `main` varchar(10) NOT NULL,
   `name` varchar(10) NOT NULL,
   `content` varchar(20) NOT NULL,
@@ -129,9 +130,9 @@ CREATE TABLE `details` (
 -- 傾印資料表的資料 `details`
 --
 
-INSERT INTO `details` (`id`, `account`, `main`, `name`, `content`, `time`) VALUES
-('1', 'LinYun', '1', '林昀佑', '這個人好智障', '2022-05-15 13:13:03'),
-('2', 'guest', '1', '匿名', '服務人員真辛苦', '2022-05-05 00:20:10');
+INSERT INTO `details` (`id`, `account`, `index`, `main`, `name`, `content`, `time`) VALUES
+('1', 'LinYunYou', '1', '1', '林昀佑', '這個人好智障', '2022-05-15 13:13:03'),
+('2', 'guest', '2', '1', '匿名', '服務人員真辛苦', '2022-05-15 12:38:24');
 
 -- --------------------------------------------------------
 
