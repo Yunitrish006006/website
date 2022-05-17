@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2022-05-17 13:08:07
+-- 產生時間： 2022-05-17 14:31:14
 -- 伺服器版本： 10.4.22-MariaDB
 -- PHP 版本： 8.1.2
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- 資料庫: `group_24`
 --
+CREATE DATABASE IF NOT EXISTS `group_24` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `group_24`;
 
 -- --------------------------------------------------------
 
@@ -79,7 +81,6 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `account_id`, `pno`) VALUES
-(33, 1, 2),
 (34, 1, 3);
 
 -- --------------------------------------------------------
