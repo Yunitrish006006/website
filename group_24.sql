@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- 主機： localhost
--- 產生時間： 2022 年 05 月 17 日 08:45
--- 伺服器版本： 10.4.21-MariaDB
--- PHP 版本： 7.4.29
+-- 主機： 127.0.0.1
+-- 產生時間： 2022-05-17 13:08:07
+-- 伺服器版本： 10.4.22-MariaDB
+-- PHP 版本： 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,10 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 資料庫: `beehotel`
+-- 資料庫: `group_24`
 --
-CREATE DATABASE IF NOT EXISTS `beehotel` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `beehotel`;
 
 -- --------------------------------------------------------
 
@@ -81,7 +79,8 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `account_id`, `pno`) VALUES
-(30, 1, 3);
+(33, 1, 2),
+(34, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -270,7 +269,7 @@ ALTER TABLE `account`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `product`
