@@ -86,10 +86,10 @@
                     <div class="blog_left_sidebar">
                         <?php 
                             include "db.php";
-                            mysqli_query($db, 'SET CHARACTER SET utf8');
-                            mysqli_query($db, "SET collation_connection = 'utf8_general_ci'");
+                            mysqli_query($link, 'SET CHARACTER SET utf8');
+                            mysqli_query($link, "SET collation_connection = 'utf8_general_ci'");
                             $sql = "SELECT count(*) FROM `comments` WHERE 1";
-                            $result = mysqli_query($db, $sql);
+                            $result = mysqli_query($link, $sql);
                             while ($row = mysqli_fetch_assoc($result)) {
                                 $max=$row['count(*)'];
                                 }
@@ -103,7 +103,7 @@
                                     <div class="post_tag">
                                         <?php
                                             $sql = "SELECT * FROM `comments` WHERE id='$i'";
-                                            $result = mysqli_query($db, $sql);
+                                            $result = mysqli_query($link, $sql);
                                             while ($row = mysqli_fetch_assoc($result)) {
                                                 $t=  $row['tag'];           //存入第i行tag
                                                 $n=  $row['name'];          //存入第i行name
@@ -115,7 +115,7 @@
                                             mysqli_free_result($result); // 釋放佔用的記憶體
                                             echo $t;
                                             $sql = "SELECT count(*) FROM `details` WHERE main=$i";
-                                            $result = mysqli_query($db, $sql);
+                                            $result = mysqli_query($link, $sql);
                                             while ($row = mysqli_fetch_assoc($result)) {
                                                 $num=$row['count(*)'];  
                                             }
@@ -194,7 +194,7 @@
                                         $account=$_SESSION['account'];
                                         $sql = "INSERT INTO `comments` (`id`, `account`, `name`, `date`, `picture_path`, `tag`, `subject`, `comment`)
                                         VALUES ('$index','$account','$name',now(),'$image','$tag', '$subject', '$content')";
-                                        if (!mysqli_query($db, $sql)) {
+                                        if (!mysqli_query($link, $sql)) {
                                             die(mysqli_error());
                                         }else {
                                             //若成功將留言存進資料庫，會自動跳轉到顯示留言的頁面
@@ -207,7 +207,7 @@
                                     } else {
                                         echo '<div class="success">Click <strong>Send</strong> when you\'re done.</div>';
                                     }
-                                    mysqli_close($db); // 關閉資料庫連結
+                                    mysqli_close($link); // 關閉資料庫連結
                                 ?>
                             </div>
                         </article>

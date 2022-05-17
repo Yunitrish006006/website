@@ -4,8 +4,7 @@
  <!-- 購物車數量 -->
     <?php
     if(isset($_SESSION['account'])){
-        $link = mysqli_connect("localhost","root","root123456");     
-            mysqli_select_db($link, "beehotel");
+        include("db.php");     
             mysqli_query($link, "SET NAMES UTF8");
             $account = $_SESSION['account_id'];
             $cart_quanity=0;
@@ -29,16 +28,14 @@
     }
     $items = "";
     $items .= '<div id="tm-gallery-page-' . $category . '" class="tm-gallery-page">';
-    $link = mysqli_connect("localhost","root","root123456");     
-    mysqli_select_db($link, "beehotel");
+    include("db.php");   
     mysqli_query($link, "SET NAMES UTF8");
     if($result = mysqli_query($link,"SELECT * FROM product WHERE category = '$category'"))
     {
         $bought_items = array();
 
         if(isset($_SESSION['account'])) {
-            $link = mysqli_connect("localhost","root","root123456");     
-            mysqli_select_db($link, "beehotel");
+            include("db.php");        
             mysqli_query($link, "SET NAMES UTF8");
             $id_of_account = $_SESSION['account_id'];
             if($cart_result = mysqli_query($link,"SELECT * FROM cart WHERE account_id = $id_of_account")) {
@@ -118,35 +115,32 @@
     }
     $items .= '</div>';
     if(isset($_POST['cart_operation']) && isset($_SESSION['account'])) {
-        $cart_link = mysqli_connect("localhost","root","root123456");     
-        mysqli_select_db($cart_link, "beehotel");
-        mysqli_query($cart_link, "SET NAMES UTF8");
+        include("db.php");        
+        mysqli_query($link, "SET NAMES UTF8");
         $add_cart=$_POST['cart_item_id'];
         $id_of_account = $_SESSION['account_id'];
         switch($_POST['cart_operation']){
             case "add":
-                mysqli_query($cart_link,"INSERT INTO cart (account_id, pno) VALUES ('$id_of_account', '$add_cart');");
+                mysqli_query($link,"INSERT INTO cart (account_id, pno) VALUES ('$id_of_account', '$add_cart');");
                 break;
             case "remove":
-                if($cartop_result = mysqli_query($cart_link,"SELECT * FROM cart WHERE account_id = '$id_of_account' AND pno = '$add_cart'")) {
-                    mysqli_query($cart_link,"DELETE FROM cart WHERE cart.pno = '$add_cart'");
+                if($cartop_result = mysqli_query($link,"SELECT * FROM cart WHERE account_id = '$id_of_account' AND pno = '$add_cart'")) {
+                    mysqli_query($link,"DELETE FROM cart WHERE cart.pno = '$add_cart'");
                 }
                 break;
             // default:
             break;
-        }
-            $links = mysqli_connect("localhost","root","root123456","beehotel");     
-            mysqli_query($links, "SET NAMES UTF8");
+        }   
+            mysqli_query($link, "SET NAMES UTF8");
             $account = $_SESSION['account_id'];
             $cart_quantity=0;
-            if($cart_result = mysqli_query($links,"SELECT * FROM cart WHERE account_id = $account")) {
+            if($cart_result = mysqli_query($link,"SELECT * FROM cart WHERE account_id = $account")) {
                 while ($cart_item = mysqli_fetch_assoc($cart_result)) {
                         $cart_quantity++;
                     }
                 }
             $_SESSION["cart_quantity"]=$cart_quantity;
-         mysqli_close($link);
-        mysqli_close($links);          
+         mysqli_close($link);        
         header("Location:book.php");
     }
     

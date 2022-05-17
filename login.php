@@ -1,11 +1,7 @@
 <?php
     if (session_status() === PHP_SESSION_NONE) session_start();
     if (isset($_POST['account']) && isset($_POST['password'])) {
-        $host = 'localhost';
-        $user ='root';
-        $access = 'root123456';
-        $datagram = 'beehotel';
-        $link = mysqli_connect($host,$user,$access,$datagram);
+        include("db.php");   
     
         if ( !$link ) {
             echo "連結錯誤代碼: ".mysqli_connect_errno()."<br>";//顯示錯誤代碼
@@ -47,18 +43,15 @@
                 if(isset($_SESSION['account_id'])) {
                     $num = mysqli_num_rows($result); //查詢結果筆數
                     // 建立購物車的數量
-                    $links = mysqli_connect("localhost","root","root123456","beehotel");     
-                    mysqli_query($links, "SET NAMES UTF8");
                     $account = $_SESSION['account_id'];
                     $cart_quantity=0;
-                    if($cart_result = mysqli_query($links,"SELECT * FROM cart WHERE account_id = $account")) {
+                    if($cart_result = mysqli_query($link,"SELECT * FROM cart WHERE account_id = $account")) {
                         while ($cart_item = mysqli_fetch_assoc($cart_result)) {
                             $cart_quantity++;
                         }
                     }
                     $_SESSION["cart_quantity"]=$cart_quantity;
                     mysqli_close($link);
-                    mysqli_close($links);
                     mysqli_free_result($result); // 釋放佔用的記憶體
                     mysqli_free_result($cart_result); // 釋放佔用的記憶體
                 }

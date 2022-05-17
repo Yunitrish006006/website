@@ -1,11 +1,7 @@
 <?php
     if (session_status() === PHP_SESSION_NONE) session_start();
     if (isset($_SESSION['account']) && isset($_SESSION['password'])) {
-        $host = 'localhost';
-        $user ='root';
-        $access = 'root123456';
-        $datagram = 'beehotel';
-        $link = mysqli_connect($host,$user,$access,$datagram);
+        include("db.php");
     
         if ( !$link ) {
             echo "連結錯誤代碼: ".mysqli_connect_errno()."<br>";//顯示錯誤代碼

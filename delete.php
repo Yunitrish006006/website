@@ -4,8 +4,8 @@ if (session_status() === PHP_SESSION_NONE) session_start();
 $id = $_SESSION['id'];
 $sql = "delete from `details` where id='$id'";
 $name = $_SESSION['name'];
-mysqli_query($db, $sql);
-if (!mysqli_query($db, $sql)) {
+mysqli_query($link, $sql);
+if (!mysqli_query($link, $sql)) {
 	die(mysqli_error());
 } else {
 	echo "

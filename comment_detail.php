@@ -40,8 +40,8 @@
                                 <img class="img-fluid" src="
                                     <?php 
                                     include "db.php";
-                                    mysqli_query($db, 'SET CHARACTER SET utf8');
-                                    mysqli_query($db, "SET collation_connection = 'utf8_general_ci'");
+                                    mysqli_query($link, 'SET CHARACTER SET utf8');
+                                    mysqli_query($link, "SET collation_connection = 'utf8_general_ci'");
                                     if (session_status() === PHP_SESSION_NONE) session_start();   
                                     for($i=1;$i<=10;$i++){                                              
                                         if (isset($_POST[$i])){
@@ -51,7 +51,7 @@
                                     if (isset($_SESSION['page'])){
                                             $pages=$_SESSION['page'];}          
                                         $sql = "SELECT * FROM `comments` WHERE id='$pages'";
-                                        $result = mysqli_query($db, $sql);
+                                        $result = mysqli_query($link, $sql);
                                         while ($row = mysqli_fetch_assoc($result)) {
                                             $detail_path=$row['picture_path'];
                                             $detail_tag=$row['tag'];
@@ -115,7 +115,7 @@
                                         <h4>
                                             <?php
                                                 $sql = "SELECT count(*) FROM `comments` WHERE 1";
-                                                $result = mysqli_query($db, $sql);
+                                                $result = mysqli_query($link, $sql);
                                                 while ($row = mysqli_fetch_assoc($result)) {
                                                     $max=$row['count(*)'];
                                                     }
@@ -127,7 +127,7 @@
                                                     $pages_last=$max;
                                                 }
                                                 $sql = "SELECT * FROM `comments` WHERE id='$pages_last'";
-                                                $result = mysqli_query($db, $sql);
+                                                $result = mysqli_query($link, $sql);
                                                 while ($row = mysqli_fetch_assoc($result)) {
                                                     $pos=$row['picture_path'];
                                                     echo  $row['subject'];
@@ -153,7 +153,7 @@
                                                     $pages_next=$pages_next+1;
                                                 }
                                                 $sql = "SELECT * FROM `comments` WHERE id='$pages_next'";
-                                                $result = mysqli_query($db, $sql);
+                                                $result = mysqli_query($link, $sql);
                                                 while ($row = mysqli_fetch_assoc($result)) {
                                                     echo  $row['subject'];
                                                 }

@@ -26,13 +26,13 @@
 	if (session_status() === PHP_SESSION_NONE) session_start();
 	$pages=$_SESSION['page'];
 	$sql = "SELECT count(*) FROM `details` WHERE 1";
-	$result = mysqli_query($db, $sql);
+	$result = mysqli_query($link, $sql);
 	while ($row = mysqli_fetch_assoc($result)) {
 			$total=$row['count(*)'];
 	}
 	mysqli_free_result($result); // 釋放佔用的記憶體
 	$sql = "SELECT count(*) FROM `details` WHERE main='$pages'";
-	$result = mysqli_query($db, $sql);
+	$result = mysqli_query($link, $sql);
 	while ($row = mysqli_fetch_assoc($result)) {
 			$index=$row['count(*)'];
 	}
@@ -47,7 +47,7 @@
 		$index_plus=$index+1;
         $sql = "INSERT INTO `details`(`id`, `account`,`index`, `main`, `name`, `content`, `time`) 
                 VALUES ('$total','$account','$index_plus','$pages','$name','$content',now())";
-                if (!mysqli_query($db, $sql)) {
+                if (!mysqli_query($link, $sql)) {
                     die(mysqli_error());
                     }else {
                     //若成功將留言存進資料庫，會自動跳轉到顯示留言的頁面
@@ -69,7 +69,7 @@
 					<div class="c1 reply-btn">
 						<?php 
 							$sql = "SELECT * FROM `details` WHERE main='$pages' and `index`='$i'";
-							$result = mysqli_query($db, $sql);
+							$result = mysqli_query($link, $sql);
 							while ($row = mysqli_fetch_assoc($result)) {
 								$_SESSION['id']=$row['id'];
 								$_SESSION['name']=$row['name'];
@@ -98,7 +98,7 @@
 					<div ><?php echo $time_detail; ?></div>
 				</div>
 			<?php } 
-			mysqli_close($db); // 關閉資料庫連結?>
+			mysqli_close($link); // 關閉資料庫連結?>
 		</div>
 	</div>
 </body>
