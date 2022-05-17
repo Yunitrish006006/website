@@ -28,13 +28,13 @@
 	$sql = "SELECT count(*) FROM `details` WHERE 1";
 	$result = mysqli_query($db, $sql);
 	while ($row = mysqli_fetch_assoc($result)) {
-			$index=$row['count(*)'];
+			$total=$row['count(*)'];
 	}
 	mysqli_free_result($result); // 釋放佔用的記憶體
 	$sql = "SELECT count(*) FROM `details` WHERE main='$pages'";
 	$result = mysqli_query($db, $sql);
 	while ($row = mysqli_fetch_assoc($result)) {
-			$max=$row['count(*)'];
+			$index=$row['count(*)'];
 	}
 	mysqli_free_result($result); // 釋放佔用的記憶體
     if (isset($_POST['send'])) {
@@ -43,9 +43,10 @@
 		if (isset($_SESSION['account'])) {
 			$account=$_SESSION['account'];
 		}
-		$index=$index+1;
-        $sql = "INSERT INTO `details`(`id`, `account`, `main`, `name`, `content`, `time`) 
-                VALUES ('$index','$account','$pages','$name','$content',now())";
+		$total=$total+1;
+		$index_plus=$index+1;
+        $sql = "INSERT INTO `details`(`id`, `account`,`index`, `main`, `name`, `content`, `time`) 
+                VALUES ('$total','$account','$index_plus','$pages','$name','$content',now())";
                 if (!mysqli_query($db, $sql)) {
                     die(mysqli_error());
                     }else {
@@ -63,11 +64,11 @@
 		<h4>留言版</h4>
 		<div id="box">
 			<?php
-			for($i=1;$i<=$max;$i++){ ?>
+			for($i=1;$i<=$index;$i++){ ?>
 				<div class="comment-list">
 					<div class="c1 reply-btn">
 						<?php 
-							$sql = "SELECT * FROM `details` WHERE main='$pages' and id='$i'";
+							$sql = "SELECT * FROM `details` WHERE main='$pages' and `index`='$i'";
 							$result = mysqli_query($db, $sql);
 							while ($row = mysqli_fetch_assoc($result)) {
 								$_SESSION['id']=$row['id'];
