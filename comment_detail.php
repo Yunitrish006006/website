@@ -38,12 +38,17 @@
                         <div class="col-lg-12">
                             <div class="feature-img">
                                 <img class="img-fluid" src="
-                                    <?php
-                                        include "db.php";
-                                        mysqli_query($db, 'SET CHARACTER SET utf8');
-                                        mysqli_query($db, "SET collation_connection = 'utf8_general_ci'");
-                                        if (session_status() === PHP_SESSION_NONE) session_start();
-                                        if (isset($_SESSION['page'])){
+                                    <?php 
+                                    include "db.php";
+                                    mysqli_query($db, 'SET CHARACTER SET utf8');
+                                    mysqli_query($db, "SET collation_connection = 'utf8_general_ci'");
+                                    if (session_status() === PHP_SESSION_NONE) session_start();   
+                                    for($i=1;$i<=10;$i++){                                              
+                                        if (isset($_POST[$i])){
+                                            $_SESSION['page']=$i; 
+                                            }                        
+                                    }                                          
+                                    if (isset($_SESSION['page'])){
                                             $pages=$_SESSION['page'];}          
                                         $sql = "SELECT * FROM `comments` WHERE id='$pages'";
                                         $result = mysqli_query($db, $sql);
@@ -99,23 +104,23 @@
                             <div
                                 class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
                                 <div class="thumb">
-                                    <a href="#"><img class="img-fluid" src="images/blog/prev.jpg" alt=""></a>
+                                    <a ><img class="img-fluid" src="images/blog/prev.jpg" alt=""></a>
                                 </div>
                                 <div class="arrow">
-                                    <a href="#"><span class="lnr text-white lnr-arrow-left"></span></a>
+                                    <a ><span class="lnr text-white lnr-arrow-left"></span></a>
                                 </div>
                                 <div class="detials">
                                     <p>上個貼文</p>
-                                    <a href="#">
+                                    <a >
                                         <h4>
                                             <?php
-                                                $pages_last=$_SESSION['page'];
                                                 $sql = "SELECT count(*) FROM `comments` WHERE 1";
                                                 $result = mysqli_query($db, $sql);
                                                 while ($row = mysqli_fetch_assoc($result)) {
                                                     $max=$row['count(*)'];
-                                                }
-                                                mysqli_free_result($result); // 釋放佔用的記憶體
+                                                    }
+                                                mysqli_free_result($result); // 釋放佔用的記憶體                            
+                                                $pages_last=$_SESSION['page'];
                                                 if($pages>1){
                                                     $pages_last=$pages-1;                         
                                                 }else{
@@ -124,6 +129,7 @@
                                                 $sql = "SELECT * FROM `comments` WHERE id='$pages_last'";
                                                 $result = mysqli_query($db, $sql);
                                                 while ($row = mysqli_fetch_assoc($result)) {
+                                                    $pos=$row['picture_path'];
                                                     echo  $row['subject'];
                                                 }
                                                 mysqli_free_result($result); // 釋放佔用的記憶體 
@@ -136,7 +142,7 @@
                                 class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
                                 <div class="detials">
                                     <p>下個貼文</p>
-                                    <a href="#">
+                                    <a >
                                         <h4>
                                             <?php
                                                 $pages_next=$_SESSION['page'];
@@ -157,10 +163,10 @@
                                     </a>
                                 </div>
                                 <div class="arrow">
-                                    <a href="#"><span class="lnr text-white lnr-arrow-right"></span></a>
+                                    <a ><span class="lnr text-white lnr-arrow-right"></span></a>
                                 </div>
                                 <div class="thumb">
-                                    <a href="#"><img class="img-fluid" src="images/blog/next.jpg" alt=""></a>
+                                    <a ><img class="img-fluid" src="images/blog/next.jpg" alt=""></a>
                                 </div>
                             </div>
                         </div>

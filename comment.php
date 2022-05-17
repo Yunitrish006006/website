@@ -149,20 +149,12 @@
                                             <?php  echo  $c;?> 
                                         </p>
                                        
-                                        <button  type="submit"  name="submit"  class="view_btn button_hover">查看更多</button>
+                                        <button  type="submit"  name="<?php echo $i?>"  class="view_btn button_hover">查看更多</button>
                                     </div>
                                 </div>
                             </div>
                         </article>
                         </form>   
-                        <?php 
-                            if (isset($_POST['submit'])){
-                               $_SESSION['page']=1;
-                            }
-                            else{
-                                $_SESSION['page']=1;
-                            }
-                        ?>
                         <?php }?>
                         <article>
                             <div class="comment-form">
