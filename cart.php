@@ -95,24 +95,6 @@
             <div class="col-2 col-sm">總計</div>
             <div class="col-2 col-sm">$2300</div>
         </div>
-        <div class="row" style="padding: 2rem 0rem;">
-            <div class="col col-sm"></div>
-            <div class="col col-sm"></div>
-            <div class="col col-sm"></div>
-            <div class="col col-sm"></div>
-            <div class="col-2 col-sm"></div>
-            <div class="col-2 col-sm">運費</div>
-            <div class="col-2 col-sm">$0</div>
-        </div>
-        <div class="row" style="padding: 2rem 0rem;">
-            <div class="col col-sm"></div>
-            <div class="col col-sm"></div>
-            <div class="col col-sm"></div>
-            <div class="col col-sm"></div>
-            <div class="col-2 col-sm"></div>
-            <div class="col-2 col-sm">應計</div>
-            <div class="col-2 col-sm">2300</div>
-        </div>
         <div class="row" style="margin: 1.5rem 0rem;">
             <div class="col-9 col-sm-10"><input type="text" value="請輸入折扣碼" style="width:95%; height:40px;"></div>
             <div class="col-3 col-sm-2"><input type="submit" value="使用折扣券"></div>

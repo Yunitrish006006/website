@@ -12,7 +12,6 @@
 <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
 <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
 <!-- main css -->
-<link rel="stylesheet" href="css/product.css">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/nav-style.css">
 <link rel="stylesheet" href="css/responsive.css">

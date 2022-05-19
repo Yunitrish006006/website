@@ -86,7 +86,7 @@
             $item .= '
             <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">' .
                 '<figure>'.
-                    '<a href="./product.php">'.
+                    '<a href="./product.php?pid=1">'.
                         '<img src="images/product/' . $file_type .
                         '" alt="Image" class="img-fluid tm-gallery-img" />'.
                     '</a>'.
