@@ -19,7 +19,7 @@
             $a=$_GET['pid'];
             if($result = mysqli_query($link,"SELECT * FROM product  WHERE  pno=$a;")) {
             while ($record = mysqli_fetch_assoc($result)) {
-                echo '<div class="row"style="margin:8rem auto;"><div class="col"><img src="images/product/'.
+                echo '<div class="row"style="margin:8rem auto;"><div class="col"><img width="600px" height="390px" src="images/product/'.
                     $record['file_type'].
                     '" alt=""></div><div class="col"><h1 style="padding:1rem 10rem">'.
                     $record['pname'].
