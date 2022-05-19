@@ -16,7 +16,6 @@
     <?php
             include("db.php");        
             mysqli_query($link, "SET NAMES UTF8");
-            $account = $_SESSION['account_id'];
             $a=$_GET['pid'];
             if($result = mysqli_query($link,"SELECT * FROM product  WHERE  pno=$a;")) {
             while ($record = mysqli_fetch_assoc($result)) {
@@ -25,7 +24,7 @@
                     '" alt=""></div><div class="col"><h1 style="padding:1rem 10rem">'.
                     $record['pname'].
                     '</h1><h3>房型介紹</h3><hr><p>'.
-                    $record['detail'].
+                    $record['description'].
                     '</p><h3>主要設備</h3><hr><p>'.
                     $record['equipment'].
                     '</p><h4>$'.

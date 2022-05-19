@@ -85,16 +85,13 @@
             $item="";
             $item .= '
             <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">' .
-                '<figure>'.
-                    '<a href="./product.php?pid=1">'.
-                        '<img src="images/product/' . $file_type .
-                        '" alt="Image" class="img-fluid tm-gallery-img" />'.
-                    '</a>'.
-                    '<figcaption style="text-align: center;">'.
-                        '<h4 class="tm-gallery-title">'.
+                '<figure><img src="images/product/' . $file_type .
+                    '" alt="Image" class="img-fluid tm-gallery-img" />
+                    <figcaption style="text-align: center;">'.
+                        '<a href="product.php?pid='.$pno.'"><h4 class="tm-gallery-title">'.
                             $pname.
-                        '</h4>'.
-                        '<p class="tm-gallery-description">'.
+                        '</h4></a>'.
+                        '<p class="tm-gallery-description" style="height:140px">'.
                             $description.
                         '</p>'.
                         '<section class="tm-gallery-price">$'.

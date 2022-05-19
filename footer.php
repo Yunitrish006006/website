@@ -87,7 +87,8 @@
         <div class="row footer-bottom d-flex justify-content-between align-items-center">
             <p>
                 Copyright@ bees-hotels., LTD.
-                <script>document.write(new Date().getFullYear());</script> All Right Reserved.
+                <script>document.write(new Date().getFullYear());</script>
+                <h2>僅供學習使用</h2>
             </p>
             <div class="col-lg-4 col-sm-12 footer-social">
                 <a href="https://www.facebook.com"><i class="bi bi-facebook"></i> </i></a>
