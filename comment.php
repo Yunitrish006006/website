@@ -88,13 +88,15 @@
                             include "db.php";
                             mysqli_query($link, 'SET CHARACTER SET utf8');
                             mysqli_query($link, "SET collation_connection = 'utf8_general_ci'");
+                            if (session_status() === PHP_SESSION_NONE) session_start();
                             $sql = "SELECT count(*) FROM `comments` WHERE 1";
                             $result = mysqli_query($link, $sql);
                             while ($row = mysqli_fetch_assoc($result)) {
-                                $max=$row['count(*)'];
+                                $pos_num=$row['count(*)'];
                                 }
+                            $_SESSION['post_num']=$pos_num;//存放貼文數量
                             mysqli_free_result($result); // 釋放佔用的記憶體
-                            for($i=1;$i<=$max;$i++){
+                            for($i=1;$i<=$pos_num;$i++){ //印出每一則貼文
                         ?>
                         <form name="<?php echo $i ?>" id="<?php echo $i ?>" action="comment_detail.php" method="POST">
                         <article class="row blog_item">
@@ -105,32 +107,32 @@
                                             $sql = "SELECT * FROM `comments` WHERE id='$i'";
                                             $result = mysqli_query($link, $sql);
                                             while ($row = mysqli_fetch_assoc($result)) {
-                                                $t=  $row['tag'];           //存入第i行tag
-                                                $n=  $row['name'];          //存入第i行name
-                                                $d=  $row['date'];          //存入第i行date
+                                                $tag=  $row['tag'];           //存入第i行tag
+                                                $name=  $row['name'];          //存入第i行name
+                                                $date=  $row['date'];          //存入第i行date
                                                 $path=$row['picture_path']; //存入第i行picture_path
-                                                $s=$row['subject'];          //存入第i行subject
-                                                $c=$row['comment'];            //存入第i行comment
+                                                $subject=$row['subject'];          //存入第i行subject
+                                                $comment=$row['comment'];            //存入第i行comment
                                                 }
                                             mysqli_free_result($result); // 釋放佔用的記憶體
-                                            echo $t;
-                                            $sql = "SELECT count(*) FROM `details` WHERE main=$i";
+                                            echo $tag;
+                                            $sql = "SELECT count(*) FROM `details` WHERE main=$i";//計算子留言數目
                                             $result = mysqli_query($link, $sql);
                                             while ($row = mysqli_fetch_assoc($result)) {
-                                                $num=$row['count(*)'];  
+                                                $detail_num=$row['count(*)'];  
                                             }
                                             mysqli_free_result($result); // 釋放佔用的記憶體
                                         ?>                              
                                     </div>
                                     <ul class="blog_meta list_style">
                                         <li><a >
-                                            <?php echo  $n;?>  
+                                            <?php echo  $name;?>  
                                         <i class="lnr lnr-user"></i></a></li>
                                         <li><a>
-                                            <?php echo  $d;?> 
+                                            <?php echo  $date;?> 
                                         <i class="lnr lnr-calendar-full"></i></a></li>
                                         <li><a >
-                                            <?php echo  $num."則留言";?> 
+                                            <?php echo  $detail_num."則留言";?> 
                                         <i class="lnr lnr-bubble"></i></a></li>
                                     </ul>
                                 </div>
@@ -142,14 +144,14 @@
                                     <div class="blog_details">
                                         <a href="comment_detail.php">
                                             <h2>
-                                                <?php echo  $s; ?> 
+                                                <?php echo  $subject; ?> 
                                             </h2>
                                         </a>
                                         <p>
-                                            <?php  echo  $c;?> 
+                                            <?php  echo  $comment;?> 
                                         </p>
-                                       
-                                        <button  type="submit"  name="<?php echo $i?>"  class="view_btn button_hover">查看更多</button>
+                                        <!--編號每則留言按鈕的名字-->
+                                        <button  type="submit"  name="<?php echo $i?>"  class="view_btn button_hover">查看更多</button> 
                                     </div>
                                 </div>
                             </div>
@@ -190,14 +192,14 @@
                                         $content = $_POST['message'];
                                         $tag = $_POST['tag'];
                                         $image="images/blog/main-blog/m-blog-6.jpg";
-                                        $index=$max+1;
+                                        $index=$pos_num+1; //把留言數目加一
                                         $account=$_SESSION['account'];
                                         $sql = "INSERT INTO `comments` (`id`, `account`, `name`, `date`, `picture_path`, `tag`, `subject`, `comment`)
                                         VALUES ('$index','$account','$name',now(),'$image','$tag', '$subject', '$content')";
                                         if (!mysqli_query($link, $sql)) {
                                             die(mysqli_error());
                                         }else {
-                                            //若成功將留言存進資料庫，會自動跳轉到顯示留言的頁面
+                                                //若成功將留言存進資料庫，會自動跳轉到顯示留言的頁面
                                                 echo "
                                                         <script>
                                                         setTimeout(function(){window.location.href='../website/comment.php';},500);

@@ -1,3 +1,16 @@
+<?php 
+    if (session_status() === PHP_SESSION_NONE) session_start(); 
+    include "db.php";
+    mysqli_query($link, 'SET CHARACTER SET utf8');
+    mysqli_query($link, "SET collation_connection = 'utf8_general_ci'");
+    for($i=1;$i<=10;$i++){                                              
+        if (isset($_POST[$i])){
+            $_SESSION['page']=$i; 
+        }                        
+    }
+    $pages= $_SESSION['page'];  
+    $pages_num=$_SESSION['post_num'];                                                                      
+?>
 <!doctype html>
 <html lang="en">
 
@@ -38,21 +51,10 @@
                         <div class="col-lg-12">
                             <div class="feature-img">
                                 <img class="img-fluid" src="
-                                    <?php 
-                                    include "db.php";
-                                    mysqli_query($link, 'SET CHARACTER SET utf8');
-                                    mysqli_query($link, "SET collation_connection = 'utf8_general_ci'");
-                                    if (session_status() === PHP_SESSION_NONE) session_start();   
-                                    for($i=1;$i<=10;$i++){                                              
-                                        if (isset($_POST[$i])){
-                                            $_SESSION['page']=$i; 
-                                            }                        
-                                    }                                          
-                                    if (isset($_SESSION['page'])){
-                                            $pages=$_SESSION['page'];}          
+                                    <?php        
                                         $sql = "SELECT * FROM `comments` WHERE id='$pages'";
                                         $result = mysqli_query($link, $sql);
-                                        while ($row = mysqli_fetch_assoc($result)) {
+                                        while ($row = mysqli_fetch_assoc($result)) {//抓出該貼文資訊
                                             $detail_path=$row['picture_path'];
                                             $detail_tag=$row['tag'];
                                             $detail_name=$row['name'];
@@ -113,18 +115,12 @@
                                     <p>上個貼文</p>
                                     <a >
                                         <h4>
-                                            <?php
-                                                $sql = "SELECT count(*) FROM `comments` WHERE 1";
-                                                $result = mysqli_query($link, $sql);
-                                                while ($row = mysqli_fetch_assoc($result)) {
-                                                    $max=$row['count(*)'];
-                                                    }
-                                                mysqli_free_result($result); // 釋放佔用的記憶體                            
-                                                $pages_last=$_SESSION['page'];
+                                            <?php                            
+                                                $pages_last=$_SESSION['page'];//抓出上一則貼文
                                                 if($pages>1){
                                                     $pages_last=$pages-1;                         
                                                 }else{
-                                                    $pages_last=$max;
+                                                    $pages_last=$pages_num;
                                                 }
                                                 $sql = "SELECT * FROM `comments` WHERE id='$pages_last'";
                                                 $result = mysqli_query($link, $sql);
@@ -145,9 +141,9 @@
                                     <a >
                                         <h4>
                                             <?php
-                                                $pages_next=$_SESSION['page'];
+                                                $pages_next=$_SESSION['page'];//抓出下一則貼文
                                                 include "db.php";
-                                                if($pages_next==$max){
+                                                if($pages_next==$pages_num){
                                                     $pages_next=1;
                                                 }else{
                                                     $pages_next=$pages_next+1;
