@@ -1,4 +1,34 @@
-<?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
+<?php 
+if (session_status() === PHP_SESSION_NONE) session_start(); 
+include "db.php";
+mysqli_query($link, 'SET CHARACTER SET utf8');
+mysqli_query($link, "SET collation_connection = 'utf8_general_ci'");
+$sql= "SELECT * FROM `comments`ORDER BY `id`";
+$result = mysqli_query($link, $sql);
+$data_nums = mysqli_num_rows($result); //統計總比數
+    $per = 3; //每頁顯示項目數量
+    $pagess = ceil($data_nums/$per); //取得不小於值的下一個整數
+    if (!isset($_GET["page"])){ //假如$_GET["page"]未設置
+        $page=1; //則在此設定起始頁數
+    } else {
+        $page = intval($_GET["page"]); //確認頁數只能夠是數值資料
+    }
+    if(isset($_GET["page"]))//假如$_GET["page"]設置，設定起始貼文與結束貼文
+    {
+        $start = ($page-1)*$per+1; //每一頁開始的資料序號
+        if($_GET["page"]==$pagess)
+        {
+            $end=$start+$data_nums-($per*($pagess-1))-1;
+        }
+        else{
+            $end=$start+2;
+        }
+    }else{
+        $end=3;
+        $start=1;
+    }
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -84,20 +114,7 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="blog_left_sidebar">
-                        <?php 
-                            include "db.php";
-                            mysqli_query($link, 'SET CHARACTER SET utf8');
-                            mysqli_query($link, "SET collation_connection = 'utf8_general_ci'");
-                            if (session_status() === PHP_SESSION_NONE) session_start();
-                            $sql = "SELECT count(*) FROM `comments` WHERE 1";
-                            $result = mysqli_query($link, $sql);
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                $pos_num=$row['count(*)'];
-                                }
-                            $_SESSION['post_num']=$pos_num;//存放貼文數量
-                            mysqli_free_result($result); // 釋放佔用的記憶體
-                            for($i=1;$i<=$pos_num;$i++){ //印出每一則貼文
-                        ?>
+                        <?php for($i=$start;$i<=$end;$i++){ //印出每一則貼文?>
                         <form name="<?php echo $i ?>" id="<?php echo $i ?>" action="comment_detail.php" method="POST">
                         <article class="row blog_item">
                             <div class="col-md-3">
@@ -158,6 +175,31 @@
                         </article>
                         </form>   
                         <?php }?>
+                        <nav class="blog-pagination justify-content-center d-flex">
+		                        <ul class="pagination">
+		                            <li class="page-item">
+                                        <?php echo'<a href=?page=1 class="page-link" aria-label="Previous"'; ?>
+		                                    <span aria-hidden="true">
+		                                        <span class="lnr lnr-chevron-left"></span>
+		                                    </span>
+		                                </a>
+		                            </li>
+                                        <?php 
+                                            for( $i=1 ; $i<=$pagess ; $i++ ) {
+                                                if ( $page-3 < $i && $i < $page+3 ) {
+                                                    echo ' <li class="page-item "><a class="page-link" href=?page='.$i.'>'.$i.'</a></li> ';
+                                                }
+                                            } 
+                                        ?>
+		                            <li class="page-item">
+                                        <?php echo'<a href=?page='.$pagess.' class="page-link" aria-label="Next"'; ?>
+		                                    <span aria-hidden="true">
+		                                        <span class="lnr lnr-chevron-right"></span>
+		                                    </span>
+		                                </a>
+		                            </li>
+		                        </ul>
+		                </nav>
                         <article>
                             <div class="comment-form">
                                 <h4>留下您的貼文吧！</h4>
@@ -192,7 +234,7 @@
                                         $content = $_POST['message'];
                                         $tag = $_POST['tag'];
                                         $image="images/blog/main-blog/m-blog-6.jpg";
-                                        $index=$pos_num+1; //把留言數目加一
+                                        $index=$data_nums+1; //把留言數目加一
                                         $account=$_SESSION['account'];
                                         $sql = "INSERT INTO `comments` (`id`, `account`, `name`, `date`, `picture_path`, `tag`, `subject`, `comment`)
                                         VALUES ('$index','$account','$name',now(),'$image','$tag', '$subject', '$content')";
