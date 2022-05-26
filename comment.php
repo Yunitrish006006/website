@@ -6,6 +6,7 @@ mysqli_query($link, "SET collation_connection = 'utf8_general_ci'");
 $sql= "SELECT * FROM `comments`ORDER BY `id`";
 $result = mysqli_query($link, $sql);
 $data_nums = mysqli_num_rows($result); //統計總比數
+$_SESSION['post_num']=$data_nums;   
     $per = 3; //每頁顯示項目數量
     $pagess = ceil($data_nums/$per); //取得不小於值的下一個整數
     if (!isset($_GET["page"])){ //假如$_GET["page"]未設置
@@ -114,68 +115,52 @@ $data_nums = mysqli_num_rows($result); //統計總比數
             <div class="row">
                 <div class="col-lg-8">
                     <div class="blog_left_sidebar">
-                        <?php for($i=$start;$i<=$end;$i++){ //印出每一則貼文?>
-                        <form name="<?php echo $i ?>" id="<?php echo $i ?>" action="comment_detail.php" method="POST">
-                        <article class="row blog_item">
-                            <div class="col-md-3">
-                                <div class="blog_info text-right">
-                                    <div class="post_tag">
-                                        <?php
-                                            $sql = "SELECT * FROM `comments` WHERE id='$i'";
-                                            $result = mysqli_query($link, $sql);
-                                            while ($row = mysqli_fetch_assoc($result)) {
-                                                $tag=  $row['tag'];           //存入第i行tag
-                                                $name=  $row['name'];          //存入第i行name
-                                                $date=  $row['date'];          //存入第i行date
-                                                $path=$row['picture_path']; //存入第i行picture_path
-                                                $subject=$row['subject'];          //存入第i行subject
-                                                $comment=$row['comment'];            //存入第i行comment
-                                                }
-                                            mysqli_free_result($result); // 釋放佔用的記憶體
-                                            echo $tag;
-                                            $sql = "SELECT count(*) FROM `details` WHERE main=$i";//計算子留言數目
-                                            $result = mysqli_query($link, $sql);
-                                            while ($row = mysqli_fetch_assoc($result)) {
-                                                $detail_num=$row['count(*)'];  
-                                            }
-                                            mysqli_free_result($result); // 釋放佔用的記憶體
-                                        ?>                              
-                                    </div>
-                                    <ul class="blog_meta list_style">
-                                        <li><a >
-                                            <?php echo  $name;?>  
-                                        <i class="lnr lnr-user"></i></a></li>
-                                        <li><a>
-                                            <?php echo  $date;?> 
-                                        <i class="lnr lnr-calendar-full"></i></a></li>
-                                        <li><a >
-                                            <?php echo  $detail_num."則留言";?> 
-                                        <i class="lnr lnr-bubble"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <div class="blog_post">
-                                    <img src="
-                                            <?php echo  $path;?> " >
-                                    <div class="blog_details">
-                                        <a href="comment_detail.php">
-                                            <h2>
-                                                <?php echo  $subject; ?> 
-                                            </h2>
-                                        </a>
-                                        <p>
-                                            <?php  echo  $comment;?> 
-                                        </p>
-                                        <!--編號每則留言按鈕的名字-->
-                                        <button  type="submit"  name="<?php echo $i?>"  class="view_btn button_hover">查看更多</button> 
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        </form>   
-                        <?php }?>
-                        <nav class="blog-pagination justify-content-center d-flex">
+                        <?php 
+                            if (isset($_POST['btn_search'])) {
+                                $input=$_POST['search'];
+                                $sql = "SELECT min(id) FROM `comments` WHERE `subject` LIKE '%".$input."%' ";
+                                $result = mysqli_query($link, $sql);                                                                 
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    $search_min=$row['min(id)'];//計算最小id
+                                }
+                                mysqli_free_result($result); // 釋放佔用的記憶體
+                                if($search_min!="") {  //如果值為空值，代表搜尋不到此文章
+                                    $sql = "SELECT max(id) FROM `comments` WHERE `subject` LIKE '%".$input."%' ";
+                                    $result = mysqli_query($link, $sql);                                                                        
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        $search_max=$row['max(id)'];//計算最大id
+                                        }
+                                    mysqli_free_result($result); // 釋放佔用的記憶體
+                                    for($i=$search_min;$i<=$search_max;$i++){ //印出每一則貼文
+                                        $sql = "SELECT count(*) FROM `details` WHERE main=$i";//計算子留言數目
+                                        $result = mysqli_query($link, $sql);
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            $_SESSION['detail_num']=$row['count(*)'];  
+                                        }
+                                        mysqli_free_result($result); // 釋放佔用的記憶體
+                                        $_SESSION['sql']= "SELECT * FROM `comments` WHERE `subject` LIKE '%".$input."%' AND id='$i'";
+                                        include "display.php" ;  
+                                        }
+                              }
+                              else{ echo "<h4>搜尋不到此文章，請重新搜尋！</h4>";}
+                            }
+                            else{      
+                                for($i=$start;$i<=$end;$i++){ //印出每一則貼文
+                                $sql = "SELECT count(*) FROM `details` WHERE main=$i";//計算子留言數目
+                                $result = mysqli_query($link, $sql);
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    $_SESSION['detail_num']=$row['count(*)'];  
+                                }
+                                mysqli_free_result($result); // 釋放佔用的記憶體
+                                $_SESSION['sql']= "SELECT * FROM `comments` WHERE id='$i'";
+                                include "display.php" ; 
+                                } 
+                            }
+  
+                        ?>
+                           
+                        <div style="<?php  if (isset($_POST['btn_search'])) {echo "visibility:hidden";}else{echo "visibility:display";}?>">
+                        <nav class="blog-pagination justify-content-center d-flex" > 
 		                        <ul class="pagination">
 		                            <li class="page-item">
                                         <?php echo'<a href=?page=1 class="page-link" aria-label="Previous"'; ?>
@@ -200,6 +185,7 @@ $data_nums = mysqli_num_rows($result); //統計總比數
 		                            </li>
 		                        </ul>
 		                </nav>
+                        </div>
                         <article>
                             <div class="comment-form">
                                 <h4>留下您的貼文吧！</h4>

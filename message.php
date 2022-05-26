@@ -34,7 +34,7 @@ if (session_status() === PHP_SESSION_NONE) session_start();
 				<input type="text" class="form-control" placeholder="填寫您的名字" name="name" />
 			</div>
 			<div class="form-group">
-				<textarea class="form-control" name="content"  maxlength="10" placeholder="填寫您的內容"></textarea>
+				<textarea class="form-control" name="content"  maxlength="20" placeholder="填寫您的內容(最多20個字）"></textarea>
 			</div>
 			<div id="div3">
 				<button type="submit" name='send' class="primary-btn button_hover">傳送</button>
@@ -72,8 +72,6 @@ if (session_status() === PHP_SESSION_NONE) session_start();
 				for($i=1;$i<=$detail_pages_index;$i++){
 				$sql = "SELECT * FROM `details` WHERE main='$pages' and `index`='$i'";
 				$result = mysqli_query($link, $sql);
-				$nums=mysqli_num_rows($result);//回傳sql查詢筆數，若為0則跳過該迴圈
-				if($nums>0){
 				while ($row = mysqli_fetch_assoc($result)) {
 					$_SESSION['id']=$row['id'];
 					$_SESSION['name']=$row['name'];
@@ -81,7 +79,7 @@ if (session_status() === PHP_SESSION_NONE) session_start();
 					$name_detail=$row['name'];
 					$content_detail=$row['content'];
 					$time_detail=$row['time'];			
-				}	
+				}
 				mysqli_free_result($result); // 釋放佔用的記憶體
 				?>
 				<div class="comment-list">
@@ -104,7 +102,7 @@ if (session_status() === PHP_SESSION_NONE) session_start();
 					</div>
 					<div ><?php echo $time_detail; ?></div>
 				</div>
-			<?php }} 
+			<?php }
 			mysqli_close($link); // 關閉資料庫連結
 			?>
 		</div>

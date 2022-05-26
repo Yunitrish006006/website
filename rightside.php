@@ -1,14 +1,16 @@
 <div class="col-lg-4">
     <div class="blog_right_sidebar">
-        <aside class="single_sidebar_widget search_widget">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="搜尋貼文">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><i class="lnr lnr-magnifier"></i></button>
-                </span>
-            </div>
-            <div class="br"></div>
-        </aside>
+       <form name="form_search" id="form_search" action="" method="POST">
+            <aside class="single_sidebar_widget search_widget">
+                <div class="input-group">
+                    <input name="search" id="search" type="text" class="form-control" placeholder="搜尋貼文主旨">
+                    <span class="input-group-btn">
+                        <button name="btn_search" id="btn_search" class="btn btn-default" type="submit"><i class="lnr lnr-magnifier"></i></button>
+                    </span>
+                </div>
+                <div class="br"></div>
+            </aside>
+        </form>
         <aside class="single_sidebar_widget author_widget">
             <img class="author_img rounded-circle" src="images/blog/author.png" alt="">
             <h4>林昀佑</h4>
