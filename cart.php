@@ -66,20 +66,18 @@
                 include("db.php");        
                 mysqli_query($link, "SET NAMES UTF8");
                 $account = $_SESSION['account_id'];
+                $i=0;
                 if($result = mysqli_query($link,"SELECT * FROM cart as c, product as p WHERE  c.pno=p.pno AND c.account_id = $account;")) {
                     while ($record = mysqli_fetch_assoc($result)) {
                         echo '<div class="row" style="padding: 2rem 0rem;">';
                         echo '<div class="col-3 col-sm"><img src="images/product/'.$record['file_type'].'" alt="" width="120px" height="90px"></div>';
                         echo '<div class="col-3 col-sm">'.$record['pname'].'</div>';
                         echo '<div class="col-3 col-sm"><input type="date"></div>';
-                        echo  '<div class="col-3 col-sm"><input type="date"></div>';
-                        echo'<div class="col-6 col-sm"><select >
-                                    <option value="1"> 1間 </option>
-                                    <option value="2"> 2間 </option>
-                                    <option value="3"> 3間 </option>
-                                    <option value="4"> 4間 </option></select></div>';
-                        echo '<div class="col-3 col-sm">'.$record["unitprice"].'</div>';
+                        echo '<div class="col-3 col-sm"><input type="date"></div>';
+                        echo '<div class="col-3 col-sm"><span style="display:flex"><input type="hidden" name="price" value="'.$record['unitprice'].'"><input type="button" name="minus" value="-" onclick="minus('.$i.')"><input type="text" name="amount" size="3" value="1"><input type="button" name="plus" value="+" onclick="plus('.$i.')"></div></span>';
+                        echo '<div class="col-3 col-sm"><span id="price'.$i.'">'.intval($record["unitprice"]).'</span></div>';
                         echo '<div class="col-3 col-sm"><form method="post" action=""><input type="hidden" name="cart_pno" value="'.$record['pno'].'"><input type="submit" value="刪除" class="btn btn-danger"></form></div></div>';
+                        $i++;
                     }
                 }
                 mysqli_free_result($result);
@@ -90,10 +88,10 @@
             <div class="col col-sm"></div>
             <div class="col col-sm"></div>
             <div class="col col-sm"></div>
-            <div class="col col-sm"></div>
-            <div class="col-3 col-sm">共一件</div>
+            <div class="col col-sm"></div>共
+            <div class="col-3 col-sm"><span id="room">一</span></div>件
             <div class="col-2 col-sm">總計</div>
-            <div class="col-2 col-sm">$2300</div>
+            <div class="col-2 col-sm"><span id="er">2300</span></div>
         </div>
         <div class="row" style="margin: 1.5rem 0rem;">
             <div class="col-9 col-sm-10"><input type="text" value="請輸入折扣碼" style="width:95%; height:40px;"></div>
@@ -106,11 +104,41 @@
             <div class="col-1 col-sm-2"></div>
             <div class="col-2 col-sm-2"></div>
             <div class="col-2 col-sm-2"><button type="submit" value="submit"
-                    class="btn theme_btn button_hover">確認結帳</button></div>
+                    class="btn theme_btn button_hover"data-toggle="modal" data-target="#myModal">確認結帳</button></div>
         </div>
     
 </div>
 <?php include("footer.php") ?>
 </body>
+<script>
+    var quantitys=document.getElementsByName('amount');
+    var unitprice=document.getElementsByName('price');
+    function minus(num){
+        quantity=quantitys[num].value-1;
+        if(quantity<1){
+            alert("商品的數量至少為1");
+            quantity=1;
+        }
+        document.getElementsByName('amount')[num].value=quantity;
+        total();
+    }
+    function plus(num){
+        quantity=parseInt(quantitys[num].value)+1;
+        document.getElementsByName('amount')[num].value=quantity;
+        total();
+    }
+    function total(){
+        var total=0;
+        var totals=0;
+        for(let i=0;i<unitprice.length;i++){
+            var sum=parseInt(quantitys[i].value*unitprice[i].value);
+            document.getElementById('price'+i).innerHTML=sum;
+            totals=totals+parseInt(quantitys[i].value);
+            total=total+sum;
+        }
+        document.getElementById('room').innerHTML=totals;
+        document.getElementById('er').innerHTML=total;
+    }
+</script>
 
 </html>
