@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2022-05-20 04:58:40
+-- 產生時間： 2022-05-29 16:04:58
 -- 伺服器版本： 10.4.22-MariaDB
 -- PHP 版本： 8.1.2
 
@@ -198,6 +198,35 @@ INSERT INTO `product` (`pno`, `pname`, `description`, `file_type`, `unitprice`, 
 -- --------------------------------------------------------
 
 --
+-- 資料表結構 `record`
+--
+
+CREATE TABLE `record` (
+  `id` int(10) NOT NULL,
+  `tno` int(10) NOT NULL,
+  `pname` varchar(20) NOT NULL,
+  `saleprice` decimal(10,2) NOT NULL,
+  `amount` int(10) NOT NULL,
+  `checkin` date NOT NULL,
+  `checkout` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 傾印資料表的資料 `record`
+--
+
+INSERT INTO `record` (`id`, `tno`, `pname`, `saleprice`, `amount`, `checkin`, `checkout`) VALUES
+(33, 46, '蜂巢主題房', '8200.00', 2, '2022-05-17', '2022-05-25'),
+(34, 46, '經典套房', '9400.00', 2, '2022-05-18', '2022-05-25'),
+(49, 55, '蜂巢主題房', '8200.00', 2, '2022-05-25', '2022-05-26'),
+(50, 55, '商務套房', '2300.00', 1, '2022-05-24', '2022-05-25'),
+(51, 56, '商務套房', '6900.00', 3, '2022-05-11', '2022-05-12'),
+(52, 57, '商務套房', '6900.00', 3, '2022-05-25', '2022-05-27'),
+(53, 57, '雅緻客房', '14000.00', 5, '2022-05-18', '2022-05-20');
+
+-- --------------------------------------------------------
+
+--
 -- 資料表結構 `rooms`
 --
 
@@ -209,6 +238,29 @@ CREATE TABLE `rooms` (
   `location` varchar(40) NOT NULL,
   `canContain` int(2) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `transaction`
+--
+
+CREATE TABLE `transaction` (
+  `tno` int(11) NOT NULL,
+  `transmid` char(8) NOT NULL,
+  `transtime` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 傾印資料表的資料 `transaction`
+--
+
+INSERT INTO `transaction` (`tno`, `transmid`, `transtime`) VALUES
+(46, '1', '2022-05-29 12:44:47'),
+(50, '1', '2022-05-29 12:52:09'),
+(55, '1', '2022-05-29 01:08:00'),
+(56, '1', '2022-05-29 01:13:56'),
+(57, '1', '2022-05-29 04:02:38');
 
 --
 -- 已傾印資料表的索引
@@ -245,10 +297,22 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`pno`);
 
 --
+-- 資料表索引 `record`
+--
+ALTER TABLE `record`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- 資料表索引 `rooms`
 --
 ALTER TABLE `rooms`
   ADD PRIMARY KEY (`id`);
+
+--
+-- 資料表索引 `transaction`
+--
+ALTER TABLE `transaction`
+  ADD PRIMARY KEY (`tno`);
 
 --
 -- 在傾印的資料表使用自動遞增(AUTO_INCREMENT)
@@ -264,13 +328,25 @@ ALTER TABLE `account`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `product`
 --
 ALTER TABLE `product`
   MODIFY `pno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `record`
+--
+ALTER TABLE `record`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `transaction`
+--
+ALTER TABLE `transaction`
+  MODIFY `tno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
