@@ -26,6 +26,38 @@
         header("Location:cart.php");
      }
     ?>
+    <?php
+    if(isset($_POST['a0'])){
+        include("db.php");
+        mysqli_query($link,"SET NAMES UTF8");
+        $time=date("Y-m-d h:i:s");
+        $account = $_SESSION['account_id'];
+        $count=$_SESSION["cart_quantity"];
+        mysqli_query($link,"INSERT INTO `transaction`(transmid,transtime) values ('$account','$time');");
+        if($result = mysqli_query($link,"SELECT * from `transaction` where transmid=$account;")){
+            $nrow = mysqli_num_rows($result);
+            while ($record = mysqli_fetch_assoc($result)) {
+                if($nrow==1){
+                    $tno=$record['tno'];
+                }
+                $nrow--;
+            }  
+        }
+        for($x=0;$x<$count;$x++){
+            $q=$_POST['a'.$x];
+            $w=$_POST['b'.$x];
+            $e=$_POST['c'.$x];
+            $r=$_POST['d'.$x];
+            $t=$_POST['e'.$x];
+            $result = mysqli_query($link,"INSERT INTO record(tno,pname,saleprice,amount,checkin,checkout) values ('$tno','$q','$w','$e','$r','$t');");
+        }
+        mysqli_query($link,"DELETE FROM cart where account_id=$account;");
+        mysqli_close($link); 
+        $_SESSION["cart_quantity"]=0;    
+        header("Location:cart.php");
+    }
+
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -66,36 +98,43 @@
                 include("db.php");        
                 mysqli_query($link, "SET NAMES UTF8");
                 $account = $_SESSION['account_id'];
+                $count=$_SESSION["cart_quantity"];
                 $i=0;
+                $j=0;
                 if($result = mysqli_query($link,"SELECT * FROM cart as c, product as p WHERE  c.pno=p.pno AND c.account_id = $account;")) {
                     while ($record = mysqli_fetch_assoc($result)) {
                         echo '<div class="row" style="padding: 2rem 0rem;">';
                         echo '<div class="col-3 col-sm"><img src="images/product/'.$record['file_type'].'" alt="" width="120px" height="90px"></div>';
-                        echo '<div class="col-3 col-sm">'.$record['pname'].'</div>';
-                        echo '<div class="col-3 col-sm"><input type="date"></div>';
-                        echo '<div class="col-3 col-sm"><input type="date"></div>';
-                        echo '<div class="col-3 col-sm"><span style="display:flex"><input type="hidden" name="price" value="'.$record['unitprice'].'"><input type="button" name="minus" value="-" onclick="minus('.$i.')"><input type="text" name="amount" size="3" value="1"><input type="button" name="plus" value="+" onclick="plus('.$i.')"></div></span>';
-                        echo '<div class="col-3 col-sm"><span id="price'.$i.'">'.intval($record["unitprice"]).'</span></div>';
+                        echo '<div class="col-3 col-sm"><span name="pname">'.$record['pname'].'</span></div>';
+                        echo '<div class="col-3 col-sm"><input type="date" name="in"></div>';
+                        echo '<div class="col-3 col-sm"><input type="date" name="out"></div>';
+                        echo '<div class="col-3 col-sm"><span style="display:flex"><input type="hidden" name="price" value="'.$record['unitprice'].'"><input type="button" name="minus" value="-" onclick="minus('.$i.')"><input type="text" name="amount" size="3" value="0"><input type="button" name="plus" value="+" onclick="plus('.$i.')"></div></span>';
+                        echo '<div class="col-3 col-sm"><span id="price'.$i.'">'.intval($record['unitprice']).'</span></div>';
                         echo '<div class="col-3 col-sm"><form method="post" action=""><input type="hidden" name="cart_pno" value="'.$record['pno'].'"><input type="submit" value="刪除" class="btn btn-danger"></form></div></div>';
                         $i++;
                     }
                 }
                 mysqli_free_result($result);
+                if($result = mysqli_query($link,"SELECT * FROM cart as c, product as p WHERE  c.pno=p.pno AND c.account_id = $account;")) {
+                    while ($record = mysqli_fetch_assoc($result)) {
+                       if($j==0){
+                            echo '<form method="post" action=""><h3>確認訂單</h3>';
+                        }
+                        echo '<input type="text" name="a'.$j.'"id="a'.$j.'" value="'.$record['pname'].'"required><input type="text" name="b'.$j.'"id="b'.$j.'" required><input type="text" name="c'.$j.'"id="c'.$j.'" required><input type="text" name="d'.$j.'"id="d'.$j.'" required><input type="text" name="e'.$j.'"id="e'.$j.'"required>';
+                        $j++;
+                    }
+                }
+                 mysqli_free_result($result);
                 mysqli_close($link);
             }
-        ?>
-        <div class="row" style="padding: 2rem 0rem;">
+        echo '<div class="row" style="padding: 2rem 0rem;">
             <div class="col col-sm"></div>
             <div class="col col-sm"></div>
             <div class="col col-sm"></div>
             <div class="col col-sm"></div>共
-            <div class="col-3 col-sm"><span id="room">一</span></div>件
+            <div class="col-3 col-sm"><span id="room">零</span></div>件
             <div class="col-2 col-sm">總計</div>
-            <div class="col-2 col-sm"><span id="er">2300</span></div>
-        </div>
-        <div class="row" style="margin: 1.5rem 0rem;">
-            <div class="col-9 col-sm-10"><input type="text" value="請輸入折扣碼" style="width:95%; height:40px;"></div>
-            <div class="col-3 col-sm-2"><input type="submit" value="使用折扣券"></div>
+            <div class="col-2 col-sm">$<span id="er">0</span></div>
         </div>
         <div class="row" style="margin: 1.5rem 0rem;">
             <div class="col-2 col-sm-2"><a href="book.php" class="btn theme_btn button_hover">回上一頁</a></div>
@@ -103,20 +142,27 @@
             <div class="col-1 col-sm-2"></div>
             <div class="col-1 col-sm-2"></div>
             <div class="col-2 col-sm-2"></div>
-            <div class="col-2 col-sm-2"><button type="submit" value="submit"
-                    class="btn theme_btn button_hover"data-toggle="modal" data-target="#myModal">確認結帳</button></div>
-        </div>
+            <div class="col-2 col-sm-2"><input type="submit" value="確認結帳"
+                    class="btn theme_btn button_hover"></div>
+        </div></form></div>';
+        ?>
     
-</div>
+
 <?php include("footer.php") ?>
 </body>
 <script>
     var quantitys=document.getElementsByName('amount');
     var unitprice=document.getElementsByName('price');
+    var pnames=document.getElementsByName('pname');
+    var ins=document.getElementsByName('in');
+    var outs=document.getElementsByName('out');
     function minus(num){
         quantity=quantitys[num].value-1;
-        if(quantity<1){
-            alert("商品的數量至少為1");
+        if(quantity<0){
+            alert("商品的數量不可為負");
+            quantity=1;
+        }
+        if(quantity==0){
             quantity=1;
         }
         document.getElementsByName('amount')[num].value=quantity;
@@ -125,6 +171,9 @@
     function plus(num){
         quantity=parseInt(quantitys[num].value)+1;
         document.getElementsByName('amount')[num].value=quantity;
+        if(quantity==0){
+            quantity=1;
+        }
         total();
     }
     function total(){
@@ -135,6 +184,11 @@
             document.getElementById('price'+i).innerHTML=sum;
             totals=totals+parseInt(quantitys[i].value);
             total=total+sum;
+            document.getElementById('a'+i).value=pnames[i].innerHTML;
+            document.getElementById('b'+i).value=sum;
+            document.getElementById('c'+i).value=quantitys[i].value;
+            document.getElementById('d'+i).value=ins[i].value;
+            document.getElementById('e'+i).value=outs[i].value;
         }
         document.getElementById('room').innerHTML=totals;
         document.getElementById('er').innerHTML=total;
