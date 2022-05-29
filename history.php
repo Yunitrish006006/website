@@ -8,7 +8,16 @@
     <title>蜂巢飯店</title>
     <?php include("import.php") ?>
 </head>
-
+<?php
+                if(isset($_POST['delete_tno'])){
+                    include("db.php");
+                    $delete_tno=$_POST['delete_tno'];
+                    mysqli_query($link,"DELETE from `transaction` where tno=$delete_tno;");
+                    mysqli_query($link,"DELETE from  record where tno=$delete_tno;");
+                    mysqli_close($link);
+                    header("Location:history.php");
+                }
+    ?>
 <body>
     <!--================Header Area =================-->
     <?php include("nav.php") ?>
@@ -26,16 +35,15 @@
     </section>
 <div class="container" style="padding-bottom: 3rem;">
     <div class="row" style="justify-content: center; padding: 3rem;">
-        <form action="" method="post" name="" style="display:flex">
-            <input class="form-control me-2 " type="search" placeholder="訂單編號查詢" aria-label="Search" style="width:70%;">
+        <form action="" method="post" style="display:flex">
+            <input class="form-control me-2 " type="search" placeholder="訂單編號查詢" name="ser" aria-label="Search" style="width:70%;">
             <button class="btn btn-outline-success" type="submit" style=" margin-left: 0.5rem;" >搜尋</button>
         </form>  
     </div>
     <div class="card text-center">
         <div class="card-header">
             <div class="row">
-                <div class="col">交易編號</div>
-                <div class="col">縮圖</div>
+                <div class="col">訂單編號</div>
                 <div class="col">房型名稱</div>
                 <div class="col">入住日期</div>
                 <div class="col">退宿日期</div>
@@ -44,30 +52,54 @@
             </div>
         </div>
         <div class="card-body">
-            <div class="row">
-            <div class="col-3 col-sm">A0001</div>
-            <div class="col-3 col-sm"><a href="#"><img src="images/product/p-1.jpg" alt="" width="50px" height="50px" style="padding-bottom: 0.5rem;"></a></div>
-            <div class="col-3 col-sm">商務套房</div>
-            <div class="col-3 col-sm">2022/04/26</div>
-            <div class="col-3 col-sm">2022/04/27</div>
-            <div class="col-3 col-sm">2間</div>
-            <div class="col-3 col-sm">$8400</div>
-            </div>
-            <div class="row">
-                <div class="col-3 col-sm">A0001</div>
-                <div class="col-3 col-sm"><a href="#"><img src="images/product/p-2.jpg" alt="" width="50px" height="50px" style="padding-bottom: 0.5rem;"></a></div>
-                <div class="col-3 col-sm">海景雙人房</div>
-                <div class="col-3 col-sm">2022/04/11</div>
-                <div class="col-3 col-sm">2022/04/12</div>
-                <div class="col-3 col-sm">1間</div>
-                <div class="col-3 col-sm">$4400</div>
-            </div>
-        </div>
-        <div class="card-footer text-muted">
-            總共: <span>$12800</span>
-        </div>
+            <?php
+                if(isset($_SESSION['account_id'])){
+                    $total_price=0;
+                    include("db.php");
+                    $account_id=$_SESSION['account_id'];
+                    if(isset($_POST['ser'])){
+                        $search=$_POST['ser'];
+                        if($result=mysqli_query($link,"SELECT * from transaction as t ,record as r where t.tno=$search and t.tno=r.tno and t.transmid=$account_id;")){
+                            while($record=mysqli_fetch_assoc($result)){
+                                echo'<div class="row">
+                                    <div class="col-3 col-sm">'.$record['tno'].'</div>
+                                    <div class="col-3 col-sm">'.$record['pname'].'</div>
+                                    <div class="col-3 col-sm">'.$record['checkin'].'</div>
+                                    <div class="col-3 col-sm">'.$record['checkout'].'</div>
+                                    <div class="col-3 col-sm">'.$record['amount'].'間</div>
+                                    <div class="col-3 col-sm">$'.intval($record['saleprice']).'</div>
+                                    </div>';
+                                $total_price=$total_price+$record['saleprice'];
+                            }
+                        }
+                        echo '<div class="card-footer text-muted">
+                          總共: <span>$'.$total_price.'</span>
+                          <br><form method="post" action=""><input type="hidden" name="delete_tno" value="'.$search.'"><input type="submit" value="刪除此訂單" class="btn btn-danger"></form>
+                          </div>';
+                    }else{
+                        if($result=mysqli_query($link,"SELECT * from transaction as t ,record as r where t.tno=r.tno and t.transmid=$account_id;")){
+                            while($record=mysqli_fetch_assoc($result)){
+                                echo'<div class="row">
+                                    <div class="col-3 col-sm">'.$record['tno'].'</div>
+                                    <div class="col-3 col-sm">'.$record['pname'].'</div>
+                                    <div class="col-3 col-sm">'.$record['checkin'].'</div>
+                                    <div class="col-3 col-sm">'.$record['checkout'].'</div>
+                                    <div class="col-3 col-sm">'.$record['amount'].'間</div>
+                                    <div class="col-3 col-sm">$'.intval($record['saleprice']).'</div>
+                                    </div>';
+                                $total_price=$total_price+$record['saleprice'];
+                            }
+                        }
+                        echo '<div class="card-footer text-muted">
+                             總共:<span>$'.$total_price.'</span>';
+                    }
+                }
+                mysqli_close($link); 
+            ?>
+            
     </div>
 </div>
+            </div>
 <?php include("import.php") ?>
 </body>
 </html>
