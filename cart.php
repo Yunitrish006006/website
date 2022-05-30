@@ -30,10 +30,9 @@
     if(isset($_POST['a0'])){
         include("db.php");
         mysqli_query($link,"SET NAMES UTF8");
-        $time=date("Y-m-d h:i:s");
         $account = $_SESSION['account_id'];
         $count=$_SESSION["cart_quantity"];
-        mysqli_query($link,"INSERT INTO `transaction`(transmid,transtime) values ('$account','$time');");
+        mysqli_query($link,"INSERT INTO `transaction`(transmid,transtime) values ('$account',now());");
         if($result = mysqli_query($link,"SELECT * from `transaction` where transmid=$account;")){
             $nrow = mysqli_num_rows($result);
             while ($record = mysqli_fetch_assoc($result)) {
@@ -132,7 +131,7 @@
             <div class="col col-sm"></div>
             <div class="col col-sm"></div>
             <div class="col col-sm"></div>共
-            <div class="col-3 col-sm"><span id="room">零</span></div>件
+            <div class="col-3 col-sm"><span id="room">0</span></div>件
             <div class="col-2 col-sm">總計</div>
             <div class="col-2 col-sm">$<span id="er">0</span></div>
         </div>
@@ -156,6 +155,16 @@
     var pnames=document.getElementsByName('pname');
     var ins=document.getElementsByName('in');
     var outs=document.getElementsByName('out');
+    $('input[name="in"]').on("change", function () {
+        for(let i=0;i<unitprice.length;i++){
+            document.getElementById('d'+i).value=ins[i].value;
+        }
+    });
+    $('input[name="out"]').on("change", function () {
+        for(let i=0;i<unitprice.length;i++){
+            document.getElementById('e'+i).value=outs[i].value;
+        }
+    });
     function minus(num){
         quantity=quantitys[num].value-1;
         if(quantity<0){
@@ -187,8 +196,6 @@
             document.getElementById('a'+i).value=pnames[i].innerHTML;
             document.getElementById('b'+i).value=sum;
             document.getElementById('c'+i).value=quantitys[i].value;
-            document.getElementById('d'+i).value=ins[i].value;
-            document.getElementById('e'+i).value=outs[i].value;
         }
         document.getElementById('room').innerHTML=totals;
         document.getElementById('er').innerHTML=total;
