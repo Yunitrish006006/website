@@ -97,7 +97,7 @@
     <br><br><br><br>
     <section>
         <table>
-            <tr><td colspan="3">資料庫名稱: <?php echo $datagram; ?></td><td colspan="3">帳號資料一共 <?php echo $num; ?> 筆</td></tr>
+            <tr><td colspan="3">資料庫名稱: <?php echo "group_24"; ?></td><td colspan="3">帳號資料一共 <?php echo $num; ?> 筆</td></tr>
             <tr>
                 <th>帳號</th>
                 <th>權限等級</th>
