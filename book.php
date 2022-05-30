@@ -22,15 +22,23 @@
     if(isset($_POST['require_category']))
     {
         $category = $_POST['require_category'];
+    }else {
+        $category = '全部房型';
     }
-    else {
-        $category = '台北旗艦店';
+    if($category=="全部房型"){
+        $sql="SELECT * FROM product;";
+    }else if($category=="商品關鍵字查詢"){
+        $category=$_POST['ser'];
+        $sql="SELECT * FROM product where pname like '%".$category."%';";
+        echo $sql;
+    }else{
+        $sql="SELECT * FROM product WHERE category = '$category';";
     }
     $items = "";
     $items .= '<div id="tm-gallery-page-' . $category . '" class="tm-gallery-page">';
     include("db.php");   
     mysqli_query($link, "SET NAMES UTF8");
-    if($result = mysqli_query($link,"SELECT * FROM product WHERE category = '$category'"))
+    if($result = mysqli_query($link,$sql))
     {
         $bought_items = array();
 
@@ -169,13 +177,20 @@
         </div>
         </div>
     </section>
-    <section style="padding: 5% 20%; display:flex;">
+    <section style="padding: 2.5rem 15%; display:flex;">
+        <span  class="col col-sm"><form action="" method="post" ><input type="hidden" name='require_category' value="全部房型"><input type="submit" class="btn theme_btn button_hover" value = "全部房型"></form></span>
         <span  class="col col-sm"><form action="" method="post" ><input type="hidden" name='require_category' value="台北旗艦店"><input type="submit" class="btn theme_btn button_hover" value = "台北旗艦店"></form></span>
         <span  class="col col-sm"><form action="" method="post" ><input type="hidden" name='require_category' value="台中逢甲店"><input type="submit" class="btn theme_btn button_hover" value = "台中逢甲店"></form></span>
         <span  class="col col-sm"><form action="" method="post" ><input type="hidden" name='require_category' value="高雄愛河店"><input type="submit" class="btn theme_btn button_hover" value = "高雄愛河店"></form></span>
         <span  class="col col-sm"><form action="" method="post" ><input type="hidden" name='require_category' value="彰化鹿港店"><input type="submit" class="btn theme_btn button_hover" value = "彰化鹿港店"></form></span>
         <span  class="col col-sm"><form action="" method="post" ><input type="hidden" name='require_category' value="墾丁恆春店"><input type="submit" class="btn theme_btn button_hover" value = "墾丁恆春店"></form></span>
     </section>
+    <div class="row" style="justify-content: center; margin-bottom:2rem;">
+        <form action="" method="post" style="display:flex">
+            <input class="form-control me-2 " type="search" name="ser" placeholder="商品關鍵字搜尋" aria-label="Search" style="width:70%;"><input type="hidden" name='require_category' value="商品關鍵字查詢">
+            <button class="btn btn-outline-success" type="submit">搜尋</button>
+        </form>  
+    </div>
     <!-- Gallery -->
     <div class="row tm-gallery">
         <?php echo $items; ?>
