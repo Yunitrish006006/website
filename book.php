@@ -26,22 +26,33 @@
         $category = '全部房型';
     }
     if($category=="全部房型"){
-        $sql="SELECT * FROM product;";
+        $sql="SELECT * FROM product";
+
     }else if($category=="商品關鍵字查詢"){
         $category=$_POST['ser'];
-        $sql="SELECT * FROM product where pname like '%".$category."%';";
-        echo $sql;
+        $sql="SELECT * FROM product where pname like '%".$category."%'";
     }else{
-        $sql="SELECT * FROM product WHERE category = '$category';";
+        $sql="SELECT * FROM product WHERE category = '$category'";
     }
     $items = "";
     $items .= '<div id="tm-gallery-page-' . $category . '" class="tm-gallery-page">';
     include("db.php");   
     mysqli_query($link, "SET NAMES UTF8");
+    $result=mysqli_query($link,$sql);
+        $data_nums = mysqli_num_rows($result);
+        $per = 8; 
+        $pages = ceil($data_nums/$per);
+        if (!isset($_GET["page"])){ 
+            $page=1;
+        } else {
+            $page = intval($_GET["page"]);
+        }
+        $start = ($page-1)*$per; 
+        mysqli_free_result($result);
+        $sql=$sql.' LIMIT '.$start.', '.$per;
     if($result = mysqli_query($link,$sql))
     {
         $bought_items = array();
-
         if(isset($_SESSION['account'])) {
             include("db.php");        
             mysqli_query($link, "SET NAMES UTF8");
@@ -195,6 +206,31 @@
     <div class="row tm-gallery">
         <?php echo $items; ?>
     </div>
+    <nav class="blog-pagination justify-content-center d-flex" > 
+		    <ul class="pagination">
+		        <li class="page-item">
+                    <?php echo'<a href=?page=1 class="page-link" aria-label="Previous"'; ?>
+		                    <span aria-hidden="true">
+		                            <span class="lnr lnr-chevron-left"></span>
+		                            </span>
+		                        </a>
+		                        </li>
+                                <?php 
+                                    for( $i=1 ; $i<=$pages ; $i++ ) {
+                                        if ( $page-3 < $i && $i < $page+3 ) {
+                                                echo ' <li class="page-item "><a class="page-link" href=?page='.$i.'>'.$i.'</a></li> ';
+                                            }
+                                        } 
+                                     ?>
+		                        <li class="page-item">
+                                    <?php echo'<a href=?page='.$pages.' class="page-link" aria-label="Next"'; ?>
+		                                <span aria-hidden="true">
+		                                    <span class="lnr lnr-chevron-right"></span>
+		                                </span>
+		                            </a>
+		                        </li>
+		                    </ul>
+		                </nav>
     <?php include("footer.php") ?>
 </body>
 
