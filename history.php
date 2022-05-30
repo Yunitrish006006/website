@@ -6,9 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>蜂巢飯店</title>
-    <?php include("import.php") ?>
-</head>
-<?php
+    <?php
                 if(isset($_POST['delete_tno'])){
                     include("db.php");
                     $delete_tno=$_POST['delete_tno'];
@@ -18,6 +16,9 @@
                     header("Location:history.php");
                 }
     ?>
+    <?php include("import.php") ?>
+</head>
+
 <body>
     <!--================Header Area =================-->
     <?php include("nav.php") ?>
@@ -37,7 +38,7 @@
     <div class="row" style="justify-content: center; padding: 3rem;">
         <form action="" method="post" style="display:flex">
             <input class="form-control me-2 " type="search" placeholder="訂單編號查詢" name="ser" aria-label="Search" style="width:70%;">
-            <button class="btn btn-outline-success" type="submit" style=" margin-left: 0.5rem;" >搜尋</button>
+            <button class="btn btn-outline-success" type="submit"  >搜尋</button>
         </form>  
     </div>
     <div class="card text-center">
