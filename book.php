@@ -19,20 +19,48 @@
     ?>
 <!-- 分頁產生內容 -->
 <?php
-    if(isset($_POST['require_category']))
+    if(isset($_GET["sid"]))
     {
-        $category = $_POST['require_category'];
+        $sid=$_GET["sid"];
+        switch($sid){
+            case 1:
+                $category="全部房型";
+                break;
+            case 2:
+                $category="台北旗艦店";
+                break;
+            case 3:
+                $category="台中逢甲店";
+                break;
+            case 4:
+                $category="高雄愛河店";
+                break;
+            case 5:
+                $category="彰化鹿港店";
+                break;
+            case 6:
+                $category="墾丁恆春店";
+                break;
+            // default:
+            break;
+        }   
+
     }else {
         $category = '全部房型';
     }
     if($category=="全部房型"){
         $sql="SELECT * FROM product";
 
-    }else if($category=="商品關鍵字查詢"){
-        $category=$_POST['ser'];
-        $sql="SELECT * FROM product where pname like '%".$category."%'";
     }else{
         $sql="SELECT * FROM product WHERE category = '$category'";
+    }
+    if(isset($_POST['ser'])){
+        $search=$_POST['ser'];
+        if($category!="全部房型"){
+            $sql="SELECT * FROM product where category = '$category' and pname like '%".$search."%'";
+        }else{
+            $sql="SELECT * FROM product where pname like '%".$search."%'";
+        }
     }
     $items = "";
     $items .= '<div id="tm-gallery-page-' . $category . '" class="tm-gallery-page">';
@@ -189,19 +217,24 @@
         </div>
     </section>
     <section style="padding: 2.5rem 15%; display:flex;">
-        <span  class="col col-sm"><form action="" method="post" ><input type="hidden" name='require_category' value="全部房型"><input type="submit" class="btn theme_btn button_hover" value = "全部房型"></form></span>
-        <span  class="col col-sm"><form action="" method="post" ><input type="hidden" name='require_category' value="台北旗艦店"><input type="submit" class="btn theme_btn button_hover" value = "台北旗艦店"></form></span>
-        <span  class="col col-sm"><form action="" method="post" ><input type="hidden" name='require_category' value="台中逢甲店"><input type="submit" class="btn theme_btn button_hover" value = "台中逢甲店"></form></span>
-        <span  class="col col-sm"><form action="" method="post" ><input type="hidden" name='require_category' value="高雄愛河店"><input type="submit" class="btn theme_btn button_hover" value = "高雄愛河店"></form></span>
-        <span  class="col col-sm"><form action="" method="post" ><input type="hidden" name='require_category' value="彰化鹿港店"><input type="submit" class="btn theme_btn button_hover" value = "彰化鹿港店"></form></span>
-        <span  class="col col-sm"><form action="" method="post" ><input type="hidden" name='require_category' value="墾丁恆春店"><input type="submit" class="btn theme_btn button_hover" value = "墾丁恆春店"></form></span>
+        <span  class="col col-sm"><a class="btn theme_btn button_hover" href="book.php?sid=1">全部房型</a></span>
+        <span  class="col col-sm"><a class="btn theme_btn button_hover" href="book.php?sid=2">台北旗艦店</a></span>
+        <span  class="col col-sm"><a class="btn theme_btn button_hover" href="book.php?sid=3">台中逢甲店</a></span>
+        <span  class="col col-sm"><a class="btn theme_btn button_hover" href="book.php?sid=4">高雄愛河店</a></span>
+        <span  class="col col-sm"><a class="btn theme_btn button_hover" href="book.php?sid=5">彰化鹿港店</a></span>
+        <span  class="col col-sm"><a class="btn theme_btn button_hover" href="book.php?sid=6">墾丁恆春店</a></span>
     </section>
-    <div class="row" style="justify-content: center; margin-bottom:2rem;">
-        <form action="" method="post" style="display:flex">
-            <input class="form-control me-2 " type="search" name="ser" placeholder="商品關鍵字搜尋" aria-label="Search" style="width:70%;"><input type="hidden" name='require_category' value="商品關鍵字查詢">
+    <?php
+    if(!isset($_GET['page']) || ($_GET['page']==1)){
+        echo '<div class="row" style="justify-content: center; margin-bottom:2rem;">
+            <form action="" method="post" style="display:flex">
+            <input class="form-control me-2 " type="search" name="ser" placeholder="商品關鍵字搜尋" aria-label="Search" style="width:70%;"><input type="hidden" name="require_category" value="商品關鍵字查詢">
             <button class="btn btn-outline-success" type="submit">搜尋</button>
-        </form>  
-    </div>
+            </form></div>';
+    }
+
+    ?>
+    
     <!-- Gallery -->
     <div class="row tm-gallery">
         <?php echo $items; ?>
@@ -209,21 +242,33 @@
     <nav class="blog-pagination justify-content-center d-flex" > 
 		    <ul class="pagination">
 		        <li class="page-item">
-                    <?php echo'<a href=?page=1 class="page-link" aria-label="Previous"'; ?>
+                    <?php 
+                    if(isset($_GET['sid'])){
+                                    $s=$_GET['sid'];
+                                }else{
+                                    $s=1;
+                                }
+                    echo'<a href="book.php?sid='.$s.'&page=1" class="page-link" aria-label="Previous"'; ?>
 		                    <span aria-hidden="true">
 		                            <span class="lnr lnr-chevron-left"></span>
 		                            </span>
 		                        </a>
 		                        </li>
                                 <?php 
+                                if(isset($_GET['sid'])){
+                                    $s=$_GET['sid'];
+                                }else{
+                                    $s=1;
+                                }
+                                
                                     for( $i=1 ; $i<=$pages ; $i++ ) {
                                         if ( $page-3 < $i && $i < $page+3 ) {
-                                                echo ' <li class="page-item "><a class="page-link" href=?page='.$i.'>'.$i.'</a></li> ';
+                                                echo ' <li class="page-item "><a class="page-link" href="book.php?sid='.$s.'&page='.$i.'">'.$i.'</a></li> ';
                                             }
                                         } 
                                      ?>
 		                        <li class="page-item">
-                                    <?php echo'<a href=?page='.$pages.' class="page-link" aria-label="Next"'; ?>
+                                    <?php echo'<a href="book.php?sid='.$s.'&page='.$pages.'" class="page-link" aria-label="Next"'; ?>
 		                                <span aria-hidden="true">
 		                                    <span class="lnr lnr-chevron-right"></span>
 		                                </span>
