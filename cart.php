@@ -119,7 +119,7 @@
                        if($j==0){
                             echo '<form method="post" action=""><h3>確認訂單</h3>';
                         }
-                        echo '<input type="text" name="a'.$j.'"id="a'.$j.'" value="'.$record['pname'].'"required><input type="text" name="b'.$j.'"id="b'.$j.'" required><input type="text" name="c'.$j.'"id="c'.$j.'" required><input type="text" name="d'.$j.'"id="d'.$j.'" required><input type="text" name="e'.$j.'"id="e'.$j.'"required>';
+                        echo '<input type="hidden" name="a'.$j.'"id="a'.$j.'" value="'.$record['pname'].'"required><input type="hidden" name="b'.$j.'"id="b'.$j.'" required><input type="hidden" name="c'.$j.'"id="c'.$j.'" required><input type="hidden" name="d'.$j.'"id="d'.$j.'" required><input type="hidden" name="e'.$j.'"id="e'.$j.'"required>';
                         $j++;
                     }
                 }
