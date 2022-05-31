@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="col-md-6" style="padding: 1rem;">
-                    <img src="images/r3.jpg" width="500px" height="200px">
+                    <img src="images/rounding_picture/r3.jpg" width="500px" height="200px">
                 </div>
             </div>
         </div>
