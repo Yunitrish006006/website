@@ -1,7 +1,5 @@
 <?php
-    if (session_status() === PHP_SESSION_NONE) {
-        session_start();
-    }
+    if (session_status() === PHP_SESSION_NONE) {session_start();}
 ?>
 <link rel="icon" href="images/honeycomb.png" type="image/x-icon">
 <!--  boostrap css  -->
@@ -164,7 +162,7 @@
         </div>
     </div>
 </div>
- <!--================寄件成功表單 =================-->
+<!--================寄件成功表單 =================-->
 <div id="error" class="modal modal-message fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">

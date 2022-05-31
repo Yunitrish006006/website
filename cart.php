@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-     if(isset($_POST['cart_pno']) && isset($_SESSION['account'])) {
+    if(isset($_POST['cart_pno']) && isset($_SESSION['account'])) {
         include("db.php");   
         mysqli_query($link, "SET NAMES UTF8");
         $cart_pno = $_POST['cart_pno'];
@@ -24,7 +24,7 @@
         $_SESSION["cart_quantity"]=$cart_quantity;
         mysqli_close($link);         
         header("Location:cart.php");
-     }
+    }
     ?>
     <?php
     if(isset($_POST['a0'])){

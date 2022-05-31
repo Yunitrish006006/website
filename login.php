@@ -26,7 +26,7 @@
                         $_SESSION["email"] = $row["email"];
                         switch ($_SESSION['level']) {
                             case 99:
-                                header("Location:backend.php");
+                                header("Location:manage_account.php");
                                 break;
                             case 1:
                                 header("Location:book.php");

@@ -9,8 +9,7 @@ if (!mysqli_query($link, $sql)) {
 	die(mysqli_error());
 } else {
 	echo "
-         <script>
+        <script>
             setTimeout(function(){window.location.href='comment_detail.php?name=" . $name . "&id=" . $id . "';},300);
         </script>";
-
 }
