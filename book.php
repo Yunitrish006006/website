@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
- <!-- 購物車數量 -->
-    <?php
-    if(isset($_SESSION['account'])){
-        include("db.php");     
-            mysqli_query($link, "SET NAMES UTF8");
-            $account = $_SESSION['account_id'];
-            $cart_quanity=0;
-            if($cart_result = mysqli_query($link,"SELECT * FROM cart WHERE account_id = $account")) {
-                while ($cart_item = mysqli_fetch_assoc($cart_result)) {
-                    $cart_quanity++;
-                }
+<!-- 購物車數量 -->
+<?php
+if(isset($_SESSION['account'])){
+    include("db.php");     
+    mysqli_query($link, "SET NAMES UTF8");
+        $account = $_SESSION['account_id'];
+        $cart_quantity=0;
+        if($cart_result = mysqli_query($link,"SELECT * FROM cart WHERE account_id = $account")) {
+            while ($cart_item = mysqli_fetch_assoc($cart_result)) {
+                $cart_quantity++;
             }
-            $_SESSION["cart_quaity"]=$cart_quanity;
-            mysqli_close($link);
-    }
-    ?>
+        }
+        $_SESSION["cart_quantity"]=$cart_quantity;
+    mysqli_close($link);
+}
+?>
 <!-- 分頁產生內容 -->
 <?php
-    if(isset($_GET["sid"]))
-    {
+    if(isset($_GET["sid"])) {
         $sid=$_GET["sid"];
         switch($sid){
             case 1:
@@ -78,8 +77,7 @@
         $start = ($page-1)*$per; 
         mysqli_free_result($result);
         $sql=$sql.' LIMIT '.$start.', '.$per;
-    if($result = mysqli_query($link,$sql))
-    {
+    if($result = mysqli_query($link,$sql)) {
         $bought_items = array();
         if(isset($_SESSION['account'])) {
             include("db.php");        
@@ -184,7 +182,7 @@
                     }
                 }
             $_SESSION["cart_quantity"]=$cart_quantity;
-         mysqli_close($link);        
+        mysqli_close($link);        
         header("Location:book.php");
     }
     
@@ -240,8 +238,8 @@
         <?php echo $items; ?>
     </div>
     <nav class="blog-pagination justify-content-center d-flex" > 
-		    <ul class="pagination">
-		        <li class="page-item">
+            <ul class="pagination">
+                <li class="page-item">
                     <?php 
                     if(isset($_GET['sid'])){
                                     $s=$_GET['sid'];
@@ -249,11 +247,11 @@
                                     $s=1;
                                 }
                     echo'<a href="book.php?sid='.$s.'&page=1" class="page-link" aria-label="Previous"'; ?>
-		                    <span aria-hidden="true">
-		                            <span class="lnr lnr-chevron-left"></span>
-		                            </span>
-		                        </a>
-		                        </li>
+                            <span aria-hidden="true">
+                                    <span class="lnr lnr-chevron-left"></span>
+                                    </span>
+                                </a>
+                                </li>
                                 <?php 
                                 if(isset($_GET['sid'])){
                                     $s=$_GET['sid'];
@@ -266,16 +264,16 @@
                                                 echo ' <li class="page-item "><a class="page-link" href="book.php?sid='.$s.'&page='.$i.'">'.$i.'</a></li> ';
                                             }
                                         } 
-                                     ?>
-		                        <li class="page-item">
+                                        ?>
+                                <li class="page-item">
                                     <?php echo'<a href="book.php?sid='.$s.'&page='.$pages.'" class="page-link" aria-label="Next"'; ?>
-		                                <span aria-hidden="true">
-		                                    <span class="lnr lnr-chevron-right"></span>
-		                                </span>
-		                            </a>
-		                        </li>
-		                    </ul>
-		                </nav>
+                                        <span aria-hidden="true">
+                                            <span class="lnr lnr-chevron-right"></span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
     <?php include("footer.php") ?>
 </body>
 

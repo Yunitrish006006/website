@@ -94,7 +94,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="loginPassword" class="col-form-label">密碼:</label>
-                        <input type="loginPassword" class="form-control" id="loginPassword" name="password">
+                        <input type="password" class="form-control" id="loginPassword" name="password">
                         <label for="loginPassword" class="error"></label>
                     </div>
                 </div>
