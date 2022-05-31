@@ -34,19 +34,21 @@
                     </li>
                     <li class="nav-item"><a class="nav-link" href="book.php">房型介紹</a></li>
                     <li class="nav-item"><a class="nav-link" href="comment.php">留言板</a></li>
-                    <li class="nav-item submenu dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" onclick="play()">管理</a>
-                        <ul class="dropdown-menu">
-                            <?php
+                    <?php
                                 if(isset($_SESSION['account'])) {
                                     if($_SESSION['level']>5) {
-                                        echo "<li class='nav-item'><a class='nav-link' href='manage_account.php'>帳號列表</a></li>";
-                                        echo "<li class='nav-item'><a class='nav-link' href='manage_commodity.php'>商品列表</a></li>";
+                                        echo '
+                                        <li class="nav-item submenu dropdown">
+                                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" onclick="play()">管理</a>
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item"><a class="nav-link" href="manage_account.php">帳號列表</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="manage_commodity.php">商品列表</a></li>
+                                        </ul>
+                                    </li>
+                                        ';
                                     }
                                 }
-                            ?>
-                        </ul>
-                    </li>
+                    ?>
                     <li class="nav-item submenu dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" onclick="play()">帳戶</a>
                         <ul class="dropdown-menu">
