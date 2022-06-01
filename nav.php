@@ -18,11 +18,14 @@
             </button>
             <div class="collapse navbar-collapse offset " id="navbarSupportedContent">
                 <ul class="nav navbar-nav menu_nav ml-auto  ">
-                    <!-- <form class="d-flex nav-link form-inline">
-                        <input class="form-control me-2 " type="search" placeholder="搜尋" aria-label="Search">
-                        <button onclick="play()" class="btn  btn-outline-secondary " type="submit"><i
-                                class="bi bi-search"></i></button>
-                    </form> -->
+                    <!--
+                        <form class="d-flex nav-link form-inline">
+                            <input class="form-control me-2 " type="search" placeholder="搜尋" aria-label="Search">
+                            <button onclick="play()" class="btn  btn-outline-secondary " type="submit">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </form> 
+                    -->
                     <li class="nav-item"><a class="nav-link" href="index.php">首頁</a></li>
                     <li class="nav-item submenu dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"

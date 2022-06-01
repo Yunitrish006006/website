@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
     include("db.php");
     if(isset($_SESSION['account'])) {
         if($_SESSION['level'] < 5) {
@@ -76,58 +76,77 @@
     else {
         echo '<script>alert("請先登入以啟用帳號管理功能!");window.location.href="/website/login.php"</script>';
     }
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>帳號管理</title>
-    <style>
-        table {
-            margin: 0 auto;
-            border-collapse: collapse;
-        }
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>帳號管理</title>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
+        <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+        <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+        <script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+        <?php include("import.php") ?>
+        <script>
+            $(function() {
+                $('#example').DataTable({
+                    "ajax": 'manage_account_ajax.php'
+                });
+            });
+        </script>
+    </head>
 
-        tr, td, th ,button{
-            text-align: center
-        }
-        caption{
-            font-size: 18px;
-            font-weight: bold;
-        }
-    </style>
-    <?php include("import.php") ?>
-</head>
-
-<body>
-    <!--================Header Area =================-->
-    <?php include("nav.php") ?>
-    <!--================帳號管理 =================-->
-    <br><br><br><br>
-    <section>
-        <table>
-            <tr><td colspan="3">資料庫名稱: <?php echo "group_24"; ?></td><td colspan="3">帳號資料一共 <?php echo $num; ?> 筆</td></tr>
-            <tr>
-                <th>帳號</th>
-                <th>權限等級</th>
-                <th>密碼</th>
-                <th>email</th>
-                <th>操作</th>
-            </tr>
-            <?php echo $rows; ?>
-            <tr>
-                <form action="" method="POST">
-                    <td><input type="hidden" name="id"><input type="text" name="account"></td>
-                    <td><input type="text" name="level"></td>
-                    <td><input type="text" name="password"></td>
-                    <td><input type="text" name="email"></td>
-                    <td><input type="hidden" name="operate" value="add"><button type="submit">新增存檔</button></td>
-                </form>
-            </tr>
-        </table>
-    </section>
+    <body>
+        <!--================Header Area =================-->
+        <?php include("nav.php") ?>
+        <!--================帳號管理 =================-->
+        <br><br><br><br>
+        <!-- <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10 text-center">
+                <table>
+                    <tr><td colspan="3">資料庫名稱: <?php //echo "group_24"; ?></td><td colspan="3">帳號資料一共 <?php echo $num; ?> 筆</td></tr>
+                    <tr>
+                        <th>帳號</th>
+                        <th>權限等級</th>
+                        <th>密碼</th>
+                        <th>email</th>
+                        <th>操作</th>
+                    </tr>
+                    <?php //echo $rows; ?>
+                    <tr>
+                        <form action="" method="POST">
+                            <td><input type="hidden" name="id"><input type="text" name="account"></td>
+                            <td><input type="text" name="level"></td>
+                            <td><input type="text" name="password"></td>
+                            <td><input type="text" name="email"></td>
+                            <td><input type="hidden" name="operate" value="add"><button type="submit">新增存檔</button></td>
+                        </form>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-1"></div>
+        </div> -->
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10 text-center">
+                <table id="example" class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="text-center">帳號</th>
+                        <th class="text-center">權限等級</th>
+                        <th class="text-center">密碼</th>
+                        <th class="text-center">email</th>
+                        <!-- <th class="text-center">操作</th> -->
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
     </body>
 </html>

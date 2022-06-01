@@ -38,7 +38,7 @@
     }
 </script>
 <!-- 註冊視窗 -->
-<div class="modal fade" id="registerWindow" tabindex="-1" aria-labelledby="registerWindow" aria-hidden="true">
+<div class="modal fade" id="registerWindow" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <form action="" method="post" id="register">
