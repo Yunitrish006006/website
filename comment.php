@@ -52,7 +52,6 @@ $_SESSION['post_num']=$data_nums;
             <div class="banner_content text-center">
                 <h4>我們在此度過了 <br />美好的蜜月旅行</h4>
                 <p>謝謝蜂巢飯店為我們提供美好的蜜月套房，我相信這將成為我們一生難忘的回憶。</p>
-                <a href="#" class="btn white_btn button_hover">詳細資料</a>
             </div>
         </div>
     </section>
@@ -186,6 +185,7 @@ $_SESSION['post_num']=$data_nums;
 		                        </ul>
 		                </nav>
                         </div>
+                        <?php if(isset($_SESSION['account'])) { ?>
                         <article>
                             <div class="comment-form">
                                 <h4>留下您的貼文吧！</h4>
@@ -241,6 +241,7 @@ $_SESSION['post_num']=$data_nums;
                                 ?>
                             </div>
                         </article>
+                        <?php } ?>
                     </div>
                 </div>
                 <!--right side-->

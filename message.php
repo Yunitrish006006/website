@@ -27,6 +27,7 @@ if (session_status() === PHP_SESSION_NONE) session_start();
 </head>
 
 <body>
+	<?php if(isset($_SESSION['account'])) { ?>
 	<form name="form3" id="form3" action="" method="POST">
 		<div class="comment-form">
 			<h4>留下您的意見吧！</h4>
@@ -64,7 +65,8 @@ if (session_status() === PHP_SESSION_NONE) session_start();
     } else {
             echo '';
            }
-    ?>
+		}
+	?>	
 	<div  class="comments-area">
 		<h4>留言版</h4>
 		<div id="box">

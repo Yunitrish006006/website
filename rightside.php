@@ -24,7 +24,6 @@
             <p>疫情期間選擇婚期跟宴客場地真的需要時間跟精神。
                 感謝台中蜂巢飯店訂席中心的佩宜從諮詢到當天婚宴都給予我們新人適時的回覆，
                 也感謝當天所有工作人員的協助，讓婚禮流程都順利完成。值得一提的是婚宴菜色也是我們一直稱讚的部分，
-
                 感謝主廚針對我們的需求進行菜色的細節調整，好幾位食客級親友都表示這手路很可以啊給推。</p>
             <div class="br"></div>
         </aside>
@@ -33,37 +32,37 @@
             <div class="media post_item">
                 <img src="images/blog/post1.jpg" alt="post">
                 <div class="media-body">
-                    <a href="blog-details.php">
+                    <a >
                         <h3>服務人員請不要氣餒</h3>
                     </a>
-                    <p>5年前</p>
+                    <p>1個月前</p>
                 </div>
             </div>
             <div class="media post_item">
                 <img src="images/blog/post2.jpg" alt="post">
                 <div class="media-body">
-                    <a href="blog-details.php">
+                    <a >
                         <h3>關於房間設計與服務人員看法</h3>
                     </a>
-                    <p>2年前</p>
+                    <p>0個月前</p>
                 </div>
             </div>
             <div class="media post_item">
                 <img src="images/blog/post3.jpg" alt="post">
                 <div class="media-body">
-                    <a href="blog-details.php">
+                    <a >
                         <h3>再也不來這住了</h3>
                     </a>
-                    <p>2年前</p>
+                    <p>2個月前</p>
                 </div>
             </div>
             <div class="media post_item">
                 <img src="images/blog/post4.jpg" alt="post">
                 <div class="media-body">
-                    <a href="blog-details.php">
+                    <a >
                         <h3>這家飯店的婚禮佈置</h3>
                     </a>
-                    <p>5年前</p>
+                    <p>1個月前</p>
                 </div>
             </div>
             <div class="br"></div>
@@ -91,30 +90,6 @@
                     <a  class="d-flex justify-content-between">
                         <p>服務人員</p>
                         <p>59</p>
-                    </a>
-                </li>
-                <li>
-                    <a  class="d-flex justify-content-between">
-                        <p>飯店活動</p>
-                        <p>29</p>
-                    </a>
-                </li>
-                <li>
-                    <a  class="d-flex justify-content-between">
-                        <p>飯店設施</p>
-                        <p>15</p>
-                    </a>
-                </li>
-                <li>
-                    <a  class="d-flex justify-content-between">
-                        <p>飯店外觀</p>
-                        <p>09</p>
-                    </a>
-                </li>
-                <li>
-                    <a  class="d-flex justify-content-between">
-                        <p>飯店cp值</p>
-                        <p>44</p>
                     </a>
                 </li>
             </ul>
