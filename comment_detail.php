@@ -43,6 +43,24 @@
     </section>
 
     <!--================貼文 =================-->
+    <?php 
+        $sql = "SELECT * FROM `comments` WHERE id='$pages'";
+        $result = mysqli_query($link, $sql);
+        while ($row = mysqli_fetch_assoc($result)) {//抓出該貼文資訊
+        $detail_path=$row['picture_path'];
+        $detail_tag=$row['tag'];
+        $detail_name=$row['name'];
+        $detail_date=$row['date'];
+        $detail_subject=$row['subject'];
+        $detail_comment=$row['comment'];
+        $detail_times=$row['times'];
+        }
+        mysqli_free_result($result); // 釋放佔用的記憶體
+        $detail_times=$detail_times+1;
+        $sql = "UPDATE `comments` SET `times`='$detail_times' WHERE id='$pages'";
+        $result = mysqli_query($link, $sql);
+                                        
+    ?>
     <section class="blog_area single-post-area">
         <div class="container">
             <div class="row">
@@ -50,22 +68,7 @@
                     <div class="single-post row">
                         <div class="col-lg-12">
                             <div class="feature-img">
-                                <img class="img-fluid" src="
-                                    <?php        
-                                        $sql = "SELECT * FROM `comments` WHERE id='$pages'";
-                                        $result = mysqli_query($link, $sql);
-                                        while ($row = mysqli_fetch_assoc($result)) {//抓出該貼文資訊
-                                            $detail_path=$row['picture_path'];
-                                            $detail_tag=$row['tag'];
-                                            $detail_name=$row['name'];
-                                            $detail_date=$row['date'];
-                                            $detail_subject=$row['subject'];
-                                            $detail_comment=$row['comment'];
-                                        }
-                                        mysqli_free_result($result); // 釋放佔用的記憶體
-                                        echo $detail_path;
-                                    ?>   
-                                " alt="">
+                                <img class="img-fluid" src="<?php  echo $detail_path; ?> " alt="">
                             </div>
                         </div>
                         <div class="col-lg-3  col-md-3">
@@ -74,12 +77,15 @@
                                     <?php echo  $detail_tag;?>  
                                 </div>
                                 <ul class="blog_meta list_style">
-                                    <li><a href="#">
+                                    <li><a >
                                         <?php echo  $detail_name;?>  
                                     <i class="lnr lnr-user"></i></a></li>
-                                    <li><a href="#">
+                                    <li><a >
                                         <?php echo  $detail_date;?> 
                                     <i class="lnr lnr-calendar-full"></i></a></li>
+                                    <li><a >
+                                        <?php echo  $detail_times."次瀏覽";?> 
+                                    <i class="lnr lnr-eye"></i></a></li>
                                 </ul>
                                 <ul class="social-links">
                                     <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>

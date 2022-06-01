@@ -12,6 +12,7 @@
         $path=$row['picture_path']; //存入第i行picture_path
         $subject=$row['subject'];          //存入第i行subject
         $comment=$row['comment'];            //存入第i行comment
+        $times=$row['times'];
         }
         mysqli_free_result($result); // 釋放佔用的記憶體   
     
@@ -36,13 +37,15 @@
                             <?php echo  $_SESSION['detail_num']."則留言";?>
                             <i class="lnr lnr-bubble"></i>
                         </a></li>
+                    <li><a >
+                            <?php echo  $times."次瀏覽";?> 
+                        <i class="lnr lnr-eye"></i></a></li>
                 </ul>
             </div>
         </div>
         <div class="col-md-9">
             <div class="blog_post">
-                <img src="
-                                            <?php echo  $path;?> ">
+                <img src="<?php echo  $path;?> ">
                 <div class="blog_details">
                     <a href="comment_detail.php">
                         <h2>
