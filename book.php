@@ -1,4 +1,4 @@
-<?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
+<?php if (session_status() == PHP_SESSION_NONE) session_start(); ?>
 <!-- 購物車數量 -->
 <?php
 if(isset($_SESSION['account'])){
