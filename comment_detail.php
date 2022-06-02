@@ -117,7 +117,7 @@
                             <div
                                 class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
                                 <div class="thumb">
-                                    <a ><img class="img-fluid" src="images/blog/prev.jpg" alt=""></a>
+                                    <a ><img class="img-fluid" src="images/comment_picture/blog/prev.jpg" alt=""></a>
                                 </div>
                                 <div class="arrow">
                                     <a ><span class="lnr text-white lnr-arrow-left"></span></a>
@@ -173,7 +173,7 @@
                                     <a ><span class="lnr text-white lnr-arrow-right"></span></a>
                                 </div>
                                 <div class="thumb">
-                                    <a ><img class="img-fluid" src="images/blog/next.jpg" alt=""></a>
+                                    <a ><img class="img-fluid" src="images/comment_picture/blog/next.jpg" alt=""></a>
                                 </div>
                             </div>
                         </div>

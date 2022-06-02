@@ -67,7 +67,7 @@ $_SESSION['post_num']=$data_nums;
             <div class="row">
                 <div class="col-lg-4">
                     <div class="categories_post">
-                        <img src="images/blog/cat-post/cat-post-3.jpg" alt="post">
+                        <img src="images/comment_picture/blog/cat-post/cat-post-3.jpg" alt="post">
                         <div class="categories_details">
                             <div class="categories_text">
                                 <a href="#">
@@ -81,7 +81,7 @@ $_SESSION['post_num']=$data_nums;
                 </div>
                 <div class="col-lg-4">
                     <div class="categories_post">
-                        <img src="images/blog/cat-post/cat-post-2.jpg" alt="post">
+                        <img src="images/comment_picture/blog/cat-post/cat-post-2.jpg" alt="post">
                         <div class="categories_details">
                             <div class="categories_text">
                                 <a href="comment_detail.php">
@@ -95,7 +95,7 @@ $_SESSION['post_num']=$data_nums;
                 </div>
                 <div class="col-lg-4">
                     <div class="categories_post">
-                        <img src="images/blog/cat-post/cat-post-1.jpg" alt="post">
+                        <img src="images/comment_picture/blog/cat-post/cat-post-1.jpg" alt="post">
                         <div class="categories_details">
                             <div class="categories_text">
                                 <a href="#">

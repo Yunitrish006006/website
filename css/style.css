@@ -514,7 +514,7 @@ button:focus {
 }
 
 .banner_area .bg-parallax {
-  background: url("../images/banner_bg.jpg") no-repeat scroll center 0/cover;
+  background: url("../images/book_picture/banner_bg.jpg") no-repeat scroll center 0/cover;
   opacity: 0.50;
 }
 
@@ -733,7 +733,7 @@ button:focus {
 }
 
 .blog_banner .bg-parallax {
-  background: url(../images/banner/banner-1.jpg) no-repeat scroll center center;
+  background: url(../images/comment_picture/banner-1.jpg) no-repeat scroll center center;
 }
 
 .blog_banner .banner_content {
@@ -766,7 +766,7 @@ button:focus {
 }
 
 .blog_banner_two .bg-parallax {
-  background: url(../images/banner/banner-2.jpg) no-repeat scroll center top/cover;
+  background: url(../images/comment_picture/banner-2.jpg) no-repeat scroll center top/cover;
 }
 
 /*=============End Blog Banner css =============*/

@@ -3,7 +3,7 @@
     <aside class="single_sidebar_widget popular_post_widget">
             <h3 class="widget_title">熱門貼文</h3>
             <div class="media post_item">
-                <img src="images/blog/post1.jpg" alt="post">
+                <img src="images/comment_picture/blog/post1.jpg" alt="post">
                 <div class="media-body">
                     <a >
                         <h3>服務人員請不要氣餒</h3>
@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="media post_item">
-                <img src="images/blog/post2.jpg" alt="post">
+                <img src="images/comment_picture/blog/post2.jpg" alt="post">
                 <div class="media-body">
                     <a >
                         <h3>關於房間設計與服務人員看法</h3>
@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="media post_item">
-                <img src="images/blog/post3.jpg" alt="post">
+                <img src="images/comment_picture/blog/post3.jpg" alt="post">
                 <div class="media-body">
                     <a >
                         <h3>再也不來這住了</h3>
@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="media post_item">
-                <img src="images/blog/post4.jpg" alt="post">
+                <img src="images/comment_picture/blog/post4.jpg" alt="post">
                 <div class="media-body">
                     <a >
                         <h3>這家飯店的婚禮佈置</h3>
@@ -41,7 +41,7 @@
             <div class="br"></div>
         </aside>
         <aside class="single_sidebar_widget ads_widget">
-            <a href="#"><img class="img-fluid" src="images/logo.png" width="300" height="250"></a>
+            <a href="#"><img class="img-fluid" src="images/comment_picture/logo.png" width="300" height="250"></a>
             <div class="br"></div>
         </aside>
         <aside class="single_sidebar_widget post_category_widget">

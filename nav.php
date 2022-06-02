@@ -132,7 +132,7 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light navbar-light bg-light">
             <!-- 手機版下拉式選單-->
-            <a class="navbar-brand logo_h" href="index.php"><img src="images/logo.png" width="50" height="50">蜂巢飯店
+            <a class="navbar-brand logo_h" href="index.php"><img src="images/comment_picture/logo.png" width="50" height="50">蜂巢飯店
             </a>
             <button onclick="play()" class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
