@@ -16,6 +16,10 @@
                     header("Location:history.php");
                 }
     ?>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="css/style.css">
     <?php include("import.php") ?>
 </head>
 

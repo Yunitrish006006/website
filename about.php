@@ -7,6 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>蜂巢飯店</title>
+    <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="vendors/linericon/style.css">     
+        <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">    
     <?php include("import.php") ?>
 </head>
 
@@ -109,7 +116,7 @@
             </div>
             <div class="testimonial_slider owl-carousel">
                 <div class="media testimonial_item">
-                    <img class="rounded-circle" src="images/testtimonial-1.jpg" alt="">
+                    <img class="rounded-circle" src="images/about_picture/testtimonial-1.jpg" alt="">
                     <div class="media-body">
                         <p>我覺得房間很舒適，服務人員也相當親切，讓我在疲憊的工作之餘放鬆了不少。 </p>
                         <a href="#">
@@ -125,7 +132,7 @@
                     </div>
                 </div>
                 <div class="media testimonial_item">
-                    <img class="rounded-circle" src="images/testtimonial-3.png" width="80" height="80">
+                    <img class="rounded-circle" src="images/about_picture/testtimonial-3.png" width="80" height="80">
                     <div class="media-body">
                         <p>我覺得飯店服務都很好，但是飯店的空調不夠強，今天晚上那麼熱，讓我一整晚都很難入睡！ </p>
                         <a href="#">
@@ -140,7 +147,7 @@
                     </div>
                 </div>
                 <div class="media testimonial_item">
-                    <img class="rounded-circle" src="images/testtimonial-2.jpg" alt="">
+                    <img class="rounded-circle" src="images/about_picture/testtimonial-2.jpg" alt="">
                     <div class="media-body">
                         <p>很棒!</p>
                         <a href="#">
@@ -175,8 +182,16 @@
     <?php include("footer.php") ?>
 </body>
 <!--留言板js-->
-<script src="js/sign.js"></script>
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="js/jquery.ajaxchimp.min.js"></script>
+<script src="vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+<script src="vendors/nice-select/js/jquery.nice-select.js"></script>
+<script src="js/mail-script.js"></script>
+<script src="js/stellar.js"></script>
 <script src="vendors/lightbox/simpleLightbox.min.js"></script>
 <script src="js/custom.js"></script>
 </html>

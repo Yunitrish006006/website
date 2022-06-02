@@ -6,7 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>蜂巢飯店</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- main css -->
     <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/style.css">
     <?php include("import.php") ?>
 </head>
 

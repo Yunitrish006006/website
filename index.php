@@ -9,6 +9,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>蜂巢飯店</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="css/style.css">
     <?php include("import.php") ?>
 </head>
 
@@ -60,7 +64,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="accomodation_item text-center">
                         <div class="hotel_img">
-                            <img src="images/room1.jpg" alt="">
+                            <img src="images/index_picture/room1.jpg" alt="">
                             <a href="book.php" class="btn theme_btn button_hover" onclick="play()">立即訂房</a>
                         </div>
                         <a href="#">
@@ -72,7 +76,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="accomodation_item text-center">
                         <div class="hotel_img">
-                            <img src="images/room2.jpg" alt="">
+                            <img src="images/index_picture/room2.jpg" alt="">
                             <a href="book.php" class="btn theme_btn button_hover" onclick="play()">立即訂房</a>
                         </div>
                         <a href="#">
@@ -84,7 +88,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="accomodation_item text-center">
                         <div class="hotel_img">
-                            <img src="images/room3.jpg" alt="">
+                            <img src="images/index_picture/room3.jpg" alt="">
                             <a href="book.php" class="btn theme_btn button_hover" onclick="play()">立即訂房</a>
                         </div>
                         <a href="#">
@@ -96,7 +100,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="accomodation_item text-center">
                         <div class="hotel_img">
-                            <img src="images/room4.jpg" alt="">
+                            <img src="images/index_picture/room4.jpg" alt="">
                             <a href="book.php" class="btn theme_btn button_hover" onclick="play()">立即訂房</a>
                         </div>
                         <a href="#">
@@ -188,7 +192,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single-recent-blog-post">
                         <div class="thumb">
-                            <img class="img-fluid" src="images/blog-1.jpg" alt="post">
+                            <img class="img-fluid" src="images/index_picture/blog-1.jpg" alt="post">
                         </div>
                         <div class="details">
                             <div class="tags">
@@ -207,7 +211,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single-recent-blog-post">
                         <div class="thumb">
-                            <img class="img-fluid" src="images/blog-2.jpg" alt="post">
+                            <img class="img-fluid" src="images/index_picture/blog-2.jpg" alt="post">
                         </div>
                         <div class="details">
                             <div class="tags">
@@ -225,7 +229,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single-recent-blog-post">
                         <div class="thumb">
-                            <img class="img-fluid" src="images/blog-3.jpg" alt="post">
+                            <img class="img-fluid" src="images/index_picture/blog-3.jpg" alt="post">
                         </div>
                         <div class="details">
                             <div class="tags">

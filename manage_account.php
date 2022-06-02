@@ -90,6 +90,10 @@
         <script src="//code.jquery.com/jquery-3.3.1.js"></script>
         <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
         <script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <!-- main css -->
+        <link rel="stylesheet" href="css/style.css">
         <?php include("import.php") ?>
         <script>
             $(function() {
