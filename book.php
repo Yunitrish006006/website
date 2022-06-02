@@ -220,13 +220,13 @@ if(isset($_SESSION['account'])){
         </div>
         </div>
     </section>
-    <section style="padding: 2.5rem 15%; display:flex;">
-        <span  class="col col-sm"><a class="btn theme_btn button_hover" href="book.php?sid=1">全部房型</a></span>
-        <span  class="col col-sm"><a class="btn theme_btn button_hover" href="book.php?sid=2">台北旗艦店</a></span>
-        <span  class="col col-sm"><a class="btn theme_btn button_hover" href="book.php?sid=3">台中逢甲店</a></span>
-        <span  class="col col-sm"><a class="btn theme_btn button_hover" href="book.php?sid=4">高雄愛河店</a></span>
-        <span  class="col col-sm"><a class="btn theme_btn button_hover" href="book.php?sid=5">彰化鹿港店</a></span>
-        <span  class="col col-sm"><a class="btn theme_btn button_hover" href="book.php?sid=6">墾丁恆春店</a></span>
+    <section style="padding: 2.5rem 15%; display:flex;" id="sop">
+        <span  class="col col-sm"><a class="btn theme_btn button_hover" href="book.php?sid=1#sop">全部房型</a></span>
+        <span  class="col col-sm"><a class="btn theme_btn button_hover" href="book.php?sid=2#sop">台北旗艦店</a></span>
+        <span  class="col col-sm"><a class="btn theme_btn button_hover" href="book.php?sid=3#sop">台中逢甲店</a></span>
+        <span  class="col col-sm"><a class="btn theme_btn button_hover" href="book.php?sid=4#sop">高雄愛河店</a></span>
+        <span  class="col col-sm"><a class="btn theme_btn button_hover" href="book.php?sid=5#sop">彰化鹿港店</a></span>
+        <span  class="col col-sm"><a class="btn theme_btn button_hover" href="book.php?sid=6#sop">墾丁恆春店</a></span>
     </section>
     <?php
     if(!isset($_GET['page']) || ($_GET['page']==1)){
@@ -267,12 +267,12 @@ if(isset($_SESSION['account'])){
                                 
                                     for( $i=1 ; $i<=$pages ; $i++ ) {
                                         if ( $page-3 < $i && $i < $page+3 ) {
-                                                echo ' <li class="page-item "><a class="page-link" href="book.php?sid='.$s.'&page='.$i.'">'.$i.'</a></li> ';
+                                                echo ' <li class="page-item "><a class="page-link" href="book.php?sid='.$s.'&page='.$i.'#sop">'.$i.'</a></li> ';
                                             }
                                         } 
                                         ?>
                                 <li class="page-item">
-                                    <?php echo'<a href="book.php?sid='.$s.'&page='.$pages.'" class="page-link" aria-label="Next"'; ?>
+                                    <?php echo'<a href="book.php?sid='.$s.'&page='.$pages.'#sop" class="page-link" aria-label="Next"'; ?>
                                         <span aria-hidden="true">
                                             <span class="lnr lnr-chevron-right"></span>
                                         </span>
