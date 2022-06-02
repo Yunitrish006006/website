@@ -1,5 +1,5 @@
 <?php
-    if (session_status() === PHP_SESSION_NONE) session_start();
+    if (session_status() == PHP_SESSION_NONE) session_start();
     if(isset($_POST['email'])) {
         $headers = "From:". $_POST['email'] ."(".$_POST['name'].")"."\r\n";
         $mailto = "beehoteltw@gmail.com";
