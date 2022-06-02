@@ -40,6 +40,7 @@ $_SESSION['post_num']=$data_nums;
     <title>蜂巢飯店</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="vendors/linericon/style.css">
     <!-- main css -->
     <link rel="stylesheet" href="css/style.css">
     <?php include("import.php") ?>

@@ -194,6 +194,7 @@ if(isset($_SESSION['account'])){
     <link href="css/book.css" rel="stylesheet" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="vendors/linericon/style.css">
     <!-- main css -->
     <link rel="stylesheet" href="css/style.css">
     <?php include("import.php") ?>

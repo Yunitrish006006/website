@@ -47,7 +47,7 @@
             <div class="blog_post">
                 <img src="<?php echo  $path;?> ">
                 <div class="blog_details">
-                    <a href="comment_detail.php">
+                    <a >
                         <h2>
                             <?php echo  $subject; ?>
                         </h2>
