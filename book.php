@@ -181,7 +181,7 @@ if(isset($_SESSION['account'])){
                 }
             $_SESSION["cart_quantity"]=$cart_quantity;
         mysqli_close($link);        
-        header("Location:book.php");
+        header("Location:book.php#sop");
     }
     
 ?>

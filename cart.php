@@ -23,7 +23,7 @@
                 }
         $_SESSION["cart_quantity"]=$cart_quantity;
         mysqli_close($link);         
-        header("Location:cart.php");
+        header("Location:cart.php#ma");
     }
     ?>
     <?php
@@ -85,8 +85,8 @@
             </div>
         </div>
     </section>
-<div class="container" style="text-align: center; padding:1rem; font-size: 1rem;">
-            <div class="row" style="padding: 2rem 0rem; color: black; border-bottom: 0.05rem solid rgb(232, 228, 228);">
+<div class="container" style="text-align: center; padding:1rem; font-size: 1rem;" >
+            <div class="row" id="ma" style="padding: 2rem 0rem; color: black; border-bottom: 0.05rem solid rgb(232, 228, 228);">
             <div class="col-3 col-sm">縮圖</div>
             <div class="col-3 col-sm">房型名稱</div>
             <div class="col-3 col-sm">入住日期</div>
