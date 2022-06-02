@@ -1,5 +1,5 @@
 <?php 
-if (session_status() === PHP_SESSION_NONE) session_start(); 
+if (session_status() == PHP_SESSION_NONE) session_start(); 
 include "db.php";
 mysqli_query($link, 'SET CHARACTER SET utf8');
 mysqli_query($link, "SET collation_connection = 'utf8_general_ci'");

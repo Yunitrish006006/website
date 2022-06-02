@@ -1,5 +1,5 @@
 <?php 
-if (session_status() === PHP_SESSION_NONE) session_start();
+if (session_status() == PHP_SESSION_NONE) session_start();
 	$pages=$_SESSION['page'];
 	$sql = "SELECT max(id) FROM `details` WHERE 1";
 	$result = mysqli_query($link, $sql);

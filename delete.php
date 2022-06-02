@@ -1,6 +1,6 @@
 <?php
 include "db.php";
-if (session_status() === PHP_SESSION_NONE) session_start();
+if (session_status() == PHP_SESSION_NONE) session_start();
 $id = $_SESSION['id'];
 $sql = "delete from `details` where id='$id'";
 $name = $_SESSION['name'];

@@ -1,5 +1,5 @@
 <?php 
-    if (session_status() === PHP_SESSION_NONE) session_start(); 
+    if (session_status() == PHP_SESSION_NONE) session_start(); 
     include "db.php";
     mysqli_query($link, 'SET CHARACTER SET utf8');
     mysqli_query($link, "SET collation_connection = 'utf8_general_ci'");
@@ -18,7 +18,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/comment.js"></script>
     <title>蜂巢飯店</title>
     <link rel="icon" href="images/honeycomb.png" type="image/x-icon">
     <!-- Bootstrap CSS -->

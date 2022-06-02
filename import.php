@@ -1,5 +1,5 @@
 <?php
-    if (session_status() === PHP_SESSION_NONE) {session_start();}
+    if (session_status() == PHP_SESSION_NONE) {session_start();}
 ?>
 <!-- <link rel="icon" href="images/honeycomb.png" type="image/x-icon"> -->
 <!--  boostrap css  -->

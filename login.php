@@ -1,5 +1,5 @@
 <?php
-    if (session_status() === PHP_SESSION_NONE) session_start();
+    if (session_status() == PHP_SESSION_NONE) session_start();
     if (isset($_POST['account']) && isset($_POST['password'])) {
         include("db.php");   
     
