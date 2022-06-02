@@ -163,7 +163,7 @@
                     </div>
                 </div>
                 <div class="media testimonial_item">
-                    <img class="rounded-circle" src="images/testtimonial-3.png" width="80" height="80">
+                    <img class="rounded-circle" src="images/about_picture/testtimonial-3.png" width="80" height="80">
                     <div class="media-body">
                         <p>飯店的人員都很親切，可是隔壁房間的小孩一直在尖叫，害我整晚都睡不著！ </p>
                         <a href="#">
