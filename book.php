@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
 <!-- 購物車數量 -->
 <?php
@@ -187,6 +185,8 @@ if(isset($_SESSION['account'])){
     }
     
 ?>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -197,6 +197,7 @@ if(isset($_SESSION['account'])){
     <link rel="stylesheet" href="vendors/linericon/style.css">
     <!-- main css -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/honeycomb.png" type="image/x-icon">
     <?php include("import.php") ?>
     <title>訂房</title>
 </head>
