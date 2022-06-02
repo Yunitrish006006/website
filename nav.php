@@ -2,7 +2,132 @@
     if (session_status() === PHP_SESSION_NONE) session_start();
 ?>
 <!-- icon import -->
+<link rel="icon" href="images/honeycomb.png" type="image/x-icon">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+<!-- 註冊視窗 -->
+<div class="modal fade" id="registerWindow" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="" method="post" id="register">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerWindow">註冊視窗</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="registerAccount" class="col-form-label">帳號:</label>
+                        <input type="text" class="form-control" id="registerAccount" name="registerAccount">
+                        <label for="registerAccount" class="error"></label>
+                    </div>
+                    <div class="mb-3">
+                        <label for="registerMail" class="col-form-label">電子郵件:</label>
+                        <input type="email" class="form-control" id="registerMail" name="registerMail">
+                        <label for="registerMail" class="error"></label>
+                    </div>
+                    <div class="mb-3">
+                        <label for="registerPassword" class="col-form-label">密碼:</label>
+                        <input type="password" class="form-control" id="registerPassword" name="registerPassword">
+                        <label for="registerPassword" class="error"></label>
+                    </div>
+                    <div class="mb-3">
+                        <label for="registerCheckPassword" class="col-form-label">確認密碼:</label>
+                        <input type="password" class="form-control" id="registerCheckPassword"
+                            name="registerCheckPassword">
+                        <label for="registerCheckPassword" class="error"></label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary">註冊</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<!-- 登入視窗 -->
+<div class="modal fade" id="loginWindow" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="login.php" method="post" id="login">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">登入視窗</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="loginAccount" class="col-form-label">帳號:</label>
+                        <input type="text" class="form-control" id="loginAccount" name="account">
+                        <label for="loginAccount" class="error"></label>
+                    </div>
+                    <div class="mb-3">
+                        <label for="loginPassword" class="col-form-label">密碼:</label>
+                        <input type="password" class="form-control" id="loginPassword" name="password">
+                        <label for="loginPassword" class="error"></label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary">登入</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<!-- 會員資料 -->
+<div class="modal fade" id="informationWindow" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="account_data_modify.php" method="POST" id="information">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="informationWindow">會員資料修改</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="informationAccount" class="col-form-label">帳戶:</label>
+                        <input type="text" class="form-control" id="informationAccount" name="account"
+                            value="<?php 
+                                        if(isset($_SESSION['account'])) echo $_SESSION['account'];
+                                        else echo "none";
+                                    ?>">
+                        <label for="informationAccount" class="error"></label>
+                    </div>
+                    <div class="mb-3">
+                        <label for="informationMail" class="col-form-label">信箱:</label>
+                        <input type="text" class="form-control" id="informationMail" name="email"
+                            value="<?php 
+                                        if(isset($_SESSION['email'])) echo $_SESSION['email'];
+                                        else echo "none";
+                                    ?>">
+                        <label for="informationMail" class="error"></label>
+                    </div>
+                    <div class="mb-3">
+                        <label for="informationPassword" class="col-form-label">密碼:</label>
+                        <input type="informationPassword" class="form-control" id="password"
+                            name="password" value="<?php 
+                                        if(isset($_SESSION['password'])) echo $_SESSION['password'];
+                                        else echo "none";
+                                    ?>">
+                        <label for="informationPassword" class="error"></label>
+                    </div>
+                    <div class="mb-3">
+                        <label for="informationPasswordCheck" class="col-form-label">確認密碼:</label>
+                        <input type="informationPasswordCheck" class="form-control" id="informationPasswordCheck"
+                            name="password_check">
+                        <label for="informationPasswordCheck" class="error"></label>
+                    </div>
+                    <div class="form-check">
+                        <label><input type="checkbox" name="sport" id="getADD" data-bs-dismiss="modal"> 接收廣告</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary">寄送驗證信</button>
+                    <!-- <button type="submit" class="btn btn-primary" onclick="sendVerifyMail()">寄送驗證信</button> -->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <header class="header_area">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light navbar-light bg-light">

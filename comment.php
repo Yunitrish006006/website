@@ -42,6 +42,7 @@ $_SESSION['post_num']=$data_nums;
     <link rel="stylesheet" href="css/bootstrap.css">
     <!-- main css -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/honeycomb.png" type="image/x-icon">
     <?php include("import.php") ?>
 </head>
 

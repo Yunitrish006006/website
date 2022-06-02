@@ -20,6 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/comment.js"></script>
     <title>蜂巢飯店</title>
+    <link rel="icon" href="images/honeycomb.png" type="image/x-icon">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <!-- main css -->
