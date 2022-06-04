@@ -1,6 +1,7 @@
 <?php
     if (session_status() == PHP_SESSION_NONE) session_start();
 ?>
+<script src="//code.jquery.com/jquery-latest.min.js"></script>
 <!-- icon import -->
 <link rel="icon" href="images/honeycomb.png" type="image/x-icon">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
@@ -16,6 +17,7 @@
                     <div class="mb-3">
                         <label for="registerAccount" class="col-form-label">帳號:</label>
                         <input type="text" class="form-control" id="registerAccount" name="registerAccount">
+                        <input class="form-control" id="showmsg" name="showmsg" type="hidden">
                         <label for="registerAccount" class="error"></label>
                     </div>
                     <div class="mb-3">
@@ -37,7 +39,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
-                    <button type="submit" class="btn btn-primary">註冊</button>
+                    <button type="submit" class="btn btn-primary" id="per">註冊</button>
                 </div>
             </form>
 
@@ -171,6 +173,8 @@
                                         <ul class="dropdown-menu">
                                             <li class="nav-item"><a class="nav-link" href="manage_account.php">帳號列表</a></li>
                                             <li class="nav-item"><a class="nav-link" href="manage_commodity.php">商品列表</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="manage_order.php">訂購列表</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="manage_comment.php">留言列表</a></li>
                                         </ul>
                                     </li>
                                         ';

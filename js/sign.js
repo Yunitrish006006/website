@@ -35,20 +35,34 @@ $(document).ready(function ($) {
     });
     $("#register").validate({
         submitHandler: function (form) {
-            alert("success!");
             form.submit();
+            alert("success");
+             $.ajax({
+              url: "register.php",
+              data: $('#register').serialize(),
+              type: "POST",
+              dataType: 'text',
+              success: function(msg) {
+                  alert(msg);
+              },
+              error: function(xhr, ajaxOptions, thrownError) {
+                  alert(xhr.status);
+                  alert(thrownError);
+              }
+          });
         },
         rules: {
             registerAccount: {
                 required: true,
                 minlength: 4,
-                maxlength: 10
+                maxlength: 10,
+                equalTo:"#showmsg"
             },
             registerMail: {
                 required: true,
                 email: true
             },
-
+            
             registerPassword: {
                 required: true,
                 minlength: 6,
@@ -64,7 +78,8 @@ $(document).ready(function ($) {
             registerAccount: {
                 required: "帳號為必填欄位",
                 minlength: "帳號最少要4個字",
-                maxlength: "帳號最長10個字"
+                maxlength: "帳號最長10個字",
+                equalTo:"此帳號已存在",
             },
             registerCheckPassword: {
                 equalTo: "兩次密碼不相同",
@@ -76,7 +91,7 @@ $(document).ready(function ($) {
             registerMail: {
                 required: "電子郵件為必填欄位",
             },
-
+        
         }
     });
     $('#information').validate({
@@ -122,5 +137,20 @@ $(document).ready(function ($) {
             },
         }
     });
+    $('#registerAccount').keyup(function() {
+          $.ajax({
+              url: "check_account.php",
+              data: $('#register').serialize(),
+              type: "POST",
+              dataType: 'text',
+              success: function(msg) {
+                  $("#showmsg").val(msg);
+              },
+              error: function(xhr, ajaxOptions, thrownError) {
+                  alert(xhr.status);
+                  alert(thrownError);
+              }
+          });
+      });
 });
 
